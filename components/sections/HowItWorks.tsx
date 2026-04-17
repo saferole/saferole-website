@@ -73,7 +73,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="relative bg-stone-50">
+    <section id="how-it-works" className="relative bg-zinc-900/50">
       <div className="section-padding">
         {/* Section Header */}
         <AnimatedSection className="mx-auto mb-16 max-w-2xl text-center sm:mb-20">
@@ -84,55 +84,55 @@ export default function HowItWorks() {
               letterSpacing: "-0.025em",
             }}
           >
-            <span className="text-stone-900">How It </span>
-            <span className="text-emerald-600">Works</span>
+            <span className="text-zinc-50">How It </span>
+            <span className="gradient-text">Works</span>
           </h2>
-          <p className="mt-4 text-base text-stone-500 sm:text-lg">
+          <p className="mt-4 text-base text-zinc-400 sm:text-lg">
             Three simple steps to protect your income.
           </p>
         </AnimatedSection>
 
         {/* Steps Grid */}
-        <AnimatedSection stagger className="relative grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-0">
-          {/* Connector lines (desktop only) — stone-200 */}
+        <AnimatedSection stagger className="relative grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-6">
+          {/* Connector lines (desktop only) — emerald gradient */}
           <div
             className="pointer-events-none absolute top-1/2 left-[33.33%] hidden h-px w-[33.33%] -translate-y-1/2 md:block"
             style={{
               background:
-                "linear-gradient(to right, #e7e5e4, transparent)",
+                "linear-gradient(to right, rgba(16,185,129,0.20), transparent)",
             }}
           />
           <div
             className="pointer-events-none absolute top-1/2 left-[66.66%] hidden h-px w-[33.33%] -translate-y-1/2 md:block"
             style={{
               background:
-                "linear-gradient(to left, #e7e5e4, transparent)",
+                "linear-gradient(to left, rgba(16,185,129,0.20), transparent)",
             }}
           />
 
           {steps.map((step) => (
-            <AnimatedItem key={step.number} className="px-4 md:px-6">
-              <div className="card-hover flex flex-col items-start gap-5 rounded-2xl p-7 sm:p-8">
-                {/* Step Number */}
+            <AnimatedItem key={step.number}>
+              <div className="glow-card relative overflow-hidden p-7 sm:p-8">
+                {/* Step number watermark */}
                 <span
-                  className="font-mono text-xs tracking-widest text-emerald-600/40"
-                  style={{ fontVariantNumeric: "tabular-nums" }}
+                  className="pointer-events-none absolute top-4 right-6 text-7xl font-extrabold text-emerald-500/[0.07]"
+                  style={{ fontFamily: "var(--font-display)" }}
                 >
                   {step.number}
                 </span>
 
                 {/* Icon */}
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
                   {step.icon}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-semibold text-stone-900 sm:text-xl">
+                <h3 className="text-xl font-semibold text-zinc-100">
                   {step.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm leading-relaxed text-stone-500 sm:text-base">
+                <p className="mt-3 text-sm leading-relaxed text-zinc-400 sm:text-base">
                   {step.description}
                 </p>
               </div>

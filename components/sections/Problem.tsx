@@ -19,7 +19,6 @@ function useCountUp(end: number, duration: number, start: boolean) {
     function tick(now: number) {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // ease-out cubic for smooth deceleration
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = parseFloat((eased * end).toFixed(decimals));
       setCount(current);
@@ -61,12 +60,9 @@ function StatCounter({
 
   return (
     <div ref={ref} className="relative flex flex-col items-center gap-3 py-6">
-      {/* Accent line above stats — emerald-500, thin 2px */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-0.5 w-16 bg-gradient-to-r from-transparent via-emerald-500 to-transparent" />
-
       {/* Stat number */}
       <p
-        className="relative text-5xl font-extrabold tracking-tight text-stone-900 sm:text-6xl"
+        className="relative text-5xl font-extrabold tracking-tighter text-zinc-50 sm:text-6xl"
         style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.03em" }}
       >
         {displayValue ? (
@@ -75,14 +71,17 @@ function StatCounter({
           <>
             <span>{formattedCount}</span>
             {suffix && (
-              <span className="text-emerald-600">{suffix}</span>
+              <span className="text-emerald-400">{suffix}</span>
             )}
           </>
         )}
       </p>
 
+      {/* Thin emerald accent line */}
+      <div className="h-0.5 w-12 bg-emerald-500" />
+
       {/* Label */}
-      <p className="max-w-[220px] text-center text-sm leading-snug text-stone-500 sm:text-base">
+      <p className="mt-3 max-w-[220px] text-center text-sm leading-snug text-zinc-500 sm:text-base">
         {label}
       </p>
     </div>
@@ -91,19 +90,22 @@ function StatCounter({
 
 export default function Problem() {
   return (
-    <section className="relative bg-white border-y border-stone-200">
+    <section className="relative bg-zinc-950">
+      {/* Glow divider at top */}
+      <div className="glow-divider" />
+
       <div className="section-padding">
         {/* Headline */}
         <AnimatedSection className="mb-16 sm:mb-20">
           <h2
-            className="mx-auto max-w-4xl text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl"
+            className="mx-auto max-w-4xl text-4xl font-bold leading-tight sm:text-5xl"
             style={{
               fontFamily: "var(--font-display)",
               letterSpacing: "-0.025em",
             }}
           >
-            <span className="text-stone-900">Layoffs Are Rising.</span>{" "}
-            <span className="text-stone-400">
+            <span className="text-zinc-50">Layoffs Are Rising.</span>{" "}
+            <span className="text-zinc-500">
               Your Safety Net Shouldn&apos;t Depend on Your Employer.
             </span>
           </h2>
