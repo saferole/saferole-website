@@ -2,7 +2,6 @@
 
 import { useState, type FormEvent } from "react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import Button from "@/components/ui/Button";
 
 export default function B2BTeaser() {
   const [form, setForm] = useState({
@@ -36,25 +35,24 @@ export default function B2BTeaser() {
   }
 
   const inputClasses =
-    "w-full rounded-xl border border-stone-600 bg-stone-800/50 px-4 py-3 text-sm text-white placeholder-stone-400 outline-none transition-colors focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20";
+    "w-full rounded-xl border border-zinc-950/20 bg-white/20 px-4 py-3 text-sm text-zinc-950 placeholder-zinc-950/50 outline-none transition-colors focus:border-zinc-950/40 focus:ring-2 focus:ring-zinc-950/10";
 
   return (
-    <section className="relative bg-stone-900">
+    <section className="relative bg-emerald-500">
       <div className="section-padding">
         <AnimatedSection className="mx-auto grid max-w-5xl grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left -- Copy */}
           <div className="flex flex-col justify-center">
             <h2
-              className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl"
+              className="text-3xl font-bold leading-tight text-zinc-950 sm:text-4xl lg:text-5xl"
               style={{
                 fontFamily: "var(--font-display)",
                 letterSpacing: "-0.025em",
               }}
             >
-              Offer SafeRole as an{" "}
-              <span className="text-emerald-400">Employee Benefit</span>
+              Offer SafeRole as an Employee Benefit
             </h2>
-            <p className="mt-4 text-base text-stone-300 sm:text-lg">
+            <p className="mt-4 text-base text-zinc-900/80 sm:text-lg">
               Add career insurance to your employee benefits package -- just like
               health insurance.
             </p>
@@ -73,7 +71,7 @@ export default function B2BTeaser() {
                     viewBox="0 0 24 24"
                     strokeWidth={2}
                     stroke="currentColor"
-                    className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400"
+                    className="mt-0.5 h-5 w-5 shrink-0 text-zinc-950"
                   >
                     <path
                       strokeLinecap="round"
@@ -81,7 +79,7 @@ export default function B2BTeaser() {
                       d="m4.5 12.75 6 6 9-13.5"
                     />
                   </svg>
-                  <span className="text-sm text-stone-300 sm:text-base">
+                  <span className="text-sm text-zinc-950 sm:text-base">
                     {item}
                   </span>
                 </li>
@@ -90,17 +88,17 @@ export default function B2BTeaser() {
           </div>
 
           {/* Right -- Form */}
-          <div className="rounded-2xl border border-stone-700 bg-stone-800 p-6 shadow-[0_2px_12px_rgba(28,25,23,0.3)] sm:p-8">
+          <div className="rounded-2xl border border-zinc-950/20 bg-zinc-950/10 p-6 backdrop-blur sm:p-8">
             {status === "success" ? (
               <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-900/50">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-zinc-950/20">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={2}
                     stroke="currentColor"
-                    className="h-8 w-8 text-emerald-400"
+                    className="h-8 w-8 text-white"
                   >
                     <path
                       strokeLinecap="round"
@@ -109,16 +107,16 @@ export default function B2BTeaser() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="text-xl font-semibold text-zinc-950">
                   We&apos;ll be in touch!
                 </h3>
-                <p className="text-sm text-stone-400">
+                <p className="text-sm text-zinc-900/70">
                   Our team will reach out within 24 hours.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                <h3 className="text-lg font-semibold text-white">
+                <h3 className="text-lg font-semibold text-zinc-950">
                   Get in touch
                 </h3>
 
@@ -168,17 +166,15 @@ export default function B2BTeaser() {
                 />
 
                 {status === "error" && (
-                  <p className="text-sm text-red-400">
+                  <p className="text-sm font-medium text-red-900">
                     Something went wrong. Please try again.
                   </p>
                 )}
 
-                <Button
+                <button
                   type="submit"
-                  variant="primary"
-                  size="lg"
                   disabled={status === "submitting"}
-                  className="w-full"
+                  className="inline-flex w-full items-center justify-center rounded-xl bg-zinc-950 px-8 py-4 text-base font-semibold text-emerald-500 transition-all duration-300 hover:bg-zinc-900 disabled:opacity-50 disabled:pointer-events-none"
                 >
                   {status === "submitting" ? (
                     <span className="flex items-center gap-2">
@@ -206,7 +202,7 @@ export default function B2BTeaser() {
                   ) : (
                     "Talk to Us"
                   )}
-                </Button>
+                </button>
               </form>
             )}
           </div>

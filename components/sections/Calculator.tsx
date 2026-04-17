@@ -19,13 +19,13 @@ const PLAN_KEYS: PlanKey[] = ["starter", "standard", "premium"];
 
 function RiskBadge({ level }: { level: "low" | "medium" | "high" }) {
   const styles = {
-    low: "bg-emerald-50 text-emerald-700 border-emerald-200",
-    medium: "bg-amber-50 text-amber-700 border-amber-200",
-    high: "bg-red-50 text-red-700 border-red-200",
+    low: "bg-emerald-500/10 text-emerald-400",
+    medium: "bg-amber-500/10 text-amber-400",
+    high: "bg-red-500/10 text-red-400",
   };
   return (
     <span
-      className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide ${styles[level]}`}
+      className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium uppercase tracking-wide ${styles[level]}`}
     >
       {level} risk
     </span>
@@ -52,31 +52,31 @@ export default function Calculator() {
   );
 
   return (
-    <section id="calculator" className="relative bg-stone-50">
+    <section id="calculator" className="relative bg-zinc-900/50">
       <div className="section-padding">
         {/* Section Header */}
         <AnimatedSection className="mx-auto mb-16 max-w-2xl text-center sm:mb-20">
           <h2
-            className="text-3xl font-bold leading-tight text-stone-900 sm:text-4xl lg:text-5xl"
+            className="text-3xl font-bold leading-tight text-zinc-50 sm:text-4xl lg:text-5xl"
             style={{
               fontFamily: "var(--font-display)",
               letterSpacing: "-0.025em",
             }}
           >
             Premium{" "}
-            <span className="text-emerald-600">Calculator</span>
+            <span className="gradient-text">Calculator</span>
           </h2>
-          <p className="mt-4 text-base text-stone-500 sm:text-lg">
+          <p className="mt-4 text-base text-zinc-400 sm:text-lg">
             Get your personalized premium estimate in seconds. Adjust any
             parameter and see results update instantly.
           </p>
         </AnimatedSection>
 
-        {/* Two-column layout */}
-        <AnimatedSection className="mx-auto grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-2">
-          {/* Inputs Side */}
-          <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-[0_2px_12px_rgba(28,25,23,0.06)] sm:p-8">
-            <div className="flex flex-col gap-6">
+        {/* Two-column asymmetric layout */}
+        <AnimatedSection className="mx-auto grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-5">
+          {/* Inputs Side — 3 cols */}
+          <div className="gradient-border p-8 lg:col-span-3">
+            <div className="relative z-[2] flex flex-col gap-6">
               {/* Salary Slider */}
               <SalarySlider
                 value={salary}
@@ -111,18 +111,18 @@ export default function Calculator() {
 
               {/* Plan Toggle */}
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-stone-500">
+                <label className="text-sm font-medium text-zinc-500">
                   Plan
                 </label>
-                <div className="flex gap-1 rounded-xl bg-stone-200 p-1">
+                <div className="flex gap-1 rounded-xl bg-zinc-800 p-1">
                   {PLAN_KEYS.map((key) => (
                     <button
                       key={key}
                       onClick={() => setPlan(key)}
                       className={`flex-1 cursor-pointer rounded-lg px-4 py-2.5 text-sm font-semibold transition-all duration-200 ${
                         plan === key
-                          ? "bg-emerald-600 text-white shadow-sm"
-                          : "text-stone-600 hover:text-stone-900"
+                          ? "bg-emerald-500 text-zinc-950 shadow-sm"
+                          : "text-zinc-400 hover:text-zinc-200"
                       }`}
                     >
                       {PLANS[key].name}
@@ -133,58 +133,58 @@ export default function Calculator() {
             </div>
           </div>
 
-          {/* Results Side */}
-          <div className="rounded-2xl border border-emerald-100 bg-emerald-50 p-6 shadow-[0_2px_12px_rgba(28,25,23,0.06)] sm:p-8">
+          {/* Results Side — 2 cols */}
+          <div className="rounded-2xl border border-emerald-500/20 bg-zinc-900 p-6 shadow-[0_0_40px_rgba(16,185,129,0.06)] sm:p-8 lg:col-span-2">
             <div className="flex flex-col gap-6">
               {/* Risk Level */}
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-stone-500">
+                <span className="text-sm font-medium text-zinc-500">
                   Risk Assessment
                 </span>
                 <RiskBadge level={result.riskLevel} />
               </div>
 
               {/* Divider */}
-              <div className="h-px w-full bg-emerald-100" />
+              <div className="h-px w-full bg-zinc-800" />
 
               {/* Monthly Premium - Hero number */}
               <div className="text-center">
-                <p className="text-sm font-medium text-stone-500">
+                <p className="text-sm font-medium text-zinc-500">
                   Monthly Premium
                 </p>
                 <p
-                  className="mt-1 text-5xl font-bold text-emerald-600 sm:text-6xl"
+                  className="mt-1 text-4xl font-extrabold text-emerald-400"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {formatCurrency(result.monthlyPremium)}
                 </p>
-                <p className="mt-1 text-xs text-stone-400">
+                <p className="mt-1 text-xs text-zinc-500">
                   {formatCurrency(result.annualPremium)}/year
                 </p>
               </div>
 
               {/* Divider */}
-              <div className="h-px w-full bg-emerald-100" />
+              <div className="h-px w-full bg-zinc-800" />
 
               {/* Coverage Details Grid */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-xl bg-white p-4">
-                  <p className="text-xs font-medium text-stone-500">
+                <div className="rounded-xl bg-zinc-800 p-4">
+                  <p className="text-xs font-medium text-zinc-500">
                     Monthly Payout
                   </p>
                   <p
-                    className="mt-1 text-xl font-bold text-stone-900 sm:text-2xl"
+                    className="mt-1 text-xl font-bold text-zinc-100 sm:text-2xl"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     {formatCurrency(result.monthlyPayout)}
                   </p>
                 </div>
-                <div className="rounded-xl bg-white p-4">
-                  <p className="text-xs font-medium text-stone-500">
+                <div className="rounded-xl bg-zinc-800 p-4">
+                  <p className="text-xs font-medium text-zinc-500">
                     Coverage Duration
                   </p>
                   <p
-                    className="mt-1 text-xl font-bold text-stone-900 sm:text-2xl"
+                    className="mt-1 text-xl font-bold text-zinc-100 sm:text-2xl"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     {result.coverageMonths} months
@@ -193,12 +193,12 @@ export default function Calculator() {
               </div>
 
               {/* Total Coverage */}
-              <div className="rounded-xl bg-white p-4 text-center">
-                <p className="text-xs font-medium text-stone-500">
+              <div className="rounded-xl bg-zinc-800 p-4 text-center">
+                <p className="text-xs font-medium text-zinc-500">
                   Total Coverage Value
                 </p>
                 <p
-                  className="mt-1 text-3xl font-bold text-stone-900 sm:text-4xl"
+                  className="mt-1 text-3xl font-bold text-zinc-100 sm:text-4xl"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {formatCurrency(result.totalCoverage)}
@@ -207,7 +207,7 @@ export default function Calculator() {
 
               {/* CTA */}
               <a href="#waitlist" className="block">
-                <Button variant="primary" size="lg" className="w-full">
+                <Button variant="primary" size="lg" glow className="w-full">
                   Join Waitlist to Lock This Rate
                 </Button>
               </a>

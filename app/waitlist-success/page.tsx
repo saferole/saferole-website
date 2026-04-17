@@ -14,17 +14,17 @@ export default function WaitlistSuccessPage() {
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(SHARE_TEXT)}&url=${encodeURIComponent(SHARE_URL)}`;
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-stone-50 px-4">
+    <div className="flex min-h-screen items-center justify-center bg-zinc-950 px-4">
       <div className="mx-auto max-w-md w-full text-center">
-        {/* Green checkmark icon */}
-        <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-emerald-50 ring-2 ring-emerald-200">
+        {/* Green checkmark icon with glow */}
+        <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-emerald-500/10 shadow-[0_0_40px_rgba(16,185,129,0.2)]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="currentColor"
-            className="h-12 w-12 text-emerald-500"
+            className="h-12 w-12 text-emerald-400"
           >
             <path
               strokeLinecap="round"
@@ -36,17 +36,17 @@ export default function WaitlistSuccessPage() {
 
         {/* Headline */}
         <h1
-          className="text-4xl font-bold text-stone-900 sm:text-5xl"
+          className="text-4xl font-bold text-zinc-50 sm:text-5xl"
           style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.025em" }}
         >
           You&apos;re on the list!
         </h1>
 
         {/* Subtitle */}
-        <p className="mt-4 text-lg text-stone-600">
+        <p className="mt-4 text-lg text-zinc-300">
           We&apos;ll notify you when SafeRole launches.
         </p>
-        <p className="mt-2 text-sm text-stone-400">
+        <p className="mt-2 text-sm text-zinc-500">
           In the meantime, spread the word and help us reach more tech professionals.
         </p>
 
@@ -60,7 +60,7 @@ export default function WaitlistSuccessPage() {
             href={linkedInUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-5 py-3 text-sm font-medium text-stone-700 transition-all duration-200 hover:bg-stone-50 hover:border-stone-300 hover:shadow-sm"
+            className="glow-card inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-medium text-zinc-300 transition-all duration-200 hover:text-emerald-400 hover:shadow-[0_0_20px_rgba(16,185,129,0.1)]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,7 @@ export default function WaitlistSuccessPage() {
             href={twitterUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-5 py-3 text-sm font-medium text-stone-700 transition-all duration-200 hover:bg-stone-50 hover:border-stone-300 hover:shadow-sm"
+            className="glow-card inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-medium text-zinc-300 transition-all duration-200 hover:text-emerald-400 hover:shadow-[0_0_20px_rgba(16,185,129,0.1)]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@ export default function WaitlistSuccessPage() {
         <div className="mt-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-stone-500 transition-colors hover:text-emerald-600"
+            className="inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-emerald-400"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
