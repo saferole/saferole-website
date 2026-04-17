@@ -53,48 +53,44 @@ export default function WaitlistForm() {
   }
 
   const inputClasses =
-    "w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors focus:border-gold-500/50 focus:bg-white/10";
+    "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder-slate-400 outline-none transition-colors focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20";
 
   return (
     <section
       id="waitlist"
-      className="relative"
-      style={{
-        background:
-          "linear-gradient(180deg, rgba(5,13,26,0) 0%, rgba(15,29,50,0.5) 50%, rgba(5,13,26,0) 100%)",
-      }}
+      className="relative bg-slate-50"
     >
       <div className="section-padding">
         <AnimatedSection className="mx-auto max-w-lg">
           {/* Section Header */}
           <div className="mb-10 text-center">
             <h2
-              className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl"
+              className="text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl"
               style={{
                 fontFamily: "var(--font-display)",
                 letterSpacing: "-0.025em",
               }}
             >
-              <span className="text-white">Join the </span>
-              <span className="text-gold-400">Waitlist</span>
+              Join the{" "}
+              <span className="text-amber-500">Waitlist</span>
             </h2>
-            <p className="mt-4 text-base text-slate-400 sm:text-lg">
+            <p className="mt-4 text-base text-slate-500 sm:text-lg">
               Be among the first to protect your career.
             </p>
           </div>
 
           {/* Form Card */}
-          <div className="glass-card p-6 sm:p-8">
+          <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] sm:p-8">
             {status === "success" ? (
               <div className="flex flex-col items-center gap-4 py-8 text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/20">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={2}
                     stroke="currentColor"
-                    className="h-8 w-8 text-emerald-400"
+                    className="h-8 w-8 text-emerald-500"
                   >
                     <path
                       strokeLinecap="round"
@@ -103,19 +99,19 @@ export default function WaitlistForm() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="text-xl font-semibold text-slate-900">
                   You&apos;re on the list!
                 </h3>
                 {position && (
-                  <p className="text-sm text-slate-400">
+                  <p className="text-sm text-slate-500">
                     You are{" "}
-                    <span className="font-semibold text-gold-400">
+                    <span className="font-semibold text-amber-600">
                       #{position}
                     </span>{" "}
                     in line.
                   </p>
                 )}
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-slate-400">
                   We&apos;ll notify you when SafeRole launches.
                 </p>
               </div>
@@ -126,8 +122,8 @@ export default function WaitlistForm() {
               >
                 {/* Name */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-white/70">
-                    Name <span className="text-red-400">*</span>
+                  <label className="text-sm font-medium text-slate-600">
+                    Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     {...register("name")}
@@ -139,7 +135,7 @@ export default function WaitlistForm() {
                     )}
                   />
                   {errors.name && (
-                    <p className="text-xs text-red-400">
+                    <p className="text-xs text-red-500">
                       {errors.name.message}
                     </p>
                   )}
@@ -147,8 +143,8 @@ export default function WaitlistForm() {
 
                 {/* Email */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-white/70">
-                    Email <span className="text-red-400">*</span>
+                  <label className="text-sm font-medium text-slate-600">
+                    Email <span className="text-red-500">*</span>
                   </label>
                   <input
                     {...register("email")}
@@ -160,7 +156,7 @@ export default function WaitlistForm() {
                     )}
                   />
                   {errors.email && (
-                    <p className="text-xs text-red-400">
+                    <p className="text-xs text-red-500">
                       {errors.email.message}
                     </p>
                   )}
@@ -168,12 +164,12 @@ export default function WaitlistForm() {
 
                 {/* Monthly Salary */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-white/70">
+                  <label className="text-sm font-medium text-slate-600">
                     Monthly Salary{" "}
-                    <span className="text-slate-500">(optional)</span>
+                    <span className="text-slate-400">(optional)</span>
                   </label>
                   <div className="relative">
-                    <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-500">
+                    <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400">
                       &#8377;
                     </span>
                     <input
@@ -187,9 +183,9 @@ export default function WaitlistForm() {
 
                 {/* Company */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-white/70">
+                  <label className="text-sm font-medium text-slate-600">
                     Company{" "}
-                    <span className="text-slate-500">(optional)</span>
+                    <span className="text-slate-400">(optional)</span>
                   </label>
                   <input
                     {...register("company")}
@@ -200,7 +196,7 @@ export default function WaitlistForm() {
                 </div>
 
                 {status === "error" && (
-                  <p className="text-sm text-red-400">
+                  <p className="text-sm text-red-500">
                     Something went wrong. Please try again.
                   </p>
                 )}
@@ -240,7 +236,7 @@ export default function WaitlistForm() {
                   )}
                 </Button>
 
-                <p className="text-center text-xs text-slate-600">
+                <p className="text-center text-xs text-slate-400">
                   No spam, ever. We only email when SafeRole is ready.
                 </p>
               </form>

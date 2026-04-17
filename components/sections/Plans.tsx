@@ -1,7 +1,6 @@
 "use client";
 
 import { AnimatedSection, AnimatedItem } from "@/components/ui/AnimatedSection";
-import { GlassCard } from "@/components/ui/GlassCard";
 import { Button } from "@/components/ui/Button";
 import { PLANS, type PlanKey } from "@/lib/constants";
 
@@ -18,7 +17,7 @@ function CheckIcon() {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       fill="currentColor"
-      className="h-5 w-5 shrink-0 text-emerald-400"
+      className="h-5 w-5 shrink-0 text-emerald-500"
     >
       <path
         fillRule="evenodd"
@@ -35,7 +34,7 @@ function DashIcon() {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       fill="currentColor"
-      className="h-5 w-5 shrink-0 text-slate-600"
+      className="h-5 w-5 shrink-0 text-slate-300"
     >
       <path
         fillRule="evenodd"
@@ -74,21 +73,21 @@ function scrollToCalculator() {
 
 export default function Plans() {
   return (
-    <section id="plans" className="relative">
+    <section id="plans" className="relative bg-white">
       <div className="section-padding">
         {/* Section Header */}
         <AnimatedSection className="mx-auto mb-16 max-w-2xl text-center sm:mb-20">
           <h2
-            className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl"
+            className="text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl"
             style={{
               fontFamily: "var(--font-display)",
               letterSpacing: "-0.025em",
             }}
           >
-            <span className="text-white">Plans & </span>
-            <span className="text-gold-400">Pricing</span>
+            Plans &{" "}
+            <span className="text-amber-500">Pricing</span>
           </h2>
-          <p className="mt-4 text-base text-slate-400 sm:text-lg">
+          <p className="mt-4 text-base text-slate-500 sm:text-lg">
             Simple, transparent pricing based on your salary. No hidden fees.
           </p>
         </AnimatedSection>
@@ -106,15 +105,24 @@ export default function Plans() {
                   key={key}
                   className={isPopular ? "lg:-my-4" : ""}
                 >
-                  <GlassCard
-                    highlight={isPopular}
-                    hover
-                    className={isPopular ? "py-10" : ""}
+                  <div
+                    className={`relative rounded-2xl border bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.10)] ${
+                      isPopular
+                        ? "border-amber-300 shadow-amber-100/50 py-10"
+                        : "border-slate-100"
+                    }`}
                   >
+                    {isPopular && (
+                      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                        <span className="rounded-full bg-amber-500 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+                          Most Popular
+                        </span>
+                      </div>
+                    )}
                     <div className="flex flex-col items-center text-center">
                       {/* Plan Name */}
                       <h3
-                        className="text-2xl font-bold text-white"
+                        className="text-2xl font-bold text-slate-900"
                         style={{ fontFamily: "var(--font-display)" }}
                       >
                         {plan.name}
@@ -124,7 +132,7 @@ export default function Plans() {
                       <p className="mt-4">
                         <span
                           className={`text-4xl font-bold ${
-                            isPopular ? "text-gold-400" : "text-white"
+                            isPopular ? "text-amber-600" : "text-slate-700"
                           }`}
                         >
                           {Math.round(plan.rate * 100)}%
@@ -140,7 +148,7 @@ export default function Plans() {
                       </p>
 
                       {/* Divider */}
-                      <div className="my-6 h-px w-full bg-white/10" />
+                      <div className="my-6 h-px w-full bg-slate-100" />
 
                       {/* Feature List */}
                       <ul className="w-full space-y-4 text-left">
@@ -157,14 +165,14 @@ export default function Plans() {
                                 <span
                                   className={`text-sm ${
                                     included
-                                      ? "text-slate-300"
-                                      : "text-slate-600"
+                                      ? "text-slate-600"
+                                      : "text-slate-300"
                                   }`}
                                 >
                                   {feature.label}
                                 </span>
                                 {included && (
-                                  <p className="mt-0.5 text-xs text-slate-500">
+                                  <p className="mt-0.5 text-xs text-slate-400">
                                     {value}
                                   </p>
                                 )}
@@ -183,7 +191,7 @@ export default function Plans() {
                         Calculate My Premium
                       </Button>
                     </div>
-                  </GlassCard>
+                  </div>
                 </AnimatedItem>
               );
             }

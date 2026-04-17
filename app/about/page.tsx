@@ -13,45 +13,40 @@ const TEAM_MEMBERS = [
 
 export default function AboutPage() {
   return (
-    <div className="bg-navy-950 min-h-screen">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="section-padding pt-32 pb-20">
           <AnimatedSection className="mx-auto max-w-3xl text-center">
             <h1
-              className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
+              className="text-4xl font-bold leading-tight text-slate-900 sm:text-5xl lg:text-6xl"
               style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.025em" }}
             >
-              About <span className="text-gold-400">SafeRole</span>
+              About <span className="text-amber-500">SafeRole</span>
             </h1>
-            <p className="mt-6 text-lg text-slate-400 leading-relaxed">
+            <p className="mt-6 text-lg text-slate-600 leading-relaxed">
               We&apos;re building India&apos;s first salary protection plan — because
               your financial security shouldn&apos;t depend on your employer&apos;s
               decisions.
             </p>
           </AnimatedSection>
         </div>
-
-        {/* Background glow */}
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute left-1/2 top-0 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-gold-500/5 blur-3xl" />
-        </div>
       </section>
 
       {/* Mission Section */}
-      <section>
+      <section className="bg-slate-50">
         <div className="section-padding py-16">
           <div className="mx-auto max-w-5xl">
             <AnimatedSection className="grid gap-8 md:grid-cols-2 md:gap-12">
-              <div className="glass-card p-8">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold-500/10">
+              <div className="rounded-2xl border border-slate-100 bg-white p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="h-6 w-6 text-gold-400"
+                    className="h-6 w-6 text-amber-600"
                   >
                     <path
                       strokeLinecap="round"
@@ -61,12 +56,12 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <h2
-                  className="mb-4 text-2xl font-bold text-white"
+                  className="mb-4 text-2xl font-bold text-slate-900"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   Our Mission
                 </h2>
-                <p className="text-slate-400 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed">
                   We believe no one should face financial uncertainty because of a
                   layoff. Tech professionals in India work hard, build careers, and
                   support families — yet a single job loss can unravel years of
@@ -74,15 +69,15 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="glass-card p-8">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold-500/10">
+              <div className="rounded-2xl border border-slate-100 bg-white p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="h-6 w-6 text-gold-400"
+                    className="h-6 w-6 text-amber-600"
                   >
                     <path
                       strokeLinecap="round"
@@ -97,12 +92,12 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <h2
-                  className="mb-4 text-2xl font-bold text-white"
+                  className="mb-4 text-2xl font-bold text-slate-900"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   Our Vision
                 </h2>
-                <p className="text-slate-400 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed">
                   Making career transitions stress-free for every professional in
                   India. A future where losing a job is just the start of something
                   new — not a financial emergency.
@@ -114,14 +109,14 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section>
+      <section className="bg-white">
         <div className="section-padding py-16">
           <AnimatedSection className="mx-auto mb-12 max-w-2xl text-center">
             <h2
-              className="text-3xl font-bold text-white sm:text-4xl"
+              className="text-3xl font-bold text-slate-900 sm:text-4xl"
               style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.025em" }}
             >
-              What We <span className="text-gold-400">Stand For</span>
+              What We <span className="text-amber-500">Stand For</span>
             </h2>
           </AnimatedSection>
 
@@ -143,14 +138,14 @@ export default function AboutPage() {
                   "Affordable plans designed for every stage of your career — not just senior executives.",
               },
             ].map((value) => (
-              <div key={value.title} className="glass-card p-6">
+              <div key={value.title} className="rounded-2xl border border-slate-100 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
                 <h3
-                  className="mb-3 text-lg font-semibold text-gold-400"
+                  className="mb-3 text-lg font-semibold text-amber-600"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {value.title}
                 </h3>
-                <p className="text-sm text-slate-400 leading-relaxed">
+                <p className="text-sm text-slate-600 leading-relaxed">
                   {value.description}
                 </p>
               </div>
@@ -160,16 +155,16 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section>
+      <section className="bg-slate-50">
         <div className="section-padding py-16">
           <AnimatedSection className="mx-auto mb-12 max-w-2xl text-center">
             <h2
-              className="text-3xl font-bold text-white sm:text-4xl"
+              className="text-3xl font-bold text-slate-900 sm:text-4xl"
               style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.025em" }}
             >
-              Meet the <span className="text-gold-400">Team</span>
+              Meet the <span className="text-amber-500">Team</span>
             </h2>
-            <p className="mt-4 text-slate-400">
+            <p className="mt-4 text-slate-500">
               The founders behind SafeRole are coming soon. Stay tuned.
             </p>
           </AnimatedSection>
@@ -178,24 +173,24 @@ export default function AboutPage() {
             {TEAM_MEMBERS.map((member, index) => (
               <div
                 key={index}
-                className="glass-card flex flex-col items-center p-8 text-center"
+                className="flex flex-col items-center rounded-2xl border border-slate-100 bg-white p-8 text-center shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
               >
                 {/* Avatar with initials */}
-                <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gold-500/20 ring-2 ring-gold-500/30">
+                <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-amber-50 ring-2 ring-amber-200">
                   <span
-                    className="text-xl font-bold text-gold-400"
+                    className="text-xl font-bold text-amber-600"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     {member.initials}
                   </span>
                 </div>
                 <h3
-                  className="text-base font-semibold text-white"
+                  className="text-base font-semibold text-slate-900"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {member.name}
                 </h3>
-                <p className="mt-1 text-sm text-slate-400">{member.title}</p>
+                <p className="mt-1 text-sm text-slate-500">{member.title}</p>
               </div>
             ))}
           </AnimatedSection>

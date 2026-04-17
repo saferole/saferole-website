@@ -72,21 +72,21 @@ const icons: Record<string, React.ReactNode> = {
 
 export default function Benefits() {
   return (
-    <section className="relative">
+    <section className="relative bg-white">
       <div className="section-padding">
         {/* Section Header */}
         <AnimatedSection className="mx-auto mb-16 max-w-2xl text-center sm:mb-20">
           <h2
-            className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl"
+            className="text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl"
             style={{
               fontFamily: "var(--font-display)",
               letterSpacing: "-0.025em",
             }}
           >
-            <span className="text-white">More Than </span>
-            <span className="text-gold-400">a Safety Net</span>
+            More Than{" "}
+            <span className="text-amber-500">a Safety Net</span>
           </h2>
-          <p className="mt-4 text-base text-slate-400 sm:text-lg">
+          <p className="mt-4 text-base text-slate-500 sm:text-lg">
             SafeRole goes beyond payouts. Get upskilling, placement support, and
             rewards for staying employed.
           </p>
@@ -99,19 +99,19 @@ export default function Benefits() {
         >
           {BENEFITS.map((benefit) => (
             <AnimatedItem key={benefit.title}>
-              <div className="glass-card-hover flex flex-col gap-4 p-7 sm:p-8">
+              <div className="card-hover flex flex-col gap-4 p-7 sm:p-8">
                 {/* Icon */}
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-500/10 text-gold-400">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-50 text-amber-600">
                   {icons[benefit.icon]}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-semibold text-white sm:text-xl">
+                <h3 className="text-lg font-semibold text-slate-900 sm:text-xl">
                   {benefit.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm leading-relaxed text-slate-400 sm:text-base">
+                <p className="text-sm leading-relaxed text-slate-500 sm:text-base">
                   {benefit.description}
                 </p>
               </div>

@@ -43,64 +43,66 @@ export default function FAQ() {
   }
 
   return (
-    <section id="faq" className="relative">
+    <section id="faq" className="relative bg-white">
       <div className="section-padding">
         {/* Section Header */}
         <AnimatedSection className="mx-auto mb-16 max-w-2xl text-center sm:mb-20">
           <h2
-            className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl"
+            className="text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl"
             style={{
               fontFamily: "var(--font-display)",
               letterSpacing: "-0.025em",
             }}
           >
-            <span className="text-white">Frequently Asked </span>
-            <span className="text-gold-400">Questions</span>
+            Frequently Asked{" "}
+            <span className="text-amber-500">Questions</span>
           </h2>
-          <p className="mt-4 text-base text-slate-400 sm:text-lg">
+          <p className="mt-4 text-base text-slate-500 sm:text-lg">
             Everything you need to know about SafeRole.
           </p>
         </AnimatedSection>
 
         {/* Category Tabs */}
         <AnimatedSection className="mx-auto mb-10 flex max-w-3xl flex-wrap justify-center gap-2">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => {
-                setActiveCategory(cat);
-                setOpenIndex(null);
-              }}
-              className={cn(
-                "cursor-pointer rounded-full px-4 py-2 text-sm font-medium transition-all duration-200",
-                activeCategory === cat
-                  ? "bg-gold-500 text-navy-950 shadow-lg shadow-gold-500/20"
-                  : "bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white"
-              )}
-            >
-              {cat}
-            </button>
-          ))}
+          <div className="flex flex-wrap justify-center gap-2 rounded-full bg-slate-100 p-1">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => {
+                  setActiveCategory(cat);
+                  setOpenIndex(null);
+                }}
+                className={cn(
+                  "cursor-pointer rounded-full px-4 py-2 text-sm font-medium transition-all duration-200",
+                  activeCategory === cat
+                    ? "bg-amber-500 text-white shadow-sm"
+                    : "text-slate-600 hover:text-slate-900"
+                )}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </AnimatedSection>
 
         {/* Accordion */}
         <AnimatedSection className="mx-auto max-w-3xl">
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col">
             {filtered.map((item, i) => {
               const isOpen = openIndex === i;
               return (
                 <div
                   key={item.question}
                   className={cn(
-                    "rounded-2xl border border-white/10 bg-white/5 transition-colors duration-200",
-                    isOpen && "border-l-2 border-l-gold-500 bg-white/[0.07]"
+                    "border-b border-slate-100 transition-colors duration-200",
+                    isOpen && "border-l-2 border-l-amber-500 bg-slate-50"
                   )}
                 >
                   <button
                     onClick={() => toggle(i)}
                     className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left"
                   >
-                    <span className="text-sm font-medium text-white sm:text-base">
+                    <span className="text-sm font-medium text-slate-900 sm:text-base">
                       {item.question}
                     </span>
                     <ChevronIcon open={isOpen} />
@@ -117,7 +119,7 @@ export default function FAQ() {
                         className="overflow-hidden"
                       >
                         <div className="px-6 pb-5">
-                          <p className="text-sm leading-relaxed text-slate-400">
+                          <p className="text-sm leading-relaxed text-slate-500">
                             {item.answer}
                           </p>
                         </div>
