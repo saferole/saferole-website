@@ -62,8 +62,8 @@ function StatCounter({
     <div ref={ref} className="relative flex flex-col items-center gap-3 py-6">
       {/* Stat number */}
       <p
-        className="relative text-5xl font-extrabold tracking-tighter text-gray-900 sm:text-6xl"
-        style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.03em" }}
+        className="relative text-5xl font-bold tracking-tighter text-slate-900 sm:text-6xl"
+        style={{ fontFamily: "var(--font-display)" }}
       >
         {displayValue ? (
           <span>{displayValue}</span>
@@ -71,17 +71,17 @@ function StatCounter({
           <>
             <span>{formattedCount}</span>
             {suffix && (
-              <span className="text-emerald-500">{suffix}</span>
+              <span className="text-blue-600">{suffix}</span>
             )}
           </>
         )}
       </p>
 
-      {/* Thin emerald accent line */}
-      <div className="h-0.5 w-8 bg-emerald-500" />
+      {/* Blue accent line */}
+      <div className="w-12 h-1 bg-blue-600 rounded-full mx-auto mt-3" />
 
       {/* Label */}
-      <p className="mt-3 max-w-[220px] text-center text-sm leading-snug text-gray-500 sm:text-base">
+      <p className="mt-3 max-w-[220px] text-center text-sm leading-snug text-slate-500 sm:text-base">
         {label}
       </p>
     </div>
@@ -90,21 +90,15 @@ function StatCounter({
 
 export default function Problem() {
   return (
-    <section className="bg-white">
-      <div className="section-padding">
+    <section className="bg-slate-50">
+      <div className="section-padding py-24">
         {/* Headline */}
         <AnimatedSection className="mb-16 sm:mb-20">
           <h2
-            className="mx-auto max-w-4xl text-center text-4xl font-bold leading-tight sm:text-5xl"
-            style={{
-              fontFamily: "var(--font-display)",
-              letterSpacing: "-0.025em",
-            }}
+            className="mx-auto max-w-3xl text-center text-3xl font-bold leading-tight text-slate-800 sm:text-4xl"
+            style={{ fontFamily: "var(--font-display)" }}
           >
-            <span className="text-gray-900">Layoffs Are Rising.</span>{" "}
-            <span className="text-gray-400">
-              Your Safety Net Shouldn&apos;t Depend on Your Employer.
-            </span>
+            The numbers don&apos;t lie.
           </h2>
         </AnimatedSection>
 

@@ -53,34 +53,30 @@ export default function WaitlistForm() {
   }
 
   const inputClasses =
-    "w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none transition-colors focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500";
+    "w-full rounded-2xl border-2 border-slate-200 bg-slate-50 px-4 py-3.5 text-sm text-slate-800 placeholder-slate-400 outline-none transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-100";
 
   return (
     <section
       id="waitlist"
-      className="bg-white"
+      className="bg-slate-50"
     >
       <div className="section-padding">
         <AnimatedSection className="relative mx-auto max-w-md">
           {/* Section Header */}
           <div className="mb-10 text-center">
             <h2
-              className="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl"
-              style={{
-                fontFamily: "var(--font-display)",
-                letterSpacing: "-0.025em",
-              }}
+              className="text-3xl font-bold leading-tight text-slate-800 sm:text-4xl"
+              style={{ fontFamily: "var(--font-display)" }}
             >
-              Join the{" "}
-              <span className="text-emerald-500">Waitlist</span>
+              Join the waitlist.
             </h2>
-            <p className="mt-4 text-base text-gray-500 sm:text-lg">
-              Be among the first to protect your career.
+            <p className="mt-4 text-base text-slate-500 sm:text-lg">
+              Be the first to know when SafeRole launches.
             </p>
           </div>
 
           {/* Form Card */}
-          <div className="bg-white border border-gray-200 rounded-2xl shadow-lg p-8 sm:p-10">
+          <div className="bg-white rounded-3xl shadow-lg border border-slate-100 p-8 sm:p-10">
             {status === "success" ? (
               <div className="flex flex-col items-center gap-4 py-8 text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50">
@@ -90,7 +86,7 @@ export default function WaitlistForm() {
                     viewBox="0 0 24 24"
                     strokeWidth={2}
                     stroke="currentColor"
-                    className="h-8 w-8 text-emerald-500"
+                    className="h-8 w-8 text-emerald-600"
                   >
                     <path
                       strokeLinecap="round"
@@ -99,19 +95,19 @@ export default function WaitlistForm() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900">
+                <h3 className="text-xl font-semibold text-slate-800">
                   You&apos;re on the list!
                 </h3>
                 {position && (
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-slate-500">
                     You are{" "}
-                    <span className="font-semibold text-emerald-600">
+                    <span className="font-semibold text-blue-600">
                       #{position}
                     </span>{" "}
                     in line.
                   </p>
                 )}
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-slate-500">
                   We&apos;ll notify you when SafeRole launches.
                 </p>
               </div>
@@ -122,7 +118,7 @@ export default function WaitlistForm() {
               >
                 {/* Name */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-gray-500">
+                  <label className="text-sm font-medium text-slate-500">
                     Name <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -143,7 +139,7 @@ export default function WaitlistForm() {
 
                 {/* Email */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-gray-500">
+                  <label className="text-sm font-medium text-slate-500">
                     Email <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -164,12 +160,12 @@ export default function WaitlistForm() {
 
                 {/* Monthly Salary */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-gray-500">
+                  <label className="text-sm font-medium text-slate-500">
                     Monthly Salary{" "}
-                    <span className="text-gray-400">(optional)</span>
+                    <span className="text-slate-400">(optional)</span>
                   </label>
                   <div className="relative">
-                    <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-gray-400">
+                    <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400">
                       &#8377;
                     </span>
                     <input
@@ -183,9 +179,9 @@ export default function WaitlistForm() {
 
                 {/* Company */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-gray-500">
+                  <label className="text-sm font-medium text-slate-500">
                     Company{" "}
-                    <span className="text-gray-400">(optional)</span>
+                    <span className="text-slate-400">(optional)</span>
                   </label>
                   <input
                     {...register("company")}
@@ -236,8 +232,8 @@ export default function WaitlistForm() {
                   )}
                 </Button>
 
-                <p className="text-center text-xs text-gray-400">
-                  No spam, ever. We only email when SafeRole is ready.
+                <p className="text-center text-xs text-slate-400">
+                  No spam. We only email when SafeRole is ready.
                 </p>
               </form>
             )}

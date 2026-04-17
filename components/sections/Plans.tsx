@@ -18,7 +18,7 @@ function CheckIcon() {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       fill="currentColor"
-      className="h-5 w-5 shrink-0 text-emerald-500"
+      className="h-5 w-5 shrink-0 text-blue-600"
     >
       <path
         fillRule="evenodd"
@@ -35,7 +35,7 @@ function DashIcon() {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       fill="currentColor"
-      className="h-5 w-5 shrink-0 text-gray-300"
+      className="h-5 w-5 shrink-0 text-slate-300"
     >
       <path
         fillRule="evenodd"
@@ -74,22 +74,18 @@ function scrollToCalculator() {
 
 export default function Plans() {
   return (
-    <section id="plans" className="bg-white">
+    <section id="plans" className="bg-slate-50">
       <div className="section-padding">
         {/* Section Header */}
         <AnimatedSection className="mx-auto mb-16 max-w-2xl text-center sm:mb-20">
           <h2
-            className="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl"
-            style={{
-              fontFamily: "var(--font-display)",
-              letterSpacing: "-0.025em",
-            }}
+            className="text-3xl font-bold leading-tight text-slate-800 sm:text-4xl lg:text-5xl"
+            style={{ fontFamily: "var(--font-display)" }}
           >
-            Plans &{" "}
-            <span className="text-emerald-500">Pricing</span>
+            Simple, transparent pricing.
           </h2>
-          <p className="mt-4 text-base text-gray-500 sm:text-lg">
-            Simple, transparent pricing based on your salary. No hidden fees.
+          <p className="mt-4 text-base text-slate-500 sm:text-lg">
+            No hidden fees. Cancel anytime.
           </p>
         </AnimatedSection>
 
@@ -106,7 +102,7 @@ export default function Plans() {
                 <div className="flex flex-col items-center text-center">
                   {/* Plan Name */}
                   <h3
-                    className="text-2xl font-bold text-gray-900"
+                    className="text-2xl font-bold text-slate-800"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     {plan.name}
@@ -115,24 +111,25 @@ export default function Plans() {
                   {/* Rate */}
                   <p className="mt-4">
                     <span
-                      className={`text-4xl font-bold ${
-                        isPopular ? "text-emerald-600" : "text-gray-900"
+                      className={`text-5xl font-bold ${
+                        isPopular ? "text-blue-600" : "text-slate-900"
                       }`}
+                      style={{ fontFamily: "var(--font-display)" }}
                     >
                       {Math.round(plan.rate * 100)}%
                     </span>
-                    <span className="ml-1 text-sm text-gray-500">
+                    <span className="ml-1 text-sm text-slate-500">
                       of salary
                     </span>
                   </p>
 
                   {/* Monthly Payout */}
-                  <p className="mt-2 text-sm text-gray-500">
+                  <p className="mt-2 text-sm text-slate-500">
                     50% salary for {plan.months} months
                   </p>
 
                   {/* Divider */}
-                  <div className="my-6 h-px w-full bg-gray-200" />
+                  <div className="my-6 h-px w-full bg-slate-100" />
 
                   {/* Feature List */}
                   <ul className="w-full space-y-4 text-left">
@@ -149,14 +146,14 @@ export default function Plans() {
                             <span
                               className={`text-sm ${
                                 included
-                                  ? "text-gray-600"
-                                  : "text-gray-400"
+                                  ? "text-slate-600"
+                                  : "text-slate-400"
                               }`}
                             >
                               {feature.label}
                             </span>
                             {included && (
-                              <p className="mt-0.5 text-xs text-gray-500">
+                              <p className="mt-0.5 text-xs text-slate-500">
                                 {value}
                               </p>
                             )}

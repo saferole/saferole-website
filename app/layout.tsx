@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import { DM_Sans, Syne } from "next/font/google";
+import { Fraunces, Figtree } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const dmSans = DM_Sans({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-fraunces",
+  display: "swap",
 });
 
-const syne = Syne({
+const figtree = Figtree({
   subsets: ["latin"],
-  variable: "--font-syne",
-  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-figtree",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -43,8 +44,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${syne.variable}`}>
-      <body className={dmSans.className}>
+    <html lang="en" className={`${fraunces.variable} ${figtree.variable}`}>
+      <body className={figtree.className}>
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

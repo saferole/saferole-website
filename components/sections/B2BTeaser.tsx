@@ -35,24 +35,21 @@ export default function B2BTeaser() {
   }
 
   const inputClasses =
-    "w-full rounded-xl border border-gray-700 bg-gray-700 px-4 py-3 text-sm text-white placeholder-gray-400 outline-none transition-colors focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500";
+    "w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3.5 text-sm text-white placeholder-white/50 outline-none transition-colors focus:border-white/40 focus:ring-1 focus:ring-white/30";
 
   return (
-    <section className="bg-gray-900">
+    <section className="bg-blue-600">
       <div className="section-padding">
         <AnimatedSection className="mx-auto grid max-w-5xl grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left -- Copy */}
           <div className="flex flex-col justify-center">
             <h2
               className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl"
-              style={{
-                fontFamily: "var(--font-display)",
-                letterSpacing: "-0.025em",
-              }}
+              style={{ fontFamily: "var(--font-display)" }}
             >
-              Offer SafeRole as an Employee Benefit
+              Offer SafeRole as an employee benefit.
             </h2>
-            <p className="mt-4 text-base text-gray-300 sm:text-lg">
+            <p className="mt-4 text-base text-blue-100 sm:text-lg">
               Add career insurance to your employee benefits package -- just like
               health insurance.
             </p>
@@ -71,7 +68,7 @@ export default function B2BTeaser() {
                     viewBox="0 0 24 24"
                     strokeWidth={2}
                     stroke="currentColor"
-                    className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400"
+                    className="mt-0.5 h-5 w-5 shrink-0 text-white"
                   >
                     <path
                       strokeLinecap="round"
@@ -79,7 +76,7 @@ export default function B2BTeaser() {
                       d="m4.5 12.75 6 6 9-13.5"
                     />
                   </svg>
-                  <span className="text-sm text-gray-300 sm:text-base">
+                  <span className="text-sm text-blue-100 sm:text-base">
                     {item}
                   </span>
                 </li>
@@ -88,17 +85,17 @@ export default function B2BTeaser() {
           </div>
 
           {/* Right -- Form */}
-          <div className="rounded-2xl border border-gray-700 bg-gray-800 p-6 sm:p-8">
+          <div className="rounded-3xl border border-white/20 bg-white/10 backdrop-blur-sm p-6 sm:p-8">
             {status === "success" ? (
               <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/20">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={2}
                     stroke="currentColor"
-                    className="h-8 w-8 text-emerald-400"
+                    className="h-8 w-8 text-white"
                   >
                     <path
                       strokeLinecap="round"
@@ -110,7 +107,7 @@ export default function B2BTeaser() {
                 <h3 className="text-xl font-semibold text-white">
                   We&apos;ll be in touch!
                 </h3>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-blue-100">
                   Our team will reach out within 24 hours.
                 </p>
               </div>
@@ -166,7 +163,7 @@ export default function B2BTeaser() {
                 />
 
                 {status === "error" && (
-                  <p className="text-sm font-medium text-red-400">
+                  <p className="text-sm font-medium text-red-200">
                     Something went wrong. Please try again.
                   </p>
                 )}
@@ -174,7 +171,7 @@ export default function B2BTeaser() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="inline-flex w-full items-center justify-center rounded-full bg-emerald-500 px-8 py-3.5 text-base font-semibold text-white transition-all duration-200 hover:bg-emerald-600 disabled:opacity-50 disabled:pointer-events-none"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-semibold text-blue-600 transition-all duration-200 hover:bg-blue-50 disabled:opacity-50 disabled:pointer-events-none"
                 >
                   {status === "submitting" ? (
                     <span className="flex items-center gap-2">

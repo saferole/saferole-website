@@ -27,8 +27,11 @@ function SalarySlider({
     <div className={`flex flex-col gap-3 ${className}`}>
       {label && (
         <div className="flex items-center justify-between">
-          <label className="text-sm font-medium text-gray-500">{label}</label>
-          <span className="text-xl font-bold text-emerald-600">
+          <label className="text-sm font-medium text-slate-500">{label}</label>
+          <span
+            className="text-2xl font-bold text-blue-600"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
             {formatCurrency(value)}
           </span>
         </div>
@@ -42,14 +45,14 @@ function SalarySlider({
           step={step}
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
-          className="salary-slider w-full h-2 rounded-full appearance-none cursor-pointer bg-gray-200"
+          className="salary-slider w-full h-2 rounded-full appearance-none cursor-pointer bg-slate-200"
           style={{
-            background: `linear-gradient(to right, #10B981 0%, #10B981 ${percentage}%, #E5E7EB ${percentage}%, #E5E7EB 100%)`,
+            background: `linear-gradient(to right, #2563EB 0%, #2563EB ${percentage}%, #E2E8F0 ${percentage}%, #E2E8F0 100%)`,
           }}
         />
       </div>
 
-      <div className="flex justify-between text-xs text-gray-400">
+      <div className="flex justify-between text-xs text-slate-400">
         <span>{formatCurrency(min)}</span>
         <span>{formatCurrency(max)}</span>
       </div>
@@ -61,27 +64,27 @@ function SalarySlider({
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: #10B981;
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+          background: #2563EB;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
           cursor: pointer;
           transition: transform 0.2s, box-shadow 0.2s;
         }
         .salary-slider::-webkit-slider-thumb:hover {
           transform: scale(1.15);
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 2px 6px rgba(37, 99, 235, 0.35);
         }
         .salary-slider::-moz-range-thumb {
           width: 20px;
           height: 20px;
           border: none;
           border-radius: 50%;
-          background: #10B981;
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+          background: #2563EB;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
           cursor: pointer;
         }
         .salary-slider:focus-visible {
           outline: none;
-          box-shadow: 0 0 0 2px #fff, 0 0 0 4px #10B981;
+          box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2563EB;
           border-radius: 9999px;
         }
       `}</style>

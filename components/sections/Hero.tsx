@@ -28,33 +28,15 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#0F172A]">
-      {/* === Background gradient blobs === */}
-      <div className="pointer-events-none absolute inset-0">
-        {/* Emerald blob — top right */}
-        <div
-          className="absolute -top-32 -right-32 h-[600px] w-[600px] rounded-full blur-3xl"
-          style={{ background: "rgba(16, 185, 129, 0.15)" }}
-        />
-        {/* Blue blob — bottom left */}
-        <div
-          className="absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full blur-3xl"
-          style={{ background: "rgba(59, 130, 246, 0.10)" }}
-        />
-      </div>
-
-      {/* === Content === */}
-      <div className="relative z-10 mx-auto max-w-5xl px-4 pt-24 pb-16 text-center sm:px-6 lg:px-8">
+    <section className="relative min-h-[80vh] flex items-center justify-center bg-white">
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-3xl px-4 pt-24 pb-16 text-center sm:px-6 lg:px-8">
         {/* Pill badge */}
         <motion.div
           {...fadeIn(0)}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2"
+          className="mb-8 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5"
         >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-          </span>
-          <span className="text-sm font-medium text-white/80">
+          <span className="text-sm font-medium text-blue-700">
             India&apos;s First Career Insurance
           </span>
         </motion.div>
@@ -62,51 +44,41 @@ export default function Hero() {
         {/* Headline */}
         <motion.h1
           {...fadeUp(0.1)}
-          className="mx-auto max-w-4xl text-5xl font-extrabold leading-[1.05] text-white sm:text-6xl lg:text-7xl"
-          style={{
-            fontFamily: "var(--font-display)",
-            letterSpacing: "-0.02em",
-          }}
+          className="mx-auto max-w-3xl text-5xl font-bold leading-[1.1] text-slate-900 tracking-tight sm:text-6xl lg:text-7xl"
+          style={{ fontFamily: "var(--font-display)" }}
         >
-          Your Career.
-          <br />
-          <span className="text-emerald-400">Your Safety Net.</span>
+          Forget everything you know about job security.
         </motion.h1>
 
         {/* Subtitle */}
         <motion.p
           {...fadeUp(0.2)}
-          className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 sm:text-xl"
+          className="mx-auto mt-6 max-w-xl text-xl leading-relaxed text-slate-500"
         >
-          India&apos;s first salary protection plan. Get paid even when you lose
-          your job. Cover your rent, EMIs, and essentials while you find your
-          next opportunity.
+          SafeRole protects your salary when your employer can&apos;t. From &#8377;1,500/month.
         </motion.p>
 
-        {/* CTAs */}
+        {/* Single CTA */}
         <motion.div
           {...fadeUp(0.3)}
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="mt-10 flex flex-col items-center gap-4"
         >
           <Button
             size="lg"
             variant="primary"
-            onClick={() => scrollTo("waitlist")}
-          >
-            Join the Waitlist
-          </Button>
-          <button
             onClick={() => scrollTo("calculator")}
-            className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-white border border-white/20 rounded-full hover:bg-white/10 transition-all duration-200"
           >
-            Calculate Your Premium &rarr;
-          </button>
+            Check Your Price
+          </Button>
+          <span className="text-sm text-slate-400">
+            Takes less than 60 seconds
+          </span>
         </motion.div>
 
-        {/* Trust bar */}
+        {/* Trust highlights */}
         <motion.div
           {...fadeIn(0.5)}
-          className="mt-14 flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
+          className="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
         >
           {[
             "50% Salary Coverage",
@@ -115,10 +87,10 @@ export default function Hero() {
           ].map((item) => (
             <span
               key={item}
-              className="inline-flex items-center gap-2 text-sm text-gray-400"
+              className="inline-flex items-center gap-2 text-sm text-slate-400"
             >
               <svg
-                className="h-4 w-4 flex-shrink-0 text-emerald-400"
+                className="h-4 w-4 flex-shrink-0 text-blue-600"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >

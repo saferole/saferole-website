@@ -8,24 +8,24 @@ import { cn } from "@/lib/utils";
 
 const CATEGORIES = ["All", "General", "Eligibility", "Claims", "Pricing", "Benefits"] as const;
 
-function ChevronIcon({ open }: { open: boolean }) {
+function PlusMinusIcon({ open }: { open: boolean }) {
   return (
-    <motion.svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={2}
-      stroke="currentColor"
-      className="h-5 w-5 shrink-0 text-gray-400"
-      animate={{ rotate: open ? 180 : 0 }}
+    <motion.div
+      className="flex h-6 w-6 items-center justify-center text-slate-400"
+      animate={{ rotate: open ? 45 : 0 }}
       transition={{ duration: 0.2 }}
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="m19.5 8.25-7.5 7.5-7.5-7.5"
-      />
-    </motion.svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={2}
+        stroke="currentColor"
+        className="h-5 w-5"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+      </svg>
+    </motion.div>
   );
 }
 
@@ -43,28 +43,24 @@ export default function FAQ() {
   }
 
   return (
-    <section id="faq" className="bg-gray-50">
+    <section id="faq" className="bg-white">
       <div className="section-padding">
         {/* Section Header */}
         <AnimatedSection className="mx-auto mb-16 max-w-2xl text-center sm:mb-20">
           <h2
-            className="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl"
-            style={{
-              fontFamily: "var(--font-display)",
-              letterSpacing: "-0.025em",
-            }}
+            className="text-3xl font-bold leading-tight text-slate-800 sm:text-4xl lg:text-5xl"
+            style={{ fontFamily: "var(--font-display)" }}
           >
-            Frequently Asked{" "}
-            <span className="text-emerald-500">Questions</span>
+            Got questions?
           </h2>
-          <p className="mt-4 text-base text-gray-500 sm:text-lg">
+          <p className="mt-4 text-base text-slate-500 sm:text-lg">
             Everything you need to know about SafeRole.
           </p>
         </AnimatedSection>
 
         {/* Category Tabs */}
         <AnimatedSection className="mx-auto mb-10 flex max-w-3xl flex-wrap justify-center gap-2">
-          <div className="flex flex-wrap justify-center gap-2 rounded-full bg-gray-100 p-1">
+          <div className="flex flex-wrap justify-center gap-2 rounded-full bg-slate-100 p-1">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
@@ -75,8 +71,8 @@ export default function FAQ() {
                 className={cn(
                   "cursor-pointer rounded-full px-4 py-2 text-sm font-medium transition-all duration-200",
                   activeCategory === cat
-                    ? "bg-gray-900 text-white shadow-sm"
-                    : "text-gray-500 hover:text-gray-900"
+                    ? "bg-slate-900 text-white shadow-sm"
+                    : "text-slate-600 hover:text-slate-900"
                 )}
               >
                 {cat}
@@ -94,18 +90,18 @@ export default function FAQ() {
                 <div
                   key={item.question}
                   className={cn(
-                    "border-b border-gray-200 transition-colors duration-200",
-                    isOpen && "border-l-2 border-l-emerald-500 bg-white rounded-r-lg"
+                    "border-b border-slate-100 transition-colors duration-200",
+                    isOpen && "bg-slate-50 rounded-2xl border-l-4 border-l-blue-500 my-2"
                   )}
                 >
                   <button
                     onClick={() => toggle(i)}
                     className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left"
                   >
-                    <span className="text-sm font-medium text-gray-900 sm:text-base">
+                    <span className="text-sm font-semibold text-slate-800 sm:text-base">
                       {item.question}
                     </span>
-                    <ChevronIcon open={isOpen} />
+                    <PlusMinusIcon open={isOpen} />
                   </button>
 
                   <AnimatePresence initial={false}>
@@ -119,7 +115,7 @@ export default function FAQ() {
                         className="overflow-hidden"
                       >
                         <div className="px-6 pb-5">
-                          <p className="text-sm leading-relaxed text-gray-500">
+                          <p className="text-sm leading-relaxed text-slate-500">
                             {item.answer}
                           </p>
                         </div>

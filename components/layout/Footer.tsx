@@ -16,21 +16,20 @@ const companyLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="bg-slate-900">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
           {/* Col 1: Logo + tagline + socials */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-0.5 mb-4">
               <span
-                className="text-xl font-bold tracking-tight"
+                className="text-2xl font-bold italic text-white"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                <span className="text-gray-900">Safe</span>
-                <span className="text-emerald-500">Role</span>
+                SafeRole
               </span>
             </Link>
-            <p className="text-sm text-gray-500 leading-relaxed mb-6">
+            <p className="text-sm text-slate-400 leading-relaxed mb-6">
               India&apos;s first salary protection plan. Get paid even when you
               lose your job.
             </p>
@@ -40,11 +39,11 @@ export default function Footer() {
                 href="https://linkedin.com/company/saferole"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 hover:border-gray-300 transition-colors duration-200"
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-slate-700 hover:border-slate-500 transition-colors duration-200"
                 aria-label="LinkedIn"
               >
                 <svg
-                  className="w-4 h-4 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+                  className="w-4 h-4 text-slate-500 hover:text-white transition-colors duration-200"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -56,11 +55,11 @@ export default function Footer() {
                 href="https://twitter.com/saferole_in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 hover:border-gray-300 transition-colors duration-200"
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-slate-700 hover:border-slate-500 transition-colors duration-200"
                 aria-label="Twitter"
               >
                 <svg
-                  className="w-4 h-4 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+                  className="w-4 h-4 text-slate-500 hover:text-white transition-colors duration-200"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -72,13 +71,13 @@ export default function Footer() {
 
           {/* Col 2: Product */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">Product</h3>
+            <h3 className="text-sm font-semibold text-white mb-4">Product</h3>
             <ul className="space-y-3">
               {productLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-500 hover:text-gray-900 transition-colors duration-200"
+                    className="text-sm text-slate-400 hover:text-slate-200 transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -89,13 +88,13 @@ export default function Footer() {
 
           {/* Col 3: Company */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">Company</h3>
+            <h3 className="text-sm font-semibold text-white mb-4">Company</h3>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-500 hover:text-gray-900 transition-colors duration-200"
+                    className="text-sm text-slate-400 hover:text-slate-200 transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -106,27 +105,27 @@ export default function Footer() {
 
           {/* Col 4: Contact */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">Contact</h3>
+            <h3 className="text-sm font-semibold text-white mb-4">Contact</h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href="mailto:hello@saferole.in"
-                  className="text-sm text-gray-500 hover:text-gray-900 transition-colors duration-200"
+                  className="text-sm text-slate-400 hover:text-slate-200 transition-colors duration-200"
                 >
                   hello@saferole.in
                 </a>
               </li>
-              <li className="text-sm text-gray-500">Bangalore, India</li>
+              <li className="text-sm text-slate-400">Bangalore, India</li>
             </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-gray-400">
+        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-slate-500">
             &copy; {new Date().getFullYear()} SafeRole. All rights reserved.
           </p>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-slate-400">
             Made in India
           </p>
         </div>

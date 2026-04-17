@@ -13,17 +13,17 @@ export default function GlassCard({ children, className = "", hover = false, hig
   return (
     <div
       className={`
-        relative bg-white border rounded-2xl p-6 sm:p-8 shadow-sm
+        relative bg-white rounded-3xl border p-8 shadow-sm
         ${highlight
-          ? "border-emerald-500 ring-2 ring-emerald-500"
-          : "border-gray-200"
+          ? "ring-2 ring-blue-500 bg-blue-50/30 border-blue-200"
+          : "border-slate-100"
         }
-        ${hover ? "hover:shadow-lg hover:-translate-y-1 transition-all duration-300" : ""}
+        ${hover ? "hover:shadow-md hover:border-blue-200 hover:-translate-y-1 transition-all duration-300" : ""}
         ${className}
       `}
     >
       {highlight && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1 rounded-full">
           Most Popular
         </div>
       )}
