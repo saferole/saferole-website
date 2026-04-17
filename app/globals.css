@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Navy color palette */
+  --color-navy-950: #050D1A;
+  --color-navy-900: #0A1628;
+  --color-navy-800: #0F1D32;
+  --color-navy-700: #162742;
+  --color-navy-600: #1E3456;
+  --color-navy-500: #2A4A76;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Gold color palette */
+  --color-gold-400: #E8C872;
+  --color-gold-500: #D4A853;
+  --color-gold-600: #B8923F;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Font family */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+
+  /* Background images */
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-hero-gradient: linear-gradient(135deg, #0A1628 0%, #0F1D32 50%, #162742 100%);
+
+  /* Animations */
+  --animate-fade-up: fadeUp 0.6s ease-out forwards;
+
+  /* Keyframes */
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    @apply bg-navy-950 text-white antialiased;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;
+  }
+  .glass-card-hover {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:border-gold-500/30 hover:shadow-lg hover:shadow-gold-500/5;
+  }
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-20 sm:py-28 max-w-7xl mx-auto;
+  }
+  .gold-glow {
+    @apply shadow-lg shadow-gold-500/20;
+  }
 }
