@@ -18,15 +18,19 @@ const PLAN_KEYS: PlanKey[] = ["starter", "standard", "premium"];
 
 function RiskBadge({ level }: { level: "low" | "medium" | "high" }) {
   const styles = {
-    low: { bg: "rgb(236 253 245)", color: "rgb(21 128 61)" },
-    medium: { bg: "rgb(255 251 235)", color: "rgb(161 98 7)" },
-    high: { bg: "rgb(254 242 242)", color: "rgb(185 28 28)" },
+    low: { bg: "rgba(6, 78, 59, 0.3)", color: "rgb(110, 231, 183)" },
+    medium: { bg: "rgba(120, 53, 15, 0.3)", color: "rgb(252, 211, 77)" },
+    high: { bg: "rgba(127, 29, 29, 0.3)", color: "rgb(252, 165, 165)" },
   };
   const s = styles[level];
   return (
     <span
-      className="inline-flex items-center rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-wide"
-      style={{ backgroundColor: s.bg, color: s.color }}
+      className="inline-flex items-center px-3 py-1 text-xs font-semibold uppercase tracking-wide"
+      style={{
+        backgroundColor: s.bg,
+        color: s.color,
+        borderRadius: "var(--radius-pill)",
+      }}
     >
       {level} risk
     </span>
@@ -56,34 +60,46 @@ export default function Calculator() {
     <section
       id="calculator"
       style={{
-        backgroundColor: "var(--color-bg)",
-        paddingTop: "var(--space-4xl)",
-        paddingBottom: "var(--space-4xl)",
+        backgroundColor: "var(--canvas-lifted)",
+        paddingTop: "128px",
+        paddingBottom: "128px",
       }}
     >
       <div className="section-container">
-        {/* Title — left-aligned */}
+        {/* Eyebrow + Title */}
         <AnimatedSection className="mb-12">
+          <div className="flex items-center gap-2">
+            <span
+              className="w-2 h-2 rounded-full"
+              style={{ backgroundColor: "var(--signal)" }}
+            />
+            <span
+              className="text-xs font-bold uppercase tracking-eyebrow"
+              style={{ color: "var(--text-muted)" }}
+            >
+              Calculator
+            </span>
+          </div>
           <h2
-            className="font-bold"
+            className="font-medium tracking-headline mt-4"
             style={{
-              fontFamily: "var(--font-display)",
-              color: "var(--color-text)",
-              fontSize: "clamp(1.5rem, 3vw, 2rem)",
+              color: "var(--ink)",
+              fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
             }}
           >
             What would you pay?
           </h2>
         </AnimatedSection>
 
-        {/* Two-column layout: 3 + 2 */}
-        <AnimatedSection className="mx-auto grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-5">
+        {/* Two-column layout */}
+        <AnimatedSection className="grid grid-cols-1 gap-8 lg:grid-cols-12 mt-12">
           {/* Inputs Side */}
           <div
-            className="lg:col-span-3 rounded-2xl p-8"
+            className="lg:col-span-7 p-10"
             style={{
-              backgroundColor: "var(--color-surface)",
-              border: "1px solid var(--color-border)",
+              backgroundColor: "var(--white)",
+              borderRadius: "var(--radius-card)",
+              border: "1px solid var(--border)",
             }}
           >
             <div className="flex flex-col gap-6">
@@ -123,22 +139,28 @@ export default function Calculator() {
               <div className="flex flex-col gap-1.5">
                 <label
                   className="text-sm font-medium"
-                  style={{ color: "var(--color-text-secondary)" }}
+                  style={{ color: "var(--ink)" }}
                 >
                   Plan
                 </label>
                 <div
-                  className="flex rounded-lg overflow-hidden"
-                  style={{ border: "1px solid var(--color-border)" }}
+                  className="flex overflow-hidden p-1"
+                  style={{
+                    backgroundColor: "var(--canvas)",
+                    borderRadius: "var(--radius-pill)",
+                  }}
                 >
                   {PLAN_KEYS.map((key) => (
                     <button
                       key={key}
                       onClick={() => setPlan(key)}
-                      className="flex-1 cursor-pointer px-4 py-2.5 text-sm font-semibold transition-all duration-200"
+                      className="flex-1 cursor-pointer px-4 py-2.5 text-sm font-medium transition-all duration-200"
                       style={{
-                        backgroundColor: plan === key ? "var(--color-accent)" : "transparent",
-                        color: plan === key ? "white" : "var(--color-text-secondary)",
+                        backgroundColor:
+                          plan === key ? "var(--ink)" : "transparent",
+                        color:
+                          plan === key ? "var(--canvas)" : "var(--text-muted)",
+                        borderRadius: "var(--radius-pill)",
                       }}
                     >
                       {PLANS[key].name}
@@ -151,34 +173,38 @@ export default function Calculator() {
 
           {/* Results Side */}
           <div
-            className="lg:col-span-2 rounded-2xl p-8"
+            className="lg:col-span-5 p-10"
             style={{
-              backgroundColor: "var(--color-accent-light)",
-              border: "1px solid var(--color-accent-border)",
+              backgroundColor: "var(--ink)",
+              borderRadius: "var(--radius-card)",
+              color: "white",
             }}
           >
             <div className="flex flex-col">
-              {/* Your estimate label */}
-              <p
-                className="text-xs uppercase font-semibold"
-                style={{ color: "var(--color-text-muted)", letterSpacing: "0.1em" }}
-              >
-                Your estimate
-              </p>
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2">
+                <span
+                  className="w-2 h-2 rounded-full"
+                  style={{ backgroundColor: "var(--signal)" }}
+                />
+                <span
+                  className="text-xs uppercase font-bold tracking-eyebrow"
+                  style={{ color: "rgba(255,255,255,0.5)" }}
+                >
+                  Your Estimate
+                </span>
+              </div>
 
               {/* Monthly Premium */}
               <p
-                className="mt-3 text-[2.5rem] font-bold"
-                style={{
-                  fontFamily: "var(--font-display)",
-                  color: "var(--color-accent)",
-                }}
+                className="mt-3 font-medium tracking-headline text-white"
+                style={{ fontSize: "2.5rem" }}
               >
                 {formatCurrency(result.monthlyPremium)}
               </p>
               <p
                 className="mt-1 text-sm"
-                style={{ color: "var(--color-text-muted)" }}
+                style={{ color: "rgba(255,255,255,0.5)" }}
               >
                 {formatCurrency(result.annualPremium)}/year
               </p>
@@ -186,60 +212,51 @@ export default function Calculator() {
               {/* Divider */}
               <div
                 className="my-6"
-                style={{ borderTop: "1px solid var(--color-accent-border)" }}
+                style={{ borderTop: "1px solid rgba(255,255,255,0.15)" }}
               />
 
               {/* Stats stacked */}
               <div className="flex flex-col gap-5">
                 <div>
                   <p
-                    className="text-xs uppercase font-medium"
-                    style={{ color: "var(--color-text-muted)", letterSpacing: "0.05em" }}
+                    className="text-xs uppercase font-medium tracking-eyebrow"
+                    style={{ color: "rgba(255,255,255,0.5)" }}
                   >
                     Monthly Payout
                   </p>
-                  <p
-                    className="text-lg font-semibold mt-0.5"
-                    style={{ color: "var(--color-text)" }}
-                  >
+                  <p className="text-lg font-medium mt-0.5 text-white">
                     {formatCurrency(result.monthlyPayout)}
                   </p>
                 </div>
 
                 <div>
                   <p
-                    className="text-xs uppercase font-medium"
-                    style={{ color: "var(--color-text-muted)", letterSpacing: "0.05em" }}
+                    className="text-xs uppercase font-medium tracking-eyebrow"
+                    style={{ color: "rgba(255,255,255,0.5)" }}
                   >
                     Coverage Duration
                   </p>
-                  <p
-                    className="text-lg font-semibold mt-0.5"
-                    style={{ color: "var(--color-text)" }}
-                  >
+                  <p className="text-lg font-medium mt-0.5 text-white">
                     {result.coverageMonths} months
                   </p>
                 </div>
 
                 <div>
                   <p
-                    className="text-xs uppercase font-medium"
-                    style={{ color: "var(--color-text-muted)", letterSpacing: "0.05em" }}
+                    className="text-xs uppercase font-medium tracking-eyebrow"
+                    style={{ color: "rgba(255,255,255,0.5)" }}
                   >
                     Total Coverage
                   </p>
-                  <p
-                    className="text-lg font-semibold mt-0.5"
-                    style={{ color: "var(--color-text)" }}
-                  >
+                  <p className="text-lg font-medium mt-0.5 text-white">
                     {formatCurrency(result.totalCoverage)}
                   </p>
                 </div>
 
                 <div>
                   <p
-                    className="text-xs uppercase font-medium mb-1"
-                    style={{ color: "var(--color-text-muted)", letterSpacing: "0.05em" }}
+                    className="text-xs uppercase font-medium tracking-eyebrow mb-1"
+                    style={{ color: "rgba(255,255,255,0.5)" }}
                   >
                     Risk Level
                   </p>
@@ -250,8 +267,12 @@ export default function Calculator() {
               {/* CTA */}
               <a
                 href="#waitlist"
-                className="mt-6 flex items-center justify-center py-3 rounded-lg text-sm font-semibold text-white transition-all duration-200"
-                style={{ backgroundColor: "var(--color-accent)" }}
+                className="mt-6 flex items-center justify-center py-3.5 font-medium transition-all duration-200"
+                style={{
+                  backgroundColor: "var(--white)",
+                  color: "var(--ink)",
+                  borderRadius: "var(--radius-btn)",
+                }}
               >
                 Join Waitlist to Lock This Rate
               </a>

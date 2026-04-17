@@ -10,10 +10,14 @@ export default function B2BTeaser() {
     companySize: "",
     message: "",
   });
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
 
   function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
@@ -35,24 +39,37 @@ export default function B2BTeaser() {
   }
 
   const inputBaseClass =
-    "w-full rounded-lg px-4 py-3.5 text-sm text-white outline-none transition-colors";
+    "w-full px-4 py-3.5 text-sm text-white outline-none transition-colors";
 
   return (
     <section
       style={{
-        backgroundColor: "var(--color-text)",
-        paddingTop: "var(--space-4xl)",
-        paddingBottom: "var(--space-4xl)",
+        backgroundColor: "var(--ink)",
+        paddingTop: "128px",
+        paddingBottom: "128px",
       }}
     >
       <div className="section-container">
         <AnimatedSection className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           {/* Left -- Copy */}
           <div className="flex flex-col justify-center">
+            {/* Eyebrow */}
+            <div className="flex items-center gap-2">
+              <span
+                className="w-2 h-2 rounded-full"
+                style={{ backgroundColor: "var(--signal)" }}
+              />
+              <span
+                className="text-xs font-bold uppercase tracking-eyebrow"
+                style={{ color: "rgba(255,255,255,0.5)" }}
+              >
+                For Employers
+              </span>
+            </div>
+
             <h2
-              className="font-bold text-white"
+              className="font-medium tracking-headline text-white mt-4"
               style={{
-                fontFamily: "var(--font-display)",
                 fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
               }}
             >
@@ -60,10 +77,10 @@ export default function B2BTeaser() {
             </h2>
             <p
               className="mt-4 max-w-[50ch]"
-              style={{ color: "oklch(0.75 0.005 175)" }}
+              style={{ color: "rgba(255,255,255,0.6)" }}
             >
-              Add career insurance to your employee benefits package -- just like
-              health insurance.
+              Add career insurance to your employee benefits package &mdash;
+              just like health insurance.
             </p>
 
             <ul className="mt-8 flex flex-col gap-3">
@@ -71,13 +88,15 @@ export default function B2BTeaser() {
                 "Boost retention with a unique safety net",
                 "Tax-efficient group plans for employers",
                 "Demonstrate genuine care for employee wellbeing",
-                "Simple onboarding -- we handle everything",
+                "Simple onboarding — we handle everything",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <span className="text-white text-sm mt-0.5 shrink-0">&rarr;</span>
+                  <span className="text-white text-sm mt-0.5 shrink-0">
+                    &rarr;
+                  </span>
                   <span
                     className="text-sm"
-                    style={{ color: "oklch(0.7 0.005 175)" }}
+                    style={{ color: "rgba(255,255,255,0.7)" }}
                   >
                     {item}
                   </span>
@@ -88,14 +107,18 @@ export default function B2BTeaser() {
 
           {/* Right -- Form */}
           <div
-            className="rounded-2xl p-8"
-            style={{ border: "1px solid oklch(0.35 0.01 175)" }}
+            className="p-10"
+            style={{
+              backgroundColor: "rgba(255,255,255,0.06)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              borderRadius: "var(--radius-card)",
+            }}
           >
             {status === "success" ? (
               <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
                 <div
                   className="flex h-16 w-16 items-center justify-center rounded-full"
-                  style={{ backgroundColor: "oklch(0.3 0.01 175)" }}
+                  style={{ backgroundColor: "rgba(255,255,255,0.1)" }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -115,13 +138,16 @@ export default function B2BTeaser() {
                 <h3 className="text-xl font-semibold text-white">
                   We&apos;ll be in touch!
                 </h3>
-                <p className="text-sm" style={{ color: "oklch(0.7 0.005 175)" }}>
+                <p
+                  className="text-sm"
+                  style={{ color: "rgba(255,255,255,0.6)" }}
+                >
                   Our team will reach out within 24 hours.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                <h3 className="text-lg font-semibold text-white">
+                <h3 className="text-lg font-semibold text-white mb-6">
                   Get in touch
                 </h3>
 
@@ -134,11 +160,17 @@ export default function B2BTeaser() {
                   onChange={handleChange}
                   className={inputBaseClass}
                   style={{
-                    backgroundColor: "oklch(0.2 0.005 175)",
-                    border: "1px solid oklch(0.35 0.01 175)",
+                    backgroundColor: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.12)",
+                    borderRadius: "var(--radius-btn)",
                   }}
-                  onFocus={(e) => { e.currentTarget.style.borderColor = "var(--color-accent)"; }}
-                  onBlur={(e) => { e.currentTarget.style.borderColor = "oklch(0.35 0.01 175)"; }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = "var(--signal)";
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor =
+                      "rgba(255,255,255,0.12)";
+                  }}
                 />
 
                 <input
@@ -150,11 +182,17 @@ export default function B2BTeaser() {
                   onChange={handleChange}
                   className={inputBaseClass}
                   style={{
-                    backgroundColor: "oklch(0.2 0.005 175)",
-                    border: "1px solid oklch(0.35 0.01 175)",
+                    backgroundColor: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.12)",
+                    borderRadius: "var(--radius-btn)",
                   }}
-                  onFocus={(e) => { e.currentTarget.style.borderColor = "var(--color-accent)"; }}
-                  onBlur={(e) => { e.currentTarget.style.borderColor = "oklch(0.35 0.01 175)"; }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = "var(--signal)";
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor =
+                      "rgba(255,255,255,0.12)";
+                  }}
                 />
 
                 <select
@@ -164,12 +202,20 @@ export default function B2BTeaser() {
                   onChange={handleChange}
                   className={inputBaseClass}
                   style={{
-                    backgroundColor: "oklch(0.2 0.005 175)",
-                    border: "1px solid oklch(0.35 0.01 175)",
-                    color: form.companySize ? "white" : "oklch(0.5 0.005 175)",
+                    backgroundColor: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.12)",
+                    borderRadius: "var(--radius-btn)",
+                    color: form.companySize
+                      ? "white"
+                      : "rgba(255,255,255,0.3)",
                   }}
-                  onFocus={(e) => { e.currentTarget.style.borderColor = "var(--color-accent)"; }}
-                  onBlur={(e) => { e.currentTarget.style.borderColor = "oklch(0.35 0.01 175)"; }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = "var(--signal)";
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor =
+                      "rgba(255,255,255,0.12)";
+                  }}
                 >
                   <option value="" disabled>
                     Company size
@@ -188,11 +234,17 @@ export default function B2BTeaser() {
                   onChange={handleChange}
                   className={`${inputBaseClass} resize-none`}
                   style={{
-                    backgroundColor: "oklch(0.2 0.005 175)",
-                    border: "1px solid oklch(0.35 0.01 175)",
+                    backgroundColor: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.12)",
+                    borderRadius: "var(--radius-btn)",
                   }}
-                  onFocus={(e) => { e.currentTarget.style.borderColor = "var(--color-accent)"; }}
-                  onBlur={(e) => { e.currentTarget.style.borderColor = "oklch(0.35 0.01 175)"; }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = "var(--signal)";
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor =
+                      "rgba(255,255,255,0.12)";
+                  }}
                 />
 
                 {status === "error" && (
@@ -204,8 +256,12 @@ export default function B2BTeaser() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="w-full rounded-lg py-3 text-base font-semibold text-white transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none cursor-pointer"
-                  style={{ backgroundColor: "var(--color-accent)" }}
+                  className="w-full py-3.5 text-base font-medium transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none cursor-pointer mt-4"
+                  style={{
+                    backgroundColor: "var(--canvas)",
+                    color: "var(--ink)",
+                    borderRadius: "var(--radius-btn)",
+                  }}
                 >
                   {status === "submitting" ? (
                     <span className="flex items-center justify-center gap-2">

@@ -18,8 +18,12 @@ export default function CopyLinkButton() {
   return (
     <button
       onClick={handleCopy}
-      className="inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold text-white transition-all duration-200 active:scale-95 cursor-pointer"
-      style={{ backgroundColor: "var(--color-accent)" }}
+      className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-medium transition-all duration-200 active:scale-95 cursor-pointer"
+      style={{
+        backgroundColor: "var(--ink)",
+        color: "var(--canvas)",
+        borderRadius: "var(--radius-btn)",
+      }}
     >
       {copied ? (
         <>
@@ -31,7 +35,11 @@ export default function CopyLinkButton() {
             stroke="currentColor"
             className="h-4 w-4"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4.5 12.75l6 6 9-13.5"
+            />
           </svg>
           Copied!
         </>

@@ -5,7 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FAQ_ITEMS } from "@/lib/constants";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
-const CATEGORIES = ["All", "General", "Eligibility", "Claims", "Pricing", "Benefits"] as const;
+const CATEGORIES = [
+  "All",
+  "General",
+  "Eligibility",
+  "Claims",
+  "Pricing",
+  "Benefits",
+] as const;
 
 export default function FAQ() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
@@ -24,23 +31,34 @@ export default function FAQ() {
     <section
       id="faq"
       style={{
-        backgroundColor: "var(--color-bg)",
-        paddingTop: "var(--space-4xl)",
-        paddingBottom: "var(--space-4xl)",
+        backgroundColor: "var(--canvas-lifted)",
+        paddingTop: "96px",
+        paddingBottom: "96px",
       }}
     >
-      <div className="section-container max-w-2xl">
-        {/* Title — left-aligned */}
+      <div className="section-container max-w-2xl mx-auto">
+        {/* Eyebrow + Title */}
         <AnimatedSection className="mb-8">
+          <div className="flex items-center gap-2">
+            <span
+              className="w-2 h-2 rounded-full"
+              style={{ backgroundColor: "var(--signal)" }}
+            />
+            <span
+              className="text-xs font-bold uppercase tracking-eyebrow"
+              style={{ color: "var(--text-muted)" }}
+            >
+              FAQ
+            </span>
+          </div>
           <h2
-            className="font-bold"
+            className="font-medium tracking-headline mt-4"
             style={{
-              fontFamily: "var(--font-display)",
-              color: "var(--color-text)",
-              fontSize: "clamp(1.5rem, 3vw, 2rem)",
+              color: "var(--ink)",
+              fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
             }}
           >
-            Common questions
+            Common questions.
           </h2>
         </AnimatedSection>
 
@@ -53,29 +71,23 @@ export default function FAQ() {
                 setActiveCategory(cat);
                 setOpenIndex(null);
               }}
-              className="text-sm rounded-md px-3 py-1.5 transition-all duration-200 cursor-pointer"
+              className="text-sm font-medium transition-all duration-200 cursor-pointer"
               style={
                 activeCategory === cat
                   ? {
-                      backgroundColor: "var(--color-text)",
-                      color: "white",
+                      backgroundColor: "var(--ink)",
+                      color: "var(--canvas)",
+                      borderRadius: "var(--radius-pill)",
+                      padding: "0.5rem 1rem",
                     }
                   : {
-                      backgroundColor: "var(--color-bg-alt)",
-                      color: "var(--color-text-secondary)",
-                      border: "1px solid var(--color-border)",
+                      backgroundColor: "var(--white)",
+                      color: "var(--text-muted)",
+                      border: "1px solid var(--border)",
+                      borderRadius: "var(--radius-pill)",
+                      padding: "0.5rem 1rem",
                     }
               }
-              onMouseEnter={(e) => {
-                if (activeCategory !== cat) {
-                  e.currentTarget.style.borderColor = "var(--color-border-strong)";
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (activeCategory !== cat) {
-                  e.currentTarget.style.borderColor = "var(--color-border)";
-                }
-              }}
             >
               {cat}
             </button>
@@ -83,18 +95,18 @@ export default function FAQ() {
         </AnimatedSection>
 
         {/* Accordion */}
-        <AnimatedSection className="mt-8">
+        <AnimatedSection className="mt-10">
           <div
-            className="flex flex-col"
-            style={{ borderTop: "1px solid var(--color-border)" }}
+            className="flex flex-col divide-y"
+            style={{ borderColor: "var(--border)" }}
           >
             {filtered.map((item, i) => {
               const isOpen = openIndex === i;
               return (
                 <div
                   key={item.question}
-                  className="py-5"
-                  style={{ borderBottom: "1px solid var(--color-border)" }}
+                  className="py-6"
+                  style={{ borderColor: "var(--border)" }}
                 >
                   <button
                     onClick={() => toggle(i)}
@@ -102,13 +114,13 @@ export default function FAQ() {
                   >
                     <span
                       className="text-base font-semibold"
-                      style={{ color: "var(--color-text)" }}
+                      style={{ color: "var(--ink)" }}
                     >
                       {item.question}
                     </span>
                     <span
                       className="text-lg shrink-0"
-                      style={{ color: "var(--color-text-muted)" }}
+                      style={{ color: "var(--text-muted)" }}
                     >
                       {isOpen ? "\u2212" : "+"}
                     </span>
@@ -121,12 +133,18 @@ export default function FAQ() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{
+                          duration: 0.3,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
                         className="overflow-hidden"
                       >
                         <p
-                          className="mt-3 text-[0.9375rem] leading-relaxed max-w-[65ch]"
-                          style={{ color: "var(--color-text-secondary)" }}
+                          className="mt-4 max-w-[60ch] leading-relaxed"
+                          style={{
+                            color: "var(--text-muted)",
+                            fontWeight: 450,
+                          }}
                         >
                           {item.answer}
                         </p>

@@ -19,36 +19,33 @@ export default function Hero() {
   };
 
   return (
-    <section style={{ backgroundColor: "var(--color-bg)" }}>
-      <div
-        className="section-container grid grid-cols-1 lg:grid-cols-12 items-center gap-12"
-        style={{
-          paddingTop: "var(--space-4xl)",
-          paddingBottom: "var(--space-3xl)",
-        }}
-      >
+    <section style={{ backgroundColor: "var(--canvas)", paddingTop: "128px", paddingBottom: "96px" }}>
+      <div className="section-container grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left column — text */}
         <div className="lg:col-span-7">
-          {/* Small label */}
-          <motion.p
-            {...fadeUp(0)}
-            className="text-xs font-semibold uppercase mb-6"
-            style={{
-              color: "var(--color-text-muted)",
-              letterSpacing: "0.15em",
-            }}
-          >
-            Career Insurance
-          </motion.p>
+          {/* Eyebrow */}
+          <motion.div {...fadeUp(0)} className="flex items-center gap-2">
+            <span
+              className="w-2 h-2 rounded-full"
+              style={{ backgroundColor: "var(--signal)" }}
+            />
+            <span
+              className="text-xs font-bold uppercase tracking-eyebrow"
+              style={{ color: "var(--text-muted)" }}
+            >
+              Career Insurance
+            </span>
+          </motion.div>
 
           {/* H1 */}
           <motion.h1
             {...fadeUp(0.08)}
-            className="font-bold leading-[1.15] max-w-[18ch]"
+            className="font-medium tracking-headline mt-6"
             style={{
-              fontFamily: "var(--font-display)",
-              color: "var(--color-text)",
+              color: "var(--ink)",
               fontSize: "clamp(2.5rem, 5vw, 4rem)",
+              lineHeight: 1.0,
+              maxWidth: "16ch",
             }}
           >
             Forget everything you know about job security.
@@ -57,34 +54,40 @@ export default function Hero() {
           {/* Body */}
           <motion.p
             {...fadeUp(0.16)}
-            className="text-lg max-w-[55ch] mt-6 leading-relaxed"
-            style={{ color: "var(--color-text-secondary)" }}
+            className="text-base mt-8"
+            style={{
+              color: "var(--ink)",
+              fontWeight: 450,
+              lineHeight: 1.4,
+              maxWidth: "50ch",
+            }}
           >
             SafeRole protects your salary when your employer can&apos;t. Cover
-            rent, EMIs, and essentials from &#8377;1,500/month.
+            rent, EMIs, and essentials &mdash; from &#8377;1,500/month.
           </motion.p>
 
           {/* CTA row */}
-          <motion.div
-            {...fadeUp(0.24)}
-            className="mt-10 flex flex-wrap gap-4"
-          >
+          <motion.div {...fadeUp(0.24)} className="mt-10 flex flex-wrap gap-4">
             <button
               onClick={() => scrollTo("calculator")}
-              className="px-7 py-3.5 text-base font-semibold text-white rounded-lg transition-all duration-200 cursor-pointer"
-              style={{ backgroundColor: "var(--color-accent)" }}
-              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "var(--color-accent-hover)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "var(--color-accent)"; }}
+              className="px-7 py-3 text-base font-medium tracking-headline transition-all duration-200 cursor-pointer"
+              style={{
+                backgroundColor: "var(--ink)",
+                color: "var(--canvas)",
+                borderRadius: "var(--radius-btn)",
+                border: "1.5px solid var(--ink)",
+              }}
             >
               Check Your Price
             </button>
             <button
               onClick={() => scrollTo("how-it-works")}
-              className="px-7 py-3.5 text-base font-semibold rounded-lg transition-all duration-200 cursor-pointer"
+              className="px-7 py-3 text-base font-medium tracking-headline transition-all duration-200 cursor-pointer"
               style={{
-                border: "2px solid var(--color-border-strong)",
-                color: "var(--color-text)",
-                backgroundColor: "transparent",
+                backgroundColor: "var(--white)",
+                color: "var(--ink)",
+                border: "1.5px solid var(--ink)",
+                borderRadius: "var(--radius-btn)",
               }}
             >
               Learn More
@@ -94,31 +97,31 @@ export default function Hero() {
           {/* Trust line */}
           <motion.p
             {...fadeUp(0.32)}
-            className="mt-10 text-sm"
-            style={{ color: "var(--color-text-muted)" }}
+            className="mt-12 text-sm"
+            style={{ color: "var(--text-muted)" }}
           >
-            50% salary coverage &middot; Up to 9 months &middot; Free upskilling
+            50% salary &middot; Up to 9 months &middot; Free upskilling
           </motion.p>
         </div>
 
-        {/* Right column — decorative */}
+        {/* Right column — decorative stadium shape */}
         <div className="hidden lg:flex lg:col-span-5 items-center justify-center">
           <div
             className="relative flex items-center justify-center"
             style={{
-              width: 300,
-              height: 400,
-              backgroundColor: "var(--color-accent-light)",
-              border: "1px solid var(--color-accent-border)",
-              borderRadius: "1.5rem",
+              width: "100%",
+              aspectRatio: "4 / 5",
+              backgroundColor: "var(--canvas-lifted)",
+              border: "1px solid var(--border)",
+              borderRadius: "var(--radius-card)",
             }}
           >
             {/* Shield SVG */}
             <svg
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="w-32 h-32"
-              style={{ color: "var(--color-accent)", opacity: 0.4 }}
+              className="w-[120px] h-[120px]"
+              style={{ color: "var(--signal)", opacity: 0.15 }}
             >
               <path
                 fillRule="evenodd"
@@ -126,6 +129,33 @@ export default function Hero() {
                 clipRule="evenodd"
               />
             </svg>
+
+            {/* Satellite CTA button */}
+            <div
+              className="absolute -bottom-3 -right-3 flex items-center justify-center"
+              style={{
+                width: 56,
+                height: 56,
+                backgroundColor: "var(--white)",
+                borderRadius: "9999px",
+                boxShadow: "var(--shadow-sm)",
+              }}
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                style={{ color: "var(--ink)" }}
+              >
+                <path d="M7 17L17 7" />
+                <path d="M7 7h10v10" />
+              </svg>
+            </div>
           </div>
         </div>
       </div>

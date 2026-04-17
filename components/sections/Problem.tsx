@@ -59,13 +59,12 @@ function StatCounter({
     value >= 1000 ? count.toLocaleString() : String(count);
 
   return (
-    <div ref={ref} className="flex flex-col items-center gap-2 text-center">
+    <div ref={ref} className="flex flex-col gap-2 text-left">
       {/* Stat number */}
       <p
-        className="font-bold tracking-tighter"
+        className="font-medium tracking-headline"
         style={{
-          fontFamily: "var(--font-display)",
-          color: "var(--color-text)",
+          color: "var(--ink)",
           fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
         }}
       >
@@ -75,7 +74,7 @@ function StatCounter({
           <>
             <span>{formattedCount}</span>
             {suffix && (
-              <span style={{ color: "var(--color-accent)" }}>{suffix}</span>
+              <span style={{ color: "var(--signal)" }}>{suffix}</span>
             )}
           </>
         )}
@@ -83,8 +82,8 @@ function StatCounter({
 
       {/* Label */}
       <p
-        className="mt-2 max-w-[25ch] mx-auto text-sm leading-snug"
-        style={{ color: "var(--color-text-muted)" }}
+        className="mt-2 max-w-[25ch] text-sm"
+        style={{ color: "var(--text-muted)" }}
       >
         {label}
       </p>
@@ -94,24 +93,49 @@ function StatCounter({
 
 export default function Problem() {
   return (
-    <section style={{ backgroundColor: "var(--color-bg-alt)", paddingTop: "var(--space-3xl)", paddingBottom: "var(--space-3xl)" }}>
-      <div className="section-container">
-        {/* Headline */}
-        <AnimatedSection className="mb-16">
-          <h2
-            className="mx-auto max-w-[45ch] text-center font-bold"
+    <section style={{ backgroundColor: "var(--canvas)", paddingTop: "96px", paddingBottom: "96px" }}>
+      <div className="section-container relative">
+        {/* Ghost watermark */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+          aria-hidden="true"
+        >
+          <span
+            className="font-medium tracking-headline"
             style={{
-              fontFamily: "var(--font-display)",
-              color: "var(--color-text)",
-              fontSize: "clamp(1.5rem, 3vw, 2rem)",
+              fontSize: "8rem",
+              color: "var(--text-dust)",
+              opacity: 0.5,
             }}
           >
+            264K+
+          </span>
+        </div>
+
+        {/* Eyebrow */}
+        <AnimatedSection className="mb-16 relative z-10">
+          <div className="flex items-center gap-2">
+            <span
+              className="w-2 h-2 rounded-full"
+              style={{ backgroundColor: "var(--signal)" }}
+            />
+            <span
+              className="text-xs font-bold uppercase tracking-eyebrow"
+              style={{ color: "var(--text-muted)" }}
+            >
+              The Numbers
+            </span>
+          </div>
+          <p
+            className="text-lg mt-2"
+            style={{ color: "var(--text-muted)", maxWidth: "45ch" }}
+          >
             The numbers speak for themselves.
-          </h2>
+          </p>
         </AnimatedSection>
 
         {/* Stats */}
-        <AnimatedSection stagger className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+        <AnimatedSection stagger className="grid grid-cols-1 md:grid-cols-3 gap-16 mt-16 relative z-10">
           {STATS.map((stat) => (
             <AnimatedItem key={stat.label}>
               <StatCounter

@@ -29,13 +29,13 @@ function SalarySlider({
         <div className="flex items-center justify-between">
           <label
             className="text-sm font-medium"
-            style={{ color: "var(--color-text-secondary)" }}
+            style={{ color: "var(--ink)" }}
           >
             {label}
           </label>
           <span
-            className="text-xl font-bold"
-            style={{ color: "var(--color-accent)", fontFamily: "var(--font-display)" }}
+            className="text-xl font-medium tracking-headline"
+            style={{ color: "var(--ink)" }}
           >
             {formatCurrency(value)}
           </span>
@@ -52,14 +52,14 @@ function SalarySlider({
           onChange={(e) => onChange(Number(e.target.value))}
           className="salary-slider w-full h-2 rounded-full appearance-none cursor-pointer"
           style={{
-            background: `linear-gradient(to right, var(--color-accent) 0%, var(--color-accent) ${percentage}%, var(--color-border) ${percentage}%, var(--color-border) 100%)`,
+            background: `linear-gradient(to right, var(--signal) 0%, var(--signal) ${percentage}%, var(--text-dust) ${percentage}%, var(--text-dust) 100%)`,
           }}
         />
       </div>
 
       <div
         className="flex justify-between text-xs"
-        style={{ color: "var(--color-text-muted)" }}
+        style={{ color: "var(--text-muted)" }}
       >
         <span>{formatCurrency(min)}</span>
         <span>{formatCurrency(max)}</span>
@@ -72,7 +72,7 @@ function SalarySlider({
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: var(--color-accent);
+          background: var(--ink);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
           cursor: pointer;
           transition: transform 0.2s, box-shadow 0.2s;
@@ -86,13 +86,13 @@ function SalarySlider({
           height: 20px;
           border: none;
           border-radius: 50%;
-          background: var(--color-accent);
+          background: var(--ink);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
           cursor: pointer;
         }
         .salary-slider:focus-visible {
           outline: none;
-          box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--color-accent);
+          box-shadow: 0 0 0 2px var(--canvas), 0 0 0 4px var(--signal);
           border-radius: 9999px;
         }
       `}</style>

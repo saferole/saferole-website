@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
-import { Libre_Baskerville, Nunito_Sans } from "next/font/google";
+import { Sofia_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const libreBaskerville = Libre_Baskerville({
+const sofiaSans = Sofia_Sans({
   subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["400", "700"],
-  display: "swap",
-});
-
-const nunitoSans = Nunito_Sans({
-  subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-sofia",
   display: "swap",
 });
 
@@ -48,8 +41,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${libreBaskerville.variable} ${nunitoSans.variable}`}>
-      <body className={nunitoSans.className}>
+    <html lang="en" className={sofiaSans.variable}>
+      <body className={sofiaSans.className}>
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

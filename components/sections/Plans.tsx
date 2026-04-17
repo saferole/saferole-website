@@ -41,28 +41,36 @@ export default function Plans() {
     <section
       id="plans"
       style={{
-        backgroundColor: "var(--color-bg-alt)",
-        paddingTop: "var(--space-4xl)",
-        paddingBottom: "var(--space-4xl)",
+        backgroundColor: "var(--canvas)",
+        paddingTop: "128px",
+        paddingBottom: "128px",
       }}
     >
       <div className="section-container">
         {/* Section Header */}
-        <AnimatedSection className="mx-auto mb-16 max-w-2xl text-center">
+        <AnimatedSection className="mb-16">
+          <div className="flex items-center gap-2">
+            <span
+              className="w-2 h-2 rounded-full"
+              style={{ backgroundColor: "var(--signal)" }}
+            />
+            <span
+              className="text-xs font-bold uppercase tracking-eyebrow"
+              style={{ color: "var(--text-muted)" }}
+            >
+              Pricing
+            </span>
+          </div>
           <h2
-            className="font-bold"
+            className="font-medium tracking-headline mt-4"
             style={{
-              fontFamily: "var(--font-display)",
-              color: "var(--color-text)",
-              fontSize: "clamp(1.5rem, 3vw, 2rem)",
+              color: "var(--ink)",
+              fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
             }}
           >
             Simple, transparent pricing.
           </h2>
-          <p
-            className="mt-3"
-            style={{ color: "var(--color-text-muted)" }}
-          >
+          <p className="mt-2" style={{ color: "var(--text-muted)" }}>
             No hidden fees. Cancel anytime.
           </p>
         </AnimatedSection>
@@ -70,44 +78,45 @@ export default function Plans() {
         {/* Pricing Cards Grid */}
         <AnimatedSection
           stagger
-          className="mx-auto grid max-w-5xl grid-cols-1 items-center gap-6 lg:grid-cols-3 lg:gap-0"
+          className="mt-16 grid max-w-5xl grid-cols-1 items-center gap-6 lg:grid-cols-3"
         >
           {(Object.entries(PLANS) as [PlanKey, (typeof PLANS)[PlanKey]][]).map(
             ([key, plan]) => {
               const isPopular = "popular" in plan && plan.popular;
 
               return (
-                <AnimatedItem key={key} className={isPopular ? "lg:-my-4" : ""}>
+                <AnimatedItem key={key} className={isPopular ? "lg:-my-6" : ""}>
                   <div
-                    className="rounded-2xl"
+                    className="overflow-hidden"
                     style={{
-                      backgroundColor: "var(--color-surface)",
+                      backgroundColor: "var(--white)",
+                      borderRadius: "var(--radius-card)",
                       border: isPopular
-                        ? "2px solid var(--color-accent)"
-                        : "1px solid var(--color-border)",
-                      padding: isPopular ? "2.5rem" : "2rem",
+                        ? "2px solid var(--ink)"
+                        : "1px solid var(--border)",
+                      padding: isPopular ? "3rem 2.5rem" : "2.5rem",
                     }}
                   >
-                    {/* Most popular label */}
+                    {/* Most popular eyebrow */}
                     {isPopular && (
-                      <p
-                        className="text-xs uppercase font-semibold mb-6"
-                        style={{
-                          color: "var(--color-accent)",
-                          letterSpacing: "0.1em",
-                        }}
-                      >
-                        Most popular
-                      </p>
+                      <div className="flex items-center gap-2 mb-6">
+                        <span
+                          className="w-2 h-2 rounded-full"
+                          style={{ backgroundColor: "var(--signal)" }}
+                        />
+                        <span
+                          className="text-xs font-bold uppercase tracking-eyebrow"
+                          style={{ color: "var(--text-muted)" }}
+                        >
+                          Most Popular
+                        </span>
+                      </div>
                     )}
 
                     {/* Plan Name */}
                     <h3
-                      className="text-lg font-bold"
-                      style={{
-                        fontFamily: "var(--font-display)",
-                        color: "var(--color-text)",
-                      }}
+                      className="text-lg font-semibold"
+                      style={{ color: "var(--ink)" }}
                     >
                       {plan.name}
                     </h3>
@@ -115,20 +124,25 @@ export default function Plans() {
                     {/* Rate */}
                     <p className="mt-4">
                       <span
-                        className="text-[2.5rem] font-bold"
+                        className="font-medium tracking-headline"
                         style={{
-                          fontFamily: "var(--font-display)",
-                          color: isPopular ? "var(--color-accent)" : "var(--color-text)",
+                          fontSize: "2.5rem",
+                          color: isPopular ? "var(--signal)" : "var(--ink)",
                         }}
                       >
                         {Math.round(plan.rate * 100)}%
                       </span>
                       <span
                         className="text-base ml-1"
-                        style={{ color: "var(--color-text-muted)" }}
+                        style={{ color: "var(--text-muted)" }}
                       >
                         of salary
                       </span>
+                    </p>
+
+                    {/* Payout info */}
+                    <p className="text-sm mt-2" style={{ color: "var(--text-muted)" }}>
+                      {plan.months} months payout at 50% salary
                     </p>
 
                     {/* Features */}
@@ -144,14 +158,14 @@ export default function Plans() {
                             {included ? (
                               <span
                                 className="font-bold text-sm"
-                                style={{ color: "var(--color-accent)" }}
+                                style={{ color: "var(--signal)" }}
                               >
                                 &#10003;
                               </span>
                             ) : (
                               <span
                                 className="text-sm"
-                                style={{ color: "var(--color-text-muted)" }}
+                                style={{ color: "var(--text-dust)" }}
                               >
                                 &mdash;
                               </span>
@@ -160,8 +174,8 @@ export default function Plans() {
                               className="text-sm"
                               style={{
                                 color: included
-                                  ? "var(--color-text-secondary)"
-                                  : "var(--color-text-muted)",
+                                  ? "var(--ink)"
+                                  : "var(--text-dust)",
                               }}
                             >
                               {included ? value : feature.label}
@@ -174,17 +188,19 @@ export default function Plans() {
                     {/* CTA Button */}
                     <button
                       onClick={scrollToCalculator}
-                      className="mt-8 w-full py-3 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer"
+                      className="mt-8 w-full py-3.5 font-medium tracking-headline transition-all duration-200 cursor-pointer"
                       style={
                         isPopular
                           ? {
-                              backgroundColor: "var(--color-accent)",
-                              color: "white",
+                              backgroundColor: "var(--ink)",
+                              color: "var(--canvas)",
+                              borderRadius: "var(--radius-btn)",
                             }
                           : {
-                              backgroundColor: "transparent",
-                              border: "1px solid var(--color-border-strong)",
-                              color: "var(--color-text)",
+                              backgroundColor: "var(--white)",
+                              border: "1.5px solid var(--ink)",
+                              color: "var(--ink)",
+                              borderRadius: "var(--radius-btn)",
                             }
                       }
                     >

@@ -28,43 +28,57 @@ export default function HowItWorks() {
     <section
       id="how-it-works"
       style={{
-        backgroundColor: "var(--color-bg)",
-        paddingTop: "var(--space-4xl)",
-        paddingBottom: "var(--space-4xl)",
+        backgroundColor: "var(--canvas-lifted)",
+        paddingTop: "128px",
+        paddingBottom: "128px",
       }}
     >
       <div className="section-container">
-        {/* Title — left-aligned */}
-        <AnimatedSection className="mb-16">
+        {/* Eyebrow + Title */}
+        <AnimatedSection className="mb-12">
+          <div className="flex items-center gap-2">
+            <span
+              className="w-2 h-2 rounded-full"
+              style={{ backgroundColor: "var(--signal)" }}
+            />
+            <span
+              className="text-xs font-bold uppercase tracking-eyebrow"
+              style={{ color: "var(--text-muted)" }}
+            >
+              How It Works
+            </span>
+          </div>
           <h2
-            className="font-bold"
+            className="font-medium tracking-headline mt-4"
             style={{
-              fontFamily: "var(--font-display)",
-              color: "var(--color-text)",
-              fontSize: "clamp(1.5rem, 3vw, 2rem)",
+              color: "var(--ink)",
+              fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
             }}
           >
-            How SafeRole works
+            Three steps to protect your income.
           </h2>
         </AnimatedSection>
 
-        {/* Vertical numbered list */}
-        <AnimatedSection stagger className="max-w-2xl">
+        {/* Stadium cards stacked vertically */}
+        <AnimatedSection stagger className="max-w-2xl flex flex-col gap-8">
           {steps.map((step, i) => (
             <AnimatedItem key={step.number}>
+              {/* Card */}
               <div
-                className="flex items-start gap-6 py-8"
+                className="relative flex items-start gap-8 p-10"
                 style={{
-                  borderBottom: i < steps.length - 1 ? "1px solid var(--color-border)" : "none",
+                  backgroundColor: "var(--white)",
+                  borderRadius: "var(--radius-card)",
+                  border: "1px solid var(--border)",
                 }}
               >
-                {/* Step number */}
+                {/* Step number watermark */}
                 <span
-                  className="text-[3.5rem] font-bold leading-none shrink-0 w-16"
+                  className="shrink-0 font-medium tracking-headline"
                   style={{
-                    fontFamily: "var(--font-display)",
-                    color: "var(--color-accent)",
-                    opacity: 0.3,
+                    fontSize: "3rem",
+                    color: "var(--text-dust)",
+                    lineHeight: 1,
                   }}
                 >
                   {step.number}
@@ -74,18 +88,60 @@ export default function HowItWorks() {
                 <div>
                   <h3
                     className="text-xl font-semibold"
-                    style={{ color: "var(--color-text)" }}
+                    style={{ color: "var(--ink)" }}
                   >
                     {step.title}
                   </h3>
                   <p
-                    className="mt-2 max-w-[55ch] leading-relaxed"
-                    style={{ color: "var(--color-text-secondary)" }}
+                    className="text-base mt-2"
+                    style={{
+                      color: "var(--text-muted)",
+                      fontWeight: 450,
+                      maxWidth: "45ch",
+                    }}
                   >
                     {step.description}
                   </p>
                 </div>
+
+                {/* Satellite CTA */}
+                <div
+                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 flex items-center justify-center"
+                  style={{
+                    width: 48,
+                    height: 48,
+                    backgroundColor: "var(--white)",
+                    borderRadius: "9999px",
+                    boxShadow: "var(--shadow-sm)",
+                  }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    style={{ color: "var(--ink)" }}
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </div>
               </div>
+
+              {/* Dotted connector line between cards */}
+              {i < steps.length - 1 && (
+                <div
+                  className="mx-auto h-8 w-px"
+                  style={{
+                    borderLeft: "2px dotted var(--signal)",
+                    opacity: 0.2,
+                  }}
+                />
+              )}
             </AnimatedItem>
           ))}
         </AnimatedSection>

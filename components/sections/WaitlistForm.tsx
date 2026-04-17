@@ -21,7 +21,9 @@ const schema = z.object({
 });
 
 export default function WaitlistForm() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
   const [position, setPosition] = useState<number | null>(null);
 
   const {
@@ -54,35 +56,52 @@ export default function WaitlistForm() {
     <section
       id="waitlist"
       style={{
-        backgroundColor: "var(--color-bg-alt)",
-        paddingTop: "var(--space-4xl)",
-        paddingBottom: "var(--space-4xl)",
+        backgroundColor: "var(--canvas)",
+        paddingTop: "128px",
+        paddingBottom: "128px",
       }}
     >
       <div className="section-container">
         <AnimatedSection className="mx-auto max-w-md">
-          {/* Heading — centered */}
+          {/* Heading -- centered */}
           <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <span
+                className="w-2 h-2 rounded-full"
+                style={{ backgroundColor: "var(--signal)" }}
+              />
+              <span
+                className="text-xs font-bold uppercase tracking-eyebrow"
+                style={{ color: "var(--text-muted)" }}
+              >
+                Waitlist
+              </span>
+            </div>
             <h2
-              className="text-2xl font-bold"
+              className="font-medium tracking-headline"
               style={{
-                fontFamily: "var(--font-display)",
-                color: "var(--color-text)",
+                color: "var(--ink)",
+                fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
               }}
             >
               Join the waitlist.
             </h2>
-            <p
-              className="mt-2"
-              style={{ color: "var(--color-text-muted)" }}
-            >
+            <p className="mt-2" style={{ color: "var(--text-muted)" }}>
               Be the first to know when SafeRole launches.
             </p>
           </div>
 
-          {/* Form */}
+          {/* Form card */}
           {status === "success" ? (
-            <div className="flex flex-col items-center gap-4 py-8 text-center">
+            <div
+              className="flex flex-col items-center gap-4 py-8 text-center p-10"
+              style={{
+                backgroundColor: "var(--white)",
+                borderRadius: "var(--radius-card)",
+                border: "1px solid var(--border)",
+                boxShadow: "var(--shadow-md)",
+              }}
+            >
               <div
                 className="flex h-16 w-16 items-center justify-center rounded-full"
                 style={{ backgroundColor: "rgb(236 253 245)" }}
@@ -105,33 +124,42 @@ export default function WaitlistForm() {
               </div>
               <h3
                 className="text-xl font-semibold"
-                style={{ color: "var(--color-text)" }}
+                style={{ color: "var(--ink)" }}
               >
                 You&apos;re on the list!
               </h3>
               {position && (
-                <p className="text-sm" style={{ color: "var(--color-text-secondary)" }}>
+                <p className="text-sm" style={{ color: "var(--text-muted)" }}>
                   You are{" "}
-                  <span className="font-semibold" style={{ color: "var(--color-accent)" }}>
+                  <span
+                    className="font-semibold"
+                    style={{ color: "var(--signal)" }}
+                  >
                     #{position}
                   </span>{" "}
                   in line.
                 </p>
               )}
-              <p className="text-sm" style={{ color: "var(--color-text-secondary)" }}>
+              <p className="text-sm" style={{ color: "var(--text-muted)" }}>
                 We&apos;ll notify you when SafeRole launches.
               </p>
             </div>
           ) : (
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col gap-5"
+              className="flex flex-col gap-5 p-10"
+              style={{
+                backgroundColor: "var(--white)",
+                borderRadius: "var(--radius-card)",
+                border: "1px solid var(--border)",
+                boxShadow: "var(--shadow-md)",
+              }}
             >
               {/* Name */}
               <div className="flex flex-col gap-1.5 text-left">
                 <label
                   className="text-sm font-medium"
-                  style={{ color: "var(--color-text-secondary)" }}
+                  style={{ color: "var(--ink)" }}
                 >
                   Name <span className="text-red-500">*</span>
                 </label>
@@ -139,19 +167,23 @@ export default function WaitlistForm() {
                   {...register("name")}
                   type="text"
                   placeholder="Your full name"
-                  className="w-full rounded-lg px-4 py-3 text-base transition-all duration-200 focus-visible:outline-none"
+                  className="w-full px-4 py-3.5 text-base transition-all duration-200 focus-visible:outline-none"
                   style={{
-                    backgroundColor: "var(--color-surface)",
-                    border: errors.name ? "1px solid rgb(239 68 68)" : "1px solid var(--color-border)",
-                    color: "var(--color-text)",
+                    backgroundColor: "var(--canvas)",
+                    border: errors.name
+                      ? "1px solid rgb(239 68 68)"
+                      : "1px solid var(--border)",
+                    color: "var(--ink)",
+                    borderRadius: "var(--radius-btn)",
+                    fontWeight: 450,
                   }}
                   onFocus={(e) => {
-                    e.currentTarget.style.borderColor = "var(--color-accent)";
-                    e.currentTarget.style.boxShadow = "0 0 0 2px var(--color-accent-light)";
+                    e.currentTarget.style.borderColor = "var(--signal)";
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = errors.name ? "rgb(239 68 68)" : "var(--color-border)";
-                    e.currentTarget.style.boxShadow = "none";
+                    e.currentTarget.style.borderColor = errors.name
+                      ? "rgb(239 68 68)"
+                      : "var(--border)";
                   }}
                 />
                 {errors.name && (
@@ -165,7 +197,7 @@ export default function WaitlistForm() {
               <div className="flex flex-col gap-1.5 text-left">
                 <label
                   className="text-sm font-medium"
-                  style={{ color: "var(--color-text-secondary)" }}
+                  style={{ color: "var(--ink)" }}
                 >
                   Email <span className="text-red-500">*</span>
                 </label>
@@ -173,19 +205,23 @@ export default function WaitlistForm() {
                   {...register("email")}
                   type="email"
                   placeholder="you@company.com"
-                  className="w-full rounded-lg px-4 py-3 text-base transition-all duration-200 focus-visible:outline-none"
+                  className="w-full px-4 py-3.5 text-base transition-all duration-200 focus-visible:outline-none"
                   style={{
-                    backgroundColor: "var(--color-surface)",
-                    border: errors.email ? "1px solid rgb(239 68 68)" : "1px solid var(--color-border)",
-                    color: "var(--color-text)",
+                    backgroundColor: "var(--canvas)",
+                    border: errors.email
+                      ? "1px solid rgb(239 68 68)"
+                      : "1px solid var(--border)",
+                    color: "var(--ink)",
+                    borderRadius: "var(--radius-btn)",
+                    fontWeight: 450,
                   }}
                   onFocus={(e) => {
-                    e.currentTarget.style.borderColor = "var(--color-accent)";
-                    e.currentTarget.style.boxShadow = "0 0 0 2px var(--color-accent-light)";
+                    e.currentTarget.style.borderColor = "var(--signal)";
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = errors.email ? "rgb(239 68 68)" : "var(--color-border)";
-                    e.currentTarget.style.boxShadow = "none";
+                    e.currentTarget.style.borderColor = errors.email
+                      ? "rgb(239 68 68)"
+                      : "var(--border)";
                   }}
                 />
                 {errors.email && (
@@ -199,15 +235,15 @@ export default function WaitlistForm() {
               <div className="flex flex-col gap-1.5 text-left">
                 <label
                   className="text-sm font-medium"
-                  style={{ color: "var(--color-text-secondary)" }}
+                  style={{ color: "var(--ink)" }}
                 >
                   Monthly Salary{" "}
-                  <span style={{ color: "var(--color-text-muted)" }}>(optional)</span>
+                  <span style={{ color: "var(--text-muted)" }}>(optional)</span>
                 </label>
                 <div className="relative">
                   <span
                     className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm"
-                    style={{ color: "var(--color-text-muted)" }}
+                    style={{ color: "var(--text-muted)" }}
                   >
                     &#8377;
                   </span>
@@ -215,19 +251,19 @@ export default function WaitlistForm() {
                     {...register("monthlySalary")}
                     type="number"
                     placeholder="75,000"
-                    className="w-full rounded-lg pl-8 pr-4 py-3 text-base transition-all duration-200 focus-visible:outline-none"
+                    className="w-full pl-8 pr-4 py-3.5 text-base transition-all duration-200 focus-visible:outline-none"
                     style={{
-                      backgroundColor: "var(--color-surface)",
-                      border: "1px solid var(--color-border)",
-                      color: "var(--color-text)",
+                      backgroundColor: "var(--canvas)",
+                      border: "1px solid var(--border)",
+                      color: "var(--ink)",
+                      borderRadius: "var(--radius-btn)",
+                      fontWeight: 450,
                     }}
                     onFocus={(e) => {
-                      e.currentTarget.style.borderColor = "var(--color-accent)";
-                      e.currentTarget.style.boxShadow = "0 0 0 2px var(--color-accent-light)";
+                      e.currentTarget.style.borderColor = "var(--signal)";
                     }}
                     onBlur={(e) => {
-                      e.currentTarget.style.borderColor = "var(--color-border)";
-                      e.currentTarget.style.boxShadow = "none";
+                      e.currentTarget.style.borderColor = "var(--border)";
                     }}
                   />
                 </div>
@@ -237,28 +273,28 @@ export default function WaitlistForm() {
               <div className="flex flex-col gap-1.5 text-left">
                 <label
                   className="text-sm font-medium"
-                  style={{ color: "var(--color-text-secondary)" }}
+                  style={{ color: "var(--ink)" }}
                 >
                   Company{" "}
-                  <span style={{ color: "var(--color-text-muted)" }}>(optional)</span>
+                  <span style={{ color: "var(--text-muted)" }}>(optional)</span>
                 </label>
                 <input
                   {...register("company")}
                   type="text"
                   placeholder="Where you work"
-                  className="w-full rounded-lg px-4 py-3 text-base transition-all duration-200 focus-visible:outline-none"
+                  className="w-full px-4 py-3.5 text-base transition-all duration-200 focus-visible:outline-none"
                   style={{
-                    backgroundColor: "var(--color-surface)",
-                    border: "1px solid var(--color-border)",
-                    color: "var(--color-text)",
+                    backgroundColor: "var(--canvas)",
+                    border: "1px solid var(--border)",
+                    color: "var(--ink)",
+                    borderRadius: "var(--radius-btn)",
+                    fontWeight: 450,
                   }}
                   onFocus={(e) => {
-                    e.currentTarget.style.borderColor = "var(--color-accent)";
-                    e.currentTarget.style.boxShadow = "0 0 0 2px var(--color-accent-light)";
+                    e.currentTarget.style.borderColor = "var(--signal)";
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = "var(--color-border)";
-                    e.currentTarget.style.boxShadow = "none";
+                    e.currentTarget.style.borderColor = "var(--border)";
                   }}
                 />
               </div>
@@ -272,8 +308,12 @@ export default function WaitlistForm() {
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className="mt-2 w-full rounded-lg py-3.5 text-base font-semibold text-white transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none cursor-pointer"
-                style={{ backgroundColor: "var(--color-accent)" }}
+                className="mt-2 w-full py-3.5 text-base font-medium transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none cursor-pointer"
+                style={{
+                  backgroundColor: "var(--ink)",
+                  color: "var(--canvas)",
+                  borderRadius: "var(--radius-btn)",
+                }}
               >
                 {status === "submitting" ? (
                   <span className="flex items-center justify-center gap-2">
@@ -305,7 +345,7 @@ export default function WaitlistForm() {
 
               <p
                 className="text-center text-xs mt-3"
-                style={{ color: "var(--color-text-muted)" }}
+                style={{ color: "var(--text-muted)" }}
               >
                 No spam. We only email when SafeRole is ready.
               </p>

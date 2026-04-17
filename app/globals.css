@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-body), system-ui, sans-serif;
-  --font-display: var(--font-display), Georgia, serif;
+  --font-sans: var(--font-sofia), 'Sofia Sans', Arial, sans-serif;
 
   --animate-fade-up: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 
@@ -13,42 +12,44 @@
 }
 
 :root {
-  /* Brand accent — warm deep teal. Trust + growth + safety. */
-  --color-accent: oklch(0.52 0.1 175);
-  --color-accent-hover: oklch(0.46 0.1 175);
-  --color-accent-light: oklch(0.95 0.03 175);
-  --color-accent-border: oklch(0.85 0.06 175);
+  /* Mastercard-adapted palette */
+  --canvas: #F3F0EE;
+  --canvas-lifted: #FCFBFA;
+  --ink: #141413;
+  --ink-soft: #262627;
+  --text-body: #141413;
+  --text-muted: #696969;
+  --text-dust: #D1CDC7;
 
-  /* Neutrals — tinted toward brand hue (175) for subconscious cohesion */
-  --color-bg: oklch(0.985 0.003 175);
-  --color-bg-alt: oklch(0.97 0.005 175);
-  --color-surface: oklch(1 0 0);
-  --color-text: oklch(0.25 0.01 175);
-  --color-text-secondary: oklch(0.45 0.01 175);
-  --color-text-muted: oklch(0.62 0.01 175);
-  --color-border: oklch(0.9 0.005 175);
-  --color-border-strong: oklch(0.82 0.01 175);
+  /* SafeRole signal — deep warm teal */
+  --signal: #0D7377;
+  --signal-light: #F37338;
 
-  /* Spacing scale — 4pt base */
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-  --space-2xl: 48px;
-  --space-3xl: 64px;
-  --space-4xl: 96px;
+  /* Surfaces */
+  --white: #FFFFFF;
+  --border: rgba(20, 20, 19, 0.12);
+  --border-strong: rgba(20, 20, 19, 0.25);
+
+  /* Shadows — atmospheric, not directional */
+  --shadow-sm: rgba(0, 0, 0, 0.04) 0px 4px 24px 0px;
+  --shadow-md: rgba(0, 0, 0, 0.08) 0px 24px 48px 0px;
+
+  /* Radius scale — Mastercard signature: 20/40/999 */
+  --radius-btn: 20px;
+  --radius-card: 40px;
+  --radius-pill: 999px;
 }
 
 @layer base {
   body {
-    background: var(--color-bg);
-    color: var(--color-text);
+    background: var(--canvas);
+    color: var(--text-body);
+    font-weight: 450;
     -webkit-font-smoothing: antialiased;
   }
   ::selection {
-    background: var(--color-accent-light);
-    color: var(--color-text);
+    background: #0D737720;
+    color: var(--ink);
   }
 }
 
@@ -56,12 +57,17 @@
   .section-container {
     max-width: 72rem;
     margin-inline: auto;
-    padding-inline: var(--space-md);
+    padding-inline: 1rem;
   }
   @media (min-width: 640px) {
-    .section-container { padding-inline: var(--space-lg); }
+    .section-container { padding-inline: 1.5rem; }
   }
   @media (min-width: 1024px) {
-    .section-container { padding-inline: var(--space-xl); }
+    .section-container { padding-inline: 2rem; }
   }
+}
+
+@layer utilities {
+  .tracking-headline { letter-spacing: -0.02em; }
+  .tracking-eyebrow { letter-spacing: 0.04em; }
 }

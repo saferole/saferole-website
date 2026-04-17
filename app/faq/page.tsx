@@ -8,19 +8,22 @@ export const metadata: Metadata = {
 
 export default function FAQPage() {
   return (
-    <div style={{ backgroundColor: "var(--color-bg)" }}>
-      <style>{`
-        .breadcrumb-link { color: var(--color-text-muted); transition: color 0.2s; }
-        .breadcrumb-link:hover { color: var(--color-accent); }
-      `}</style>
+    <div style={{ backgroundColor: "var(--canvas)" }}>
       {/* Breadcrumb */}
-      <div className="section-container" style={{ paddingTop: "7rem", paddingBottom: 0 }}>
+      <div
+        className="section-container"
+        style={{ paddingTop: "7rem", paddingBottom: 0 }}
+      >
         <nav
           className="flex items-center gap-2 text-sm"
           aria-label="Breadcrumb"
-          style={{ color: "var(--color-text-muted)" }}
+          style={{ color: "var(--text-muted)" }}
         >
-          <Link href="/" className="breadcrumb-link">
+          <Link
+            href="/"
+            className="transition-colors duration-200 hover:text-[var(--ink)]"
+            style={{ color: "var(--text-muted)" }}
+          >
             Home
           </Link>
           <svg
@@ -31,9 +34,13 @@ export default function FAQPage() {
             stroke="currentColor"
             className="h-3 w-3"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m8.25 4.5 7.5 7.5-7.5 7.5"
+            />
           </svg>
-          <span style={{ color: "var(--color-text)" }}>FAQ</span>
+          <span style={{ color: "var(--ink)" }}>FAQ</span>
         </nav>
       </div>
 

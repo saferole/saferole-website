@@ -7,7 +7,8 @@ export const metadata: Metadata = {
 };
 
 const SHARE_URL = "https://saferole.in";
-const SHARE_TEXT = "I just joined the SafeRole waitlist -- India's first salary protection plan for tech professionals. Join me!";
+const SHARE_TEXT =
+  "I just joined the SafeRole waitlist -- India's first salary protection plan for tech professionals. Join me!";
 
 export default function WaitlistSuccessPage() {
   const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SHARE_URL)}`;
@@ -16,13 +17,16 @@ export default function WaitlistSuccessPage() {
   return (
     <div
       className="flex min-h-screen items-center justify-center px-4"
-      style={{ backgroundColor: "var(--color-bg)" }}
+      style={{ backgroundColor: "var(--canvas)" }}
     >
       <div className="mx-auto max-w-md w-full text-center">
-        {/* Emerald checkmark icon */}
+        {/* Checkmark icon */}
         <div
-          className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full"
-          style={{ backgroundColor: "rgb(236 253 245)" }}
+          className="mx-auto mb-6 flex h-24 w-24 items-center justify-center"
+          style={{
+            backgroundColor: "rgb(236 253 245)",
+            borderRadius: "var(--radius-card)",
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -43,10 +47,10 @@ export default function WaitlistSuccessPage() {
 
         {/* Headline */}
         <h1
-          className="text-4xl font-bold sm:text-5xl"
+          className="font-medium tracking-headline"
           style={{
-            fontFamily: "var(--font-display)",
-            color: "var(--color-text)",
+            color: "var(--ink)",
+            fontSize: "clamp(2rem, 4vw, 3rem)",
           }}
         >
           You&apos;re on the list!
@@ -55,15 +59,16 @@ export default function WaitlistSuccessPage() {
         {/* Subtitle */}
         <p
           className="mt-4 text-lg"
-          style={{ color: "var(--color-text-secondary)" }}
+          style={{ color: "var(--text-muted)", fontWeight: 450 }}
         >
           We&apos;ll notify you when SafeRole launches.
         </p>
         <p
           className="mt-2 text-sm"
-          style={{ color: "var(--color-text-muted)" }}
+          style={{ color: "var(--text-muted)" }}
         >
-          In the meantime, spread the word and help us reach more tech professionals.
+          In the meantime, spread the word and help us reach more tech
+          professionals.
         </p>
 
         {/* Share Buttons */}
@@ -76,11 +81,12 @@ export default function WaitlistSuccessPage() {
             href={linkedInUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-medium transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-medium transition-all duration-200"
             style={{
-              border: "2px solid var(--color-border-strong)",
-              color: "var(--color-text-secondary)",
+              border: "1.5px solid var(--ink)",
+              color: "var(--ink)",
               backgroundColor: "transparent",
+              borderRadius: "var(--radius-btn)",
             }}
           >
             <svg
@@ -100,11 +106,12 @@ export default function WaitlistSuccessPage() {
             href={twitterUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-medium transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-medium transition-all duration-200"
             style={{
-              border: "2px solid var(--color-border-strong)",
-              color: "var(--color-text-secondary)",
+              border: "1.5px solid var(--ink)",
+              color: "var(--ink)",
               backgroundColor: "transparent",
+              borderRadius: "var(--radius-btn)",
             }}
           >
             <svg
@@ -124,7 +131,7 @@ export default function WaitlistSuccessPage() {
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-sm transition-colors"
-            style={{ color: "var(--color-text-muted)" }}
+            style={{ color: "var(--text-muted)" }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -21,31 +21,40 @@ const supportLinks = [
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: "var(--color-text)" }}>
+    <footer style={{ backgroundColor: "var(--ink)" }}>
       <style>{`
-        .footer-link { color: oklch(0.55 0.005 175); transition: color 0.2s; }
+        .footer-link { color: rgba(255,255,255,0.6); transition: color 0.2s; font-weight: 450; }
         .footer-link:hover { color: white; }
-        .footer-social { color: oklch(0.45 0.005 175); transition: color 0.2s; }
+        .footer-social { color: rgba(255,255,255,0.4); transition: color 0.2s; }
         .footer-social:hover { color: white; }
       `}</style>
       <div
         className="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8"
-        style={{ paddingTop: "var(--space-3xl)", paddingBottom: "var(--space-3xl)" }}
+        style={{ paddingTop: "96px", paddingBottom: "64px" }}
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
+        {/* Large conversational headline */}
+        <h2
+          className="font-medium tracking-headline text-white"
+          style={{
+            fontSize: "clamp(1.5rem, 3vw, 2rem)",
+            maxWidth: "20ch",
+          }}
+        >
+          We&apos;re building the future of career insurance.
+        </h2>
+
+        {/* 4-column grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8 mt-16">
           {/* Col 1: Logo + tagline + socials */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="inline-block mb-3">
-              <span
-                className="text-lg font-bold text-white"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
+              <span className="text-lg font-semibold tracking-headline text-white">
                 SafeRole
               </span>
             </Link>
             <p
-              className="text-sm max-w-xs leading-relaxed"
-              style={{ color: "oklch(0.6 0.005 175)", marginTop: "var(--space-sm)" }}
+              className="text-sm max-w-xs leading-relaxed mt-2"
+              style={{ color: "rgba(255,255,255,0.6)", fontWeight: 450 }}
             >
               India&apos;s first salary protection plan. Get paid even when you
               lose your job.
@@ -81,8 +90,8 @@ export default function Footer() {
           {/* Col 2: Product */}
           <div>
             <h3
-              className="text-xs uppercase font-semibold mb-4"
-              style={{ color: "oklch(0.5 0.005 175)", letterSpacing: "0.1em" }}
+              className="text-xs uppercase font-bold mb-4 tracking-eyebrow"
+              style={{ color: "rgba(255,255,255,0.4)" }}
             >
               Product
             </h3>
@@ -100,8 +109,8 @@ export default function Footer() {
           {/* Col 3: Company */}
           <div>
             <h3
-              className="text-xs uppercase font-semibold mb-4"
-              style={{ color: "oklch(0.5 0.005 175)", letterSpacing: "0.1em" }}
+              className="text-xs uppercase font-bold mb-4 tracking-eyebrow"
+              style={{ color: "rgba(255,255,255,0.4)" }}
             >
               Company
             </h3>
@@ -119,8 +128,8 @@ export default function Footer() {
           {/* Col 4: Contact */}
           <div>
             <h3
-              className="text-xs uppercase font-semibold mb-4"
-              style={{ color: "oklch(0.5 0.005 175)", letterSpacing: "0.1em" }}
+              className="text-xs uppercase font-bold mb-4 tracking-eyebrow"
+              style={{ color: "rgba(255,255,255,0.4)" }}
             >
               Contact
             </h3>
@@ -134,7 +143,7 @@ export default function Footer() {
                   ) : (
                     <span
                       className="text-sm"
-                      style={{ color: "oklch(0.55 0.005 175)" }}
+                      style={{ color: "rgba(255,255,255,0.6)", fontWeight: 450 }}
                     >
                       {link.label}
                     </span>
@@ -148,12 +157,12 @@ export default function Footer() {
         {/* Bottom bar */}
         <div
           className="mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"
-          style={{ borderTop: "1px solid oklch(0.3 0.005 175)" }}
+          style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}
         >
-          <p className="text-sm" style={{ color: "oklch(0.45 0.005 175)" }}>
+          <p className="text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>
             &copy; {new Date().getFullYear()} SafeRole. All rights reserved.
           </p>
-          <p className="text-sm" style={{ color: "oklch(0.45 0.005 175)" }}>
+          <p className="text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>
             Made in India
           </p>
         </div>
