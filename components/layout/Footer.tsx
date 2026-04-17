@@ -16,21 +16,21 @@ const companyLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-50 border-t border-slate-100">
+    <footer className="bg-stone-100 border-t border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
           {/* Col 1: Logo + tagline + socials */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-amber-500 rounded-md flex items-center justify-center font-bold text-white text-lg">
+              <div className="w-8 h-8 bg-emerald-600 rounded-md flex items-center justify-center font-bold text-white text-lg">
                 S
               </div>
               <span className="text-lg font-semibold tracking-tight">
-                <span className="text-slate-900">Safe</span>
-                <span className="text-amber-500">Role</span>
+                <span className="text-stone-900">Safe</span>
+                <span className="text-emerald-600">Role</span>
               </span>
             </Link>
-            <p className="text-sm text-slate-500 leading-relaxed mb-6">
+            <p className="text-sm text-stone-500 leading-relaxed mb-6">
               India&apos;s first salary protection plan. Get paid even when you
               lose your job.
             </p>
@@ -40,11 +40,11 @@ export default function Footer() {
                 href="https://linkedin.com/company/saferole"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-slate-100 hover:bg-slate-100 transition-colors duration-200"
+                className="w-9 h-9 flex items-center justify-center rounded-lg border border-stone-200 hover:bg-stone-200 transition-colors duration-200"
                 aria-label="LinkedIn"
               >
                 <svg
-                  className="w-4 h-4 text-slate-400 hover:text-slate-600"
+                  className="w-4 h-4 text-stone-400 hover:text-stone-600"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -56,11 +56,11 @@ export default function Footer() {
                 href="https://twitter.com/saferole_in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-slate-100 hover:bg-slate-100 transition-colors duration-200"
+                className="w-9 h-9 flex items-center justify-center rounded-lg border border-stone-200 hover:bg-stone-200 transition-colors duration-200"
                 aria-label="Twitter"
               >
                 <svg
-                  className="w-4 h-4 text-slate-400 hover:text-slate-600"
+                  className="w-4 h-4 text-stone-400 hover:text-stone-600"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -72,13 +72,13 @@ export default function Footer() {
 
           {/* Col 2: Product */}
           <div>
-            <h3 className="text-sm font-semibold text-slate-900 mb-4">Product</h3>
+            <h3 className="text-sm font-semibold text-stone-900 mb-4">Product</h3>
             <ul className="space-y-3">
               {productLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200"
+                    className="text-sm text-stone-500 hover:text-stone-800 transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -89,13 +89,13 @@ export default function Footer() {
 
           {/* Col 3: Company */}
           <div>
-            <h3 className="text-sm font-semibold text-slate-900 mb-4">Company</h3>
+            <h3 className="text-sm font-semibold text-stone-900 mb-4">Company</h3>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200"
+                    className="text-sm text-stone-500 hover:text-stone-800 transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -106,27 +106,27 @@ export default function Footer() {
 
           {/* Col 4: Contact */}
           <div>
-            <h3 className="text-sm font-semibold text-slate-900 mb-4">Contact</h3>
+            <h3 className="text-sm font-semibold text-stone-900 mb-4">Contact</h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href="mailto:hello@saferole.in"
-                  className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200"
+                  className="text-sm text-stone-500 hover:text-stone-800 transition-colors duration-200"
                 >
                   hello@saferole.in
                 </a>
               </li>
-              <li className="text-sm text-slate-500">Bangalore, India</li>
+              <li className="text-sm text-stone-500">Bangalore, India</li>
             </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-slate-400">
+        <div className="mt-12 pt-8 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-stone-400">
             &copy; {new Date().getFullYear()} SafeRole. All rights reserved.
           </p>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-stone-400">
             Made in India
           </p>
         </div>

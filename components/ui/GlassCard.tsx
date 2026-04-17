@@ -14,16 +14,17 @@ function GlassCard({ children, className, hover, highlight }: GlassCardProps) {
   return (
     <div
       className={cn(
-        "relative bg-white border border-slate-100 rounded-2xl p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)]",
+        "relative bg-white border border-stone-200 rounded-2xl p-6",
+        "shadow-[0_1px_3px_rgba(28,25,23,0.06),0_1px_2px_rgba(28,25,23,0.04)]",
         hover &&
-          "transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.10)]",
-        highlight && "border-amber-300 shadow-amber-100/50",
+          "transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(28,25,23,0.08)] hover:border-emerald-200",
+        highlight && "border-emerald-400 bg-emerald-50/30",
         className
       )}
     >
       {highlight && (
         <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-          <span className="bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+          <span className="bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
             Most Popular
           </span>
         </div>

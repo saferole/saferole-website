@@ -13,15 +13,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<Variant, string> = {
   primary:
-    "bg-amber-500 text-white hover:bg-amber-600 active:bg-amber-700 font-semibold shadow-sm shadow-amber-500/25",
+    "bg-emerald-600 text-white hover:bg-emerald-700 active:bg-emerald-800 font-semibold shadow-sm shadow-emerald-600/20",
   secondary:
-    "border border-slate-200 text-slate-700 hover:bg-slate-50 active:bg-slate-100",
+    "border border-stone-200 text-stone-700 hover:bg-stone-50 hover:border-stone-300 active:bg-stone-100",
   ghost:
-    "text-slate-600 hover:text-slate-900 hover:bg-slate-50 active:bg-slate-100",
+    "text-stone-500 hover:text-stone-900 hover:bg-stone-100 active:bg-stone-200",
 };
 
 const sizeStyles: Record<Size, string> = {
-  sm: "px-4 py-2 text-sm rounded-lg",
+  sm: "px-4 py-2 text-sm rounded-xl",
   md: "px-6 py-3 text-base rounded-xl",
   lg: "px-8 py-4 text-lg rounded-xl",
 };
@@ -34,7 +34,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled}
         className={cn(
           "inline-flex items-center justify-center transition-all duration-200 cursor-pointer",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50",
           variantStyles[variant],
           sizeStyles[size],
           disabled && "opacity-50 cursor-not-allowed pointer-events-none",

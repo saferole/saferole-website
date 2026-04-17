@@ -29,19 +29,19 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm"
-          : "bg-white/90 backdrop-blur-md border-b border-transparent"
+          ? "bg-stone-50/90 backdrop-blur-md border-b border-stone-200 shadow-[0_1px_3px_rgba(28,25,23,0.06)]"
+          : "bg-stone-50/90 backdrop-blur-md border-b border-transparent"
       }`}
     >
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16 sm:h-18">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 bg-amber-500 rounded-md flex items-center justify-center font-bold text-white text-lg transition-transform duration-200 group-hover:scale-105">
+          <div className="w-8 h-8 bg-emerald-600 rounded-md flex items-center justify-center font-bold text-white text-lg transition-transform duration-200 group-hover:scale-105">
             S
           </div>
           <span className="text-lg font-semibold tracking-tight">
-            <span className="text-slate-900">Safe</span>
-            <span className="text-amber-500">Role</span>
+            <span className="text-stone-900">Safe</span>
+            <span className="text-emerald-600">Role</span>
           </span>
         </Link>
 
@@ -51,7 +51,7 @@ export default function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className="px-3 py-2 text-sm text-slate-600 hover:text-slate-900 rounded-lg transition-colors duration-200"
+              className="px-3 py-2 text-sm text-stone-500 hover:text-stone-900 rounded-lg transition-colors duration-200"
             >
               {link.label}
             </Link>
@@ -61,7 +61,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <Link
           href="/#waitlist"
-          className="hidden md:inline-flex items-center px-5 py-2 text-sm font-semibold text-white bg-amber-500 hover:bg-amber-600 rounded-xl transition-all duration-200 shadow-sm shadow-amber-500/25"
+          className="hidden md:inline-flex items-center px-5 py-2 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition-all duration-200 shadow-sm shadow-emerald-600/20"
         >
           Join Waitlist
         </Link>
@@ -69,16 +69,16 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMobileOpen((prev) => !prev)}
-          className="md:hidden flex flex-col items-center justify-center w-10 h-10 rounded-lg transition-colors duration-200 hover:bg-slate-50"
+          className="md:hidden flex flex-col items-center justify-center w-10 h-10 rounded-lg transition-colors duration-200 hover:bg-stone-100"
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-5 h-0.5 bg-slate-700 transition-all duration-300 ${
+            className={`block w-5 h-0.5 bg-stone-700 transition-all duration-300 ${
               mobileOpen ? "rotate-45 translate-y-[3px]" : ""
             }`}
           />
           <span
-            className={`block w-5 h-0.5 bg-slate-700 mt-1 transition-all duration-300 ${
+            className={`block w-5 h-0.5 bg-stone-700 mt-1 transition-all duration-300 ${
               mobileOpen ? "-rotate-45 -translate-y-[3px]" : ""
             }`}
           />
@@ -91,13 +91,13 @@ export default function Navbar() {
           mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-white border-t border-slate-100 px-4 pb-4 pt-2 flex flex-col gap-1">
+        <div className="bg-stone-50 border-t border-stone-200 px-4 pb-4 pt-2 flex flex-col gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
               onClick={handleLinkClick}
-              className="px-4 py-3 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors duration-200"
+              className="px-4 py-3 text-sm text-stone-500 hover:text-stone-900 hover:bg-stone-100 rounded-lg transition-colors duration-200"
             >
               {link.label}
             </Link>
@@ -105,7 +105,7 @@ export default function Navbar() {
           <Link
             href="/#waitlist"
             onClick={handleLinkClick}
-            className="mt-2 flex items-center justify-center px-5 py-3 text-sm font-semibold text-white bg-amber-500 hover:bg-amber-600 rounded-xl transition-all duration-200"
+            className="mt-2 flex items-center justify-center px-5 py-3 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition-all duration-200"
           >
             Join Waitlist
           </Link>
