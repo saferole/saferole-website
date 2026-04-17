@@ -28,8 +28,8 @@ function SalarySlider({
     <div className={cn("flex flex-col gap-3", className)}>
       {label && (
         <div className="flex items-center justify-between">
-          <label className="text-sm font-medium text-white/70">{label}</label>
-          <span className="text-lg font-semibold text-gold-400">
+          <label className="text-sm font-medium text-slate-500">{label}</label>
+          <span className="text-lg font-semibold text-amber-600">
             {formatCurrency(value)}
           </span>
         </div>
@@ -43,14 +43,14 @@ function SalarySlider({
           step={step}
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
-          className="salary-slider w-full h-2 rounded-full appearance-none cursor-pointer bg-white/10"
+          className="salary-slider w-full h-2 rounded-full appearance-none cursor-pointer bg-slate-200"
           style={{
-            background: `linear-gradient(to right, var(--color-gold-500) 0%, var(--color-gold-500) ${percentage}%, rgba(255,255,255,0.1) ${percentage}%, rgba(255,255,255,0.1) 100%)`,
+            background: `linear-gradient(to right, #f59e0b 0%, #f59e0b ${percentage}%, #e2e8f0 ${percentage}%, #e2e8f0 100%)`,
           }}
         />
       </div>
 
-      <div className="flex justify-between text-xs text-white/40">
+      <div className="flex justify-between text-xs text-slate-400">
         <span>{formatCurrency(min)}</span>
         <span>{formatCurrency(max)}</span>
       </div>
@@ -62,27 +62,27 @@ function SalarySlider({
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: var(--color-gold-500);
-          box-shadow: 0 0 10px rgba(212, 168, 83, 0.4);
+          background: #f59e0b;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 0 0 3px rgba(245, 158, 11, 0.15);
           cursor: pointer;
           transition: transform 0.2s, box-shadow 0.2s;
         }
         .salary-slider::-webkit-slider-thumb:hover {
           transform: scale(1.15);
-          box-shadow: 0 0 16px rgba(212, 168, 83, 0.6);
+          box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(245, 158, 11, 0.2);
         }
         .salary-slider::-moz-range-thumb {
           width: 20px;
           height: 20px;
           border: none;
           border-radius: 50%;
-          background: var(--color-gold-500);
-          box-shadow: 0 0 10px rgba(212, 168, 83, 0.4);
+          background: #f59e0b;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 0 0 3px rgba(245, 158, 11, 0.15);
           cursor: pointer;
         }
         .salary-slider:focus-visible {
           outline: none;
-          box-shadow: 0 0 0 2px var(--color-navy-950), 0 0 0 4px var(--color-gold-500);
+          box-shadow: 0 0 0 2px white, 0 0 0 4px #f59e0b;
           border-radius: 9999px;
         }
       `}</style>

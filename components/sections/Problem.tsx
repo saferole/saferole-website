@@ -62,20 +62,11 @@ function StatCounter({
   return (
     <div ref={ref} className="relative flex flex-col items-center gap-3 py-6">
       {/* Subtle top accent line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-16 bg-gradient-to-r from-transparent via-gold-500/60 to-transparent" />
-
-      {/* Glow behind stat number */}
-      <div
-        className="pointer-events-none absolute top-4 left-1/2 -translate-x-1/2 h-20 w-40 rounded-full opacity-30 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, rgba(212,168,83,0.25), transparent 70%)",
-        }}
-      />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-16 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
 
       {/* Stat number */}
       <p
-        className="relative text-5xl font-extrabold tracking-tight text-white sm:text-6xl"
+        className="relative text-5xl font-extrabold tracking-tight text-slate-900 sm:text-6xl"
         style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.03em" }}
       >
         {displayValue ? (
@@ -84,14 +75,14 @@ function StatCounter({
           <>
             <span>{formattedCount}</span>
             {suffix && (
-              <span className="text-gold-400">{suffix}</span>
+              <span className="text-amber-500">{suffix}</span>
             )}
           </>
         )}
       </p>
 
       {/* Label */}
-      <p className="max-w-[220px] text-center text-sm leading-snug text-slate-400 sm:text-base">
+      <p className="max-w-[220px] text-center text-sm leading-snug text-slate-500 sm:text-base">
         {label}
       </p>
     </div>
@@ -100,7 +91,7 @@ function StatCounter({
 
 export default function Problem() {
   return (
-    <section className="relative bg-navy-900/50 border-y border-white/5">
+    <section className="relative bg-slate-50 border-y border-slate-100">
       <div className="section-padding">
         {/* Headline */}
         <AnimatedSection className="mb-16 sm:mb-20">
@@ -111,7 +102,7 @@ export default function Problem() {
               letterSpacing: "-0.025em",
             }}
           >
-            <span className="text-white">Layoffs Are Rising.</span>{" "}
+            <span className="text-slate-900">Layoffs Are Rising.</span>{" "}
             <span className="text-slate-400">
               Your Safety Net Shouldn&apos;t Depend on Your Employer.
             </span>
