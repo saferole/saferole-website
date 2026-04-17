@@ -109,8 +109,8 @@ export default function B2BTeaser() {
           <div
             className="p-10"
             style={{
-              backgroundColor: "rgba(255,255,255,0.06)",
-              border: "1px solid rgba(255,255,255,0.12)",
+              backgroundColor: "rgba(255,255,255,0.1)",
+              border: "1px solid rgba(255,255,255,0.2)",
               borderRadius: "var(--radius-card)",
             }}
           >
@@ -160,8 +160,8 @@ export default function B2BTeaser() {
                   onChange={handleChange}
                   className={inputBaseClass}
                   style={{
-                    backgroundColor: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(255,255,255,0.12)",
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                    border: "1px solid rgba(255,255,255,0.2)",
                     borderRadius: "var(--radius-btn)",
                   }}
                   onFocus={(e) => {
@@ -169,7 +169,7 @@ export default function B2BTeaser() {
                   }}
                   onBlur={(e) => {
                     e.currentTarget.style.borderColor =
-                      "rgba(255,255,255,0.12)";
+                      "rgba(255,255,255,0.2)";
                   }}
                 />
 
@@ -182,8 +182,8 @@ export default function B2BTeaser() {
                   onChange={handleChange}
                   className={inputBaseClass}
                   style={{
-                    backgroundColor: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(255,255,255,0.12)",
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                    border: "1px solid rgba(255,255,255,0.2)",
                     borderRadius: "var(--radius-btn)",
                   }}
                   onFocus={(e) => {
@@ -191,7 +191,7 @@ export default function B2BTeaser() {
                   }}
                   onBlur={(e) => {
                     e.currentTarget.style.borderColor =
-                      "rgba(255,255,255,0.12)";
+                      "rgba(255,255,255,0.2)";
                   }}
                 />
 
@@ -202,8 +202,8 @@ export default function B2BTeaser() {
                   onChange={handleChange}
                   className={inputBaseClass}
                   style={{
-                    backgroundColor: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(255,255,255,0.12)",
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                    border: "1px solid rgba(255,255,255,0.2)",
                     borderRadius: "var(--radius-btn)",
                     color: form.companySize
                       ? "white"
@@ -214,7 +214,7 @@ export default function B2BTeaser() {
                   }}
                   onBlur={(e) => {
                     e.currentTarget.style.borderColor =
-                      "rgba(255,255,255,0.12)";
+                      "rgba(255,255,255,0.2)";
                   }}
                 >
                   <option value="" disabled>
@@ -234,8 +234,8 @@ export default function B2BTeaser() {
                   onChange={handleChange}
                   className={`${inputBaseClass} resize-none`}
                   style={{
-                    backgroundColor: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(255,255,255,0.12)",
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                    border: "1px solid rgba(255,255,255,0.2)",
                     borderRadius: "var(--radius-btn)",
                   }}
                   onFocus={(e) => {
@@ -243,7 +243,7 @@ export default function B2BTeaser() {
                   }}
                   onBlur={(e) => {
                     e.currentTarget.style.borderColor =
-                      "rgba(255,255,255,0.12)";
+                      "rgba(255,255,255,0.2)";
                   }}
                 />
 
