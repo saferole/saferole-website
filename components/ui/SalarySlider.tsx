@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { formatCurrency } from "@/lib/utils";
 
 interface SalarySliderProps {
@@ -20,16 +19,16 @@ function SalarySlider({
   max,
   step = 50000,
   label,
-  className,
+  className = "",
 }: SalarySliderProps) {
   const percentage = ((value - min) / (max - min)) * 100;
 
   return (
-    <div className={cn("flex flex-col gap-3", className)}>
+    <div className={`flex flex-col gap-3 ${className}`}>
       {label && (
         <div className="flex items-center justify-between">
-          <label className="text-sm font-medium text-stone-500">{label}</label>
-          <span className="text-lg font-semibold text-emerald-700">
+          <label className="text-sm font-medium text-zinc-500">{label}</label>
+          <span className="text-lg font-semibold text-emerald-400">
             {formatCurrency(value)}
           </span>
         </div>
@@ -43,14 +42,14 @@ function SalarySlider({
           step={step}
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
-          className="salary-slider w-full h-2 rounded-full appearance-none cursor-pointer bg-stone-200"
+          className="salary-slider w-full h-2 rounded-full appearance-none cursor-pointer bg-zinc-800"
           style={{
-            background: `linear-gradient(to right, #059669 0%, #059669 ${percentage}%, #D6D3D1 ${percentage}%, #D6D3D1 100%)`,
+            background: `linear-gradient(to right, #10B981 0%, #10B981 ${percentage}%, #27272A ${percentage}%, #27272A 100%)`,
           }}
         />
       </div>
 
-      <div className="flex justify-between text-xs text-stone-400">
+      <div className="flex justify-between text-xs text-zinc-500">
         <span>{formatCurrency(min)}</span>
         <span>{formatCurrency(max)}</span>
       </div>
@@ -62,27 +61,27 @@ function SalarySlider({
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: #059669;
-          box-shadow: 0 1px 3px rgba(28, 25, 23, 0.15), 0 0 0 3px rgba(5, 150, 105, 0.15);
+          background: #10B981;
+          box-shadow: 0 0 12px rgba(16, 185, 129, 0.4), 0 0 0 3px rgba(16, 185, 129, 0.15);
           cursor: pointer;
           transition: transform 0.2s, box-shadow 0.2s;
         }
         .salary-slider::-webkit-slider-thumb:hover {
           transform: scale(1.15);
-          box-shadow: 0 1px 6px rgba(28, 25, 23, 0.2), 0 0 0 4px rgba(5, 150, 105, 0.2);
+          box-shadow: 0 0 16px rgba(16, 185, 129, 0.5), 0 0 0 4px rgba(16, 185, 129, 0.2);
         }
         .salary-slider::-moz-range-thumb {
           width: 20px;
           height: 20px;
           border: none;
           border-radius: 50%;
-          background: #059669;
-          box-shadow: 0 1px 3px rgba(28, 25, 23, 0.15), 0 0 0 3px rgba(5, 150, 105, 0.15);
+          background: #10B981;
+          box-shadow: 0 0 12px rgba(16, 185, 129, 0.4), 0 0 0 3px rgba(16, 185, 129, 0.15);
           cursor: pointer;
         }
         .salary-slider:focus-visible {
           outline: none;
-          box-shadow: 0 0 0 2px #FAFAF9, 0 0 0 4px #059669;
+          box-shadow: 0 0 0 2px #09090B, 0 0 0 4px #10B981;
           border-radius: 9999px;
         }
       `}</style>

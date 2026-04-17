@@ -12,7 +12,7 @@ import {
 import { formatCurrency } from "@/lib/utils";
 import { SalarySlider } from "@/components/ui/SalarySlider";
 import { Select } from "@/components/ui/Select";
-import { Button } from "@/components/ui/Button";
+import Button from "@/components/ui/Button";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 const PLAN_KEYS: PlanKey[] = ["starter", "standard", "premium"];

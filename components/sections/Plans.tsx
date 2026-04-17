@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatedSection, AnimatedItem } from "@/components/ui/AnimatedSection";
-import { Button } from "@/components/ui/Button";
+import Button from "@/components/ui/Button";
 import { PLANS, type PlanKey } from "@/lib/constants";
 
 const featureLabels = [

@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { Button } from "@/components/ui/Button";
+import Button from "@/components/ui/Button";
 
 export default function B2BTeaser() {
   const [form, setForm] = useState({

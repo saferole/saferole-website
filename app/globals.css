@@ -13,23 +13,43 @@
   --color-gold-600: #B8923F;
 
   --font-sans: var(--font-dm-sans), system-ui, sans-serif;
-  --font-display: var(--font-outfit), system-ui, sans-serif;
+  --font-display: var(--font-syne), system-ui, sans-serif;
 
-  --animate-fade-up: fadeUp 0.6s ease-out forwards;
+  --animate-fade-up: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-glow-pulse: glowPulse 4s ease-in-out infinite;
+  --animate-aurora: aurora 15s ease infinite;
+  --animate-gradient-x: gradientX 8s ease infinite;
 
   @keyframes fadeUp {
-    0% { opacity: 0; transform: translateY(20px); }
+    0% { opacity: 0; transform: translateY(24px); }
     100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+
+  @keyframes aurora {
+    0%, 100% { transform: translateX(0%) translateY(0%) rotate(0deg); }
+    33% { transform: translateX(30%) translateY(-20%) rotate(120deg); }
+    66% { transform: translateX(-20%) translateY(20%) rotate(240deg); }
+  }
+
+  @keyframes gradientX {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 }
 
 @layer base {
   body {
-    @apply bg-stone-50 text-stone-800 antialiased;
+    @apply bg-zinc-950 text-zinc-100 antialiased;
   }
 
   ::selection {
-    @apply bg-emerald-100 text-emerald-900;
+    background: rgba(16, 185, 129, 0.3);
+    color: #fff;
   }
 }
 
@@ -37,22 +57,66 @@
   .section-padding {
     @apply px-4 sm:px-6 lg:px-8 py-24 sm:py-32 max-w-7xl mx-auto;
   }
-  .card {
-    background: white;
-    border: 1px solid #E7E5E4;
+
+  /* Gradient border card */
+  .gradient-border {
+    position: relative;
+    background: #18181B;
     border-radius: 1rem;
-    box-shadow: 0 1px 3px rgba(28, 25, 23, 0.06), 0 1px 2px rgba(28, 25, 23, 0.04);
+    overflow: hidden;
   }
-  .card-hover {
-    background: white;
-    border: 1px solid #E7E5E4;
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
     border-radius: 1rem;
-    box-shadow: 0 1px 3px rgba(28, 25, 23, 0.06), 0 1px 2px rgba(28, 25, 23, 0.04);
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    padding: 1px;
+    background: linear-gradient(135deg, transparent 40%, rgba(16, 185, 129, 0.3), transparent 60%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
   }
-  .card-hover:hover {
-    box-shadow: 0 10px 25px rgba(28, 25, 23, 0.08);
+
+  /* Glow card */
+  .glow-card {
+    background: #18181B;
+    border: 1px solid #27272A;
+    border-radius: 1rem;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .glow-card:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.08), 0 0 60px rgba(16, 185, 129, 0.04);
     transform: translateY(-2px);
-    border-color: #A7F3D0;
+  }
+
+  /* Noise overlay - add to sections for texture */
+  .noise::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+  }
+
+  /* Animated gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #10B981, #06B6D4, #10B981);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientX 8s ease infinite;
+  }
+
+  /* Section divider glow line */
+  .glow-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.3), transparent);
   }
 }

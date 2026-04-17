@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/Button";
+import Button from "@/components/ui/Button";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
