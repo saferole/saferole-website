@@ -73,66 +73,54 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="relative bg-zinc-900/50">
+    <section id="how-it-works" className="bg-gray-50">
       <div className="section-padding">
         {/* Section Header */}
         <AnimatedSection className="mx-auto mb-16 max-w-2xl text-center sm:mb-20">
           <h2
-            className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl"
+            className="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl"
             style={{
               fontFamily: "var(--font-display)",
               letterSpacing: "-0.025em",
             }}
           >
-            <span className="text-zinc-50">How It </span>
-            <span className="gradient-text">Works</span>
+            How It{" "}
+            <span className="text-emerald-500">Works</span>
           </h2>
-          <p className="mt-4 text-base text-zinc-400 sm:text-lg">
+          <p className="mt-4 text-base text-gray-500 sm:text-lg">
             Three simple steps to protect your income.
           </p>
         </AnimatedSection>
 
         {/* Steps Grid */}
         <AnimatedSection stagger className="relative grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-6">
-          {/* Connector lines (desktop only) — emerald gradient */}
-          <div
-            className="pointer-events-none absolute top-1/2 left-[33.33%] hidden h-px w-[33.33%] -translate-y-1/2 md:block"
-            style={{
-              background:
-                "linear-gradient(to right, rgba(16,185,129,0.20), transparent)",
-            }}
-          />
-          <div
-            className="pointer-events-none absolute top-1/2 left-[66.66%] hidden h-px w-[33.33%] -translate-y-1/2 md:block"
-            style={{
-              background:
-                "linear-gradient(to left, rgba(16,185,129,0.20), transparent)",
-            }}
-          />
+          {/* Connector lines (desktop only) — dashed */}
+          <div className="pointer-events-none absolute top-1/2 left-[33.33%] hidden h-px w-[33.33%] -translate-y-1/2 md:block border-t border-dashed border-gray-300" />
+          <div className="pointer-events-none absolute top-1/2 left-[66.66%] hidden h-px w-[33.33%] -translate-y-1/2 md:block border-t border-dashed border-gray-300" />
 
           {steps.map((step) => (
             <AnimatedItem key={step.number}>
-              <div className="glow-card relative overflow-hidden p-7 sm:p-8">
+              <div className="relative overflow-hidden bg-white border border-gray-200 rounded-2xl shadow-sm p-7 sm:p-8 hover:shadow-lg transition-all duration-300">
                 {/* Step number watermark */}
                 <span
-                  className="pointer-events-none absolute top-4 right-6 text-7xl font-extrabold text-emerald-500/[0.07]"
+                  className="pointer-events-none absolute top-4 right-6 text-7xl font-extrabold text-gray-200"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {step.number}
                 </span>
 
                 {/* Icon */}
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
                   {step.icon}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-semibold text-zinc-100">
+                <h3 className="text-xl font-semibold text-gray-900">
                   {step.title}
                 </h3>
 
                 {/* Description */}
-                <p className="mt-3 text-sm leading-relaxed text-zinc-400 sm:text-base">
+                <p className="mt-3 text-sm leading-relaxed text-gray-500 sm:text-base">
                   {step.description}
                 </p>
               </div>

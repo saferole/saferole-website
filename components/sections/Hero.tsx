@@ -28,68 +28,33 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-zinc-950">
-      {/* === Background Layers === */}
-
-      {/* Aurora mesh — 3 drifting blurred circles */}
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#0F172A]">
+      {/* === Background gradient blobs === */}
       <div className="pointer-events-none absolute inset-0">
+        {/* Emerald blob — top right */}
         <div
-          className="absolute left-1/4 top-1/4 h-[600px] w-[600px] rounded-full blur-3xl"
-          style={{
-            background: "rgba(16, 185, 129, 0.15)",
-            animation: "aurora 15s ease infinite",
-          }}
+          className="absolute -top-32 -right-32 h-[600px] w-[600px] rounded-full blur-3xl"
+          style={{ background: "rgba(16, 185, 129, 0.15)" }}
         />
+        {/* Blue blob — bottom left */}
         <div
-          className="absolute right-1/4 top-1/3 h-[500px] w-[500px] rounded-full blur-3xl"
-          style={{
-            background: "rgba(6, 182, 212, 0.10)",
-            animation: "aurora 20s ease infinite 5s",
-          }}
-        />
-        <div
-          className="absolute left-1/3 bottom-1/4 h-[700px] w-[700px] rounded-full blur-3xl"
-          style={{
-            background: "rgba(16, 185, 129, 0.10)",
-            animation: "aurora 25s ease infinite 10s",
-          }}
+          className="absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full blur-3xl"
+          style={{ background: "rgba(59, 130, 246, 0.10)" }}
         />
       </div>
-
-      {/* Grid pattern — very subtle */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.025]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(161,161,170,1) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(161,161,170,1) 1px, transparent 1px)`,
-          backgroundSize: "80px 80px",
-        }}
-      />
-
-      {/* Noise overlay */}
-      <div className="noise pointer-events-none absolute inset-0" />
-
-      {/* Radial vignette */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, transparent 0%, #09090B 70%)",
-        }}
-      />
 
       {/* === Content === */}
       <div className="relative z-10 mx-auto max-w-5xl px-4 pt-24 pb-16 text-center sm:px-6 lg:px-8">
         {/* Pill badge */}
         <motion.div
           {...fadeIn(0)}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-2"
+          className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2"
         >
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
           </span>
-          <span className="text-sm font-medium text-emerald-400">
+          <span className="text-sm font-medium text-white/80">
             India&apos;s First Career Insurance
           </span>
         </motion.div>
@@ -97,21 +62,21 @@ export default function Hero() {
         {/* Headline */}
         <motion.h1
           {...fadeUp(0.1)}
-          className="mx-auto max-w-4xl text-6xl font-extrabold leading-[1.05] text-zinc-50 sm:text-7xl lg:text-8xl"
+          className="mx-auto max-w-4xl text-5xl font-extrabold leading-[1.05] text-white sm:text-6xl lg:text-7xl"
           style={{
             fontFamily: "var(--font-display)",
-            letterSpacing: "-0.04em",
+            letterSpacing: "-0.02em",
           }}
         >
           Your Career.
           <br />
-          <span className="gradient-text">Your Safety Net.</span>
+          <span className="text-emerald-400">Your Safety Net.</span>
         </motion.h1>
 
         {/* Subtitle */}
         <motion.p
           {...fadeUp(0.2)}
-          className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400 sm:text-xl"
+          className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-300 sm:text-xl"
         >
           India&apos;s first salary protection plan. Get paid even when you lose
           your job. Cover your rent, EMIs, and essentials while you find your
@@ -126,18 +91,16 @@ export default function Hero() {
           <Button
             size="lg"
             variant="primary"
-            glow
             onClick={() => scrollTo("waitlist")}
           >
             Join the Waitlist
           </Button>
-          <Button
-            size="lg"
-            variant="secondary"
+          <button
             onClick={() => scrollTo("calculator")}
+            className="inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-white border border-white/20 rounded-full hover:bg-white/10 transition-all duration-200"
           >
             Calculate Your Premium &rarr;
-          </Button>
+          </button>
         </motion.div>
 
         {/* Trust bar */}
@@ -149,16 +112,13 @@ export default function Hero() {
             "50% Salary Coverage",
             "Up to 9 Months",
             "Free Upskilling",
-          ].map((item, i) => (
+          ].map((item) => (
             <span
               key={item}
-              className="inline-flex items-center gap-2 text-sm text-zinc-500"
+              className="inline-flex items-center gap-2 text-sm text-gray-400"
             >
-              {i > 0 && (
-                <span className="mr-6 hidden h-1 w-1 rounded-full bg-zinc-800 sm:inline-block" />
-              )}
               <svg
-                className="h-4 w-4 flex-shrink-0 text-emerald-500"
+                className="h-4 w-4 flex-shrink-0 text-emerald-400"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >

@@ -70,56 +70,48 @@ const icons: Record<string, React.ReactNode> = {
   ),
 };
 
-// Map benefit index to bento grid span
-const bentoSpans = [
-  "md:col-span-2", // Upskilling — wide
-  "md:col-span-1", // Hiring
-  "md:col-span-1", // No-Claim
-  "md:col-span-2", // Career Break — wide
-];
-
 export default function Benefits() {
   return (
-    <section className="relative bg-zinc-950">
+    <section className="bg-white">
       <div className="section-padding">
         {/* Section Header */}
         <AnimatedSection className="mx-auto mb-16 max-w-2xl text-center sm:mb-20">
           <h2
-            className="text-3xl font-bold leading-tight text-zinc-50 sm:text-4xl lg:text-5xl"
+            className="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl"
             style={{
               fontFamily: "var(--font-display)",
               letterSpacing: "-0.025em",
             }}
           >
             More Than{" "}
-            <span className="gradient-text">a Safety Net</span>
+            <span className="text-emerald-500">a Safety Net</span>
           </h2>
-          <p className="mt-4 text-base text-zinc-400 sm:text-lg">
+          <p className="mt-4 text-base text-gray-500 sm:text-lg">
             SafeRole goes beyond payouts. Get upskilling, placement support, and
             rewards for staying employed.
           </p>
         </AnimatedSection>
 
-        {/* Bento Grid */}
+        {/* 2x2 Grid */}
         <AnimatedSection
           stagger
-          className="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-3"
+          className="mx-auto grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2"
         >
-          {BENEFITS.map((benefit, i) => (
-            <AnimatedItem key={benefit.title} className={bentoSpans[i] ?? ""}>
-              <div className="glow-card flex h-full flex-col gap-4 p-8">
+          {BENEFITS.map((benefit) => (
+            <AnimatedItem key={benefit.title}>
+              <div className="flex h-full flex-col gap-4 bg-white border border-gray-200 rounded-2xl shadow-sm p-8 hover:shadow-lg transition-all duration-300">
                 {/* Icon */}
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-emerald-500/10 p-3 text-emerald-400">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-emerald-50 p-3 text-emerald-600">
                   {icons[benefit.icon]}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-semibold text-zinc-100 sm:text-xl">
+                <h3 className="text-lg font-semibold text-gray-900 sm:text-xl">
                   {benefit.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm leading-relaxed text-zinc-400 sm:text-base">
+                <p className="text-sm leading-relaxed text-gray-500 sm:text-base">
                   {benefit.description}
                 </p>
               </div>
