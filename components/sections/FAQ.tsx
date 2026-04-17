@@ -16,7 +16,7 @@ function ChevronIcon({ open }: { open: boolean }) {
       viewBox="0 0 24 24"
       strokeWidth={2}
       stroke="currentColor"
-      className="h-5 w-5 shrink-0 text-slate-400"
+      className="h-5 w-5 shrink-0 text-stone-400"
       animate={{ rotate: open ? 180 : 0 }}
       transition={{ duration: 0.2 }}
     >
@@ -43,28 +43,28 @@ export default function FAQ() {
   }
 
   return (
-    <section id="faq" className="relative bg-white">
+    <section id="faq" className="relative bg-stone-50">
       <div className="section-padding">
         {/* Section Header */}
         <AnimatedSection className="mx-auto mb-16 max-w-2xl text-center sm:mb-20">
           <h2
-            className="text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl"
+            className="text-3xl font-bold leading-tight text-stone-900 sm:text-4xl lg:text-5xl"
             style={{
               fontFamily: "var(--font-display)",
               letterSpacing: "-0.025em",
             }}
           >
             Frequently Asked{" "}
-            <span className="text-amber-500">Questions</span>
+            <span className="text-emerald-600">Questions</span>
           </h2>
-          <p className="mt-4 text-base text-slate-500 sm:text-lg">
+          <p className="mt-4 text-base text-stone-500 sm:text-lg">
             Everything you need to know about SafeRole.
           </p>
         </AnimatedSection>
 
         {/* Category Tabs */}
         <AnimatedSection className="mx-auto mb-10 flex max-w-3xl flex-wrap justify-center gap-2">
-          <div className="flex flex-wrap justify-center gap-2 rounded-full bg-slate-100 p-1">
+          <div className="flex flex-wrap justify-center gap-2 rounded-full bg-stone-200 p-1">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
@@ -75,8 +75,8 @@ export default function FAQ() {
                 className={cn(
                   "cursor-pointer rounded-full px-4 py-2 text-sm font-medium transition-all duration-200",
                   activeCategory === cat
-                    ? "bg-amber-500 text-white shadow-sm"
-                    : "text-slate-600 hover:text-slate-900"
+                    ? "bg-emerald-600 text-white shadow-sm"
+                    : "text-stone-600 hover:text-stone-900"
                 )}
               >
                 {cat}
@@ -94,15 +94,15 @@ export default function FAQ() {
                 <div
                   key={item.question}
                   className={cn(
-                    "border-b border-slate-100 transition-colors duration-200",
-                    isOpen && "border-l-2 border-l-amber-500 bg-slate-50"
+                    "border-b border-stone-200 transition-colors duration-200",
+                    isOpen && "border-l-2 border-l-emerald-500 bg-white"
                   )}
                 >
                   <button
                     onClick={() => toggle(i)}
                     className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left"
                   >
-                    <span className="text-sm font-medium text-slate-900 sm:text-base">
+                    <span className="text-sm font-medium text-stone-900 sm:text-base">
                       {item.question}
                     </span>
                     <ChevronIcon open={isOpen} />
@@ -119,7 +119,7 @@ export default function FAQ() {
                         className="overflow-hidden"
                       >
                         <div className="px-6 pb-5">
-                          <p className="text-sm leading-relaxed text-slate-500">
+                          <p className="text-sm leading-relaxed text-stone-500">
                             {item.answer}
                           </p>
                         </div>

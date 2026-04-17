@@ -53,34 +53,34 @@ export default function WaitlistForm() {
   }
 
   const inputClasses =
-    "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder-slate-400 outline-none transition-colors focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20";
+    "w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-sm text-stone-900 placeholder-stone-400 outline-none transition-colors focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20";
 
   return (
     <section
       id="waitlist"
-      className="relative bg-slate-50"
+      className="relative bg-white"
     >
       <div className="section-padding">
         <AnimatedSection className="mx-auto max-w-lg">
           {/* Section Header */}
           <div className="mb-10 text-center">
             <h2
-              className="text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl"
+              className="text-3xl font-bold leading-tight text-stone-900 sm:text-4xl lg:text-5xl"
               style={{
                 fontFamily: "var(--font-display)",
                 letterSpacing: "-0.025em",
               }}
             >
               Join the{" "}
-              <span className="text-amber-500">Waitlist</span>
+              <span className="text-emerald-600">Waitlist</span>
             </h2>
-            <p className="mt-4 text-base text-slate-500 sm:text-lg">
+            <p className="mt-4 text-base text-stone-500 sm:text-lg">
               Be among the first to protect your career.
             </p>
           </div>
 
           {/* Form Card */}
-          <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.06)] sm:p-8">
+          <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-[0_2px_12px_rgba(28,25,23,0.06)] sm:p-8">
             {status === "success" ? (
               <div className="flex flex-col items-center gap-4 py-8 text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50">
@@ -99,19 +99,19 @@ export default function WaitlistForm() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-slate-900">
+                <h3 className="text-xl font-semibold text-stone-900">
                   You&apos;re on the list!
                 </h3>
                 {position && (
-                  <p className="text-sm text-slate-500">
+                  <p className="text-sm text-stone-500">
                     You are{" "}
-                    <span className="font-semibold text-amber-600">
+                    <span className="font-semibold text-emerald-600">
                       #{position}
                     </span>{" "}
                     in line.
                   </p>
                 )}
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-stone-400">
                   We&apos;ll notify you when SafeRole launches.
                 </p>
               </div>
@@ -122,7 +122,7 @@ export default function WaitlistForm() {
               >
                 {/* Name */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-slate-600">
+                  <label className="text-sm font-medium text-stone-600">
                     Name <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -143,7 +143,7 @@ export default function WaitlistForm() {
 
                 {/* Email */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-slate-600">
+                  <label className="text-sm font-medium text-stone-600">
                     Email <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -164,12 +164,12 @@ export default function WaitlistForm() {
 
                 {/* Monthly Salary */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-slate-600">
+                  <label className="text-sm font-medium text-stone-600">
                     Monthly Salary{" "}
-                    <span className="text-slate-400">(optional)</span>
+                    <span className="text-stone-400">(optional)</span>
                   </label>
                   <div className="relative">
-                    <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400">
+                    <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm text-stone-400">
                       &#8377;
                     </span>
                     <input
@@ -183,9 +183,9 @@ export default function WaitlistForm() {
 
                 {/* Company */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-slate-600">
+                  <label className="text-sm font-medium text-stone-600">
                     Company{" "}
-                    <span className="text-slate-400">(optional)</span>
+                    <span className="text-stone-400">(optional)</span>
                   </label>
                   <input
                     {...register("company")}
@@ -236,7 +236,7 @@ export default function WaitlistForm() {
                   )}
                 </Button>
 
-                <p className="text-center text-xs text-slate-400">
+                <p className="text-center text-xs text-stone-400">
                   No spam, ever. We only email when SafeRole is ready.
                 </p>
               </form>

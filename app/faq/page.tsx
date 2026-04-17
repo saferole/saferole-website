@@ -8,11 +8,11 @@ export const metadata: Metadata = {
 
 export default function FAQPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-stone-50">
       {/* Breadcrumb */}
       <div className="section-padding pt-28 pb-0">
-        <nav className="flex items-center gap-2 text-sm text-slate-500" aria-label="Breadcrumb">
-          <Link href="/" className="hover:text-amber-600 transition-colors">
+        <nav className="flex items-center gap-2 text-sm text-stone-500" aria-label="Breadcrumb">
+          <Link href="/" className="hover:text-emerald-600 transition-colors">
             Home
           </Link>
           <svg
@@ -25,7 +25,7 @@ export default function FAQPage() {
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
           </svg>
-          <span className="text-slate-900">FAQ</span>
+          <span className="text-stone-900">FAQ</span>
         </nav>
       </div>
 

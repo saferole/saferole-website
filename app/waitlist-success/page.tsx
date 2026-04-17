@@ -14,7 +14,7 @@ export default function WaitlistSuccessPage() {
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(SHARE_TEXT)}&url=${encodeURIComponent(SHARE_URL)}`;
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-white px-4">
+    <div className="flex min-h-screen items-center justify-center bg-stone-50 px-4">
       <div className="mx-auto max-w-md w-full text-center">
         {/* Green checkmark icon */}
         <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-emerald-50 ring-2 ring-emerald-200">
@@ -36,17 +36,17 @@ export default function WaitlistSuccessPage() {
 
         {/* Headline */}
         <h1
-          className="text-4xl font-bold text-slate-900 sm:text-5xl"
+          className="text-4xl font-bold text-stone-900 sm:text-5xl"
           style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.025em" }}
         >
           You&apos;re on the list!
         </h1>
 
         {/* Subtitle */}
-        <p className="mt-4 text-lg text-slate-600">
+        <p className="mt-4 text-lg text-stone-600">
           We&apos;ll notify you when SafeRole launches.
         </p>
-        <p className="mt-2 text-sm text-slate-400">
+        <p className="mt-2 text-sm text-stone-400">
           In the meantime, spread the word and help us reach more tech professionals.
         </p>
 
@@ -60,7 +60,7 @@ export default function WaitlistSuccessPage() {
             href={linkedInUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700 transition-all duration-200 hover:bg-slate-50 hover:border-slate-300 hover:shadow-sm"
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-5 py-3 text-sm font-medium text-stone-700 transition-all duration-200 hover:bg-stone-50 hover:border-stone-300 hover:shadow-sm"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,7 @@ export default function WaitlistSuccessPage() {
             href={twitterUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700 transition-all duration-200 hover:bg-slate-50 hover:border-slate-300 hover:shadow-sm"
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-5 py-3 text-sm font-medium text-stone-700 transition-all duration-200 hover:bg-stone-50 hover:border-stone-300 hover:shadow-sm"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@ export default function WaitlistSuccessPage() {
         <div className="mt-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-slate-500 transition-colors hover:text-amber-600"
+            className="inline-flex items-center gap-2 text-sm text-stone-500 transition-colors hover:text-emerald-600"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

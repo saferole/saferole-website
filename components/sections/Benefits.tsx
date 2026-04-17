@@ -77,16 +77,16 @@ export default function Benefits() {
         {/* Section Header */}
         <AnimatedSection className="mx-auto mb-16 max-w-2xl text-center sm:mb-20">
           <h2
-            className="text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl"
+            className="text-3xl font-bold leading-tight text-stone-900 sm:text-4xl lg:text-5xl"
             style={{
               fontFamily: "var(--font-display)",
               letterSpacing: "-0.025em",
             }}
           >
             More Than{" "}
-            <span className="text-amber-500">a Safety Net</span>
+            <span className="text-emerald-600">a Safety Net</span>
           </h2>
-          <p className="mt-4 text-base text-slate-500 sm:text-lg">
+          <p className="mt-4 text-base text-stone-500 sm:text-lg">
             SafeRole goes beyond payouts. Get upskilling, placement support, and
             rewards for staying employed.
           </p>
@@ -101,17 +101,17 @@ export default function Benefits() {
             <AnimatedItem key={benefit.title}>
               <div className="card-hover flex flex-col gap-4 p-7 sm:p-8">
                 {/* Icon */}
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-50 text-amber-600">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
                   {icons[benefit.icon]}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-semibold text-slate-900 sm:text-xl">
+                <h3 className="text-lg font-semibold text-stone-900 sm:text-xl">
                   {benefit.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm leading-relaxed text-slate-500 sm:text-base">
+                <p className="text-sm leading-relaxed text-stone-500 sm:text-base">
                   {benefit.description}
                 </p>
               </div>

@@ -61,12 +61,12 @@ function StatCounter({
 
   return (
     <div ref={ref} className="relative flex flex-col items-center gap-3 py-6">
-      {/* Subtle top accent line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-16 bg-gradient-to-r from-transparent via-amber-500 to-transparent" />
+      {/* Accent line above stats — emerald-500, thin 2px */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-0.5 w-16 bg-gradient-to-r from-transparent via-emerald-500 to-transparent" />
 
       {/* Stat number */}
       <p
-        className="relative text-5xl font-extrabold tracking-tight text-slate-900 sm:text-6xl"
+        className="relative text-5xl font-extrabold tracking-tight text-stone-900 sm:text-6xl"
         style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.03em" }}
       >
         {displayValue ? (
@@ -75,14 +75,14 @@ function StatCounter({
           <>
             <span>{formattedCount}</span>
             {suffix && (
-              <span className="text-amber-500">{suffix}</span>
+              <span className="text-emerald-600">{suffix}</span>
             )}
           </>
         )}
       </p>
 
       {/* Label */}
-      <p className="max-w-[220px] text-center text-sm leading-snug text-slate-500 sm:text-base">
+      <p className="max-w-[220px] text-center text-sm leading-snug text-stone-500 sm:text-base">
         {label}
       </p>
     </div>
@@ -91,7 +91,7 @@ function StatCounter({
 
 export default function Problem() {
   return (
-    <section className="relative bg-slate-50 border-y border-slate-100">
+    <section className="relative bg-white border-y border-stone-200">
       <div className="section-padding">
         {/* Headline */}
         <AnimatedSection className="mb-16 sm:mb-20">
@@ -102,8 +102,8 @@ export default function Problem() {
               letterSpacing: "-0.025em",
             }}
           >
-            <span className="text-slate-900">Layoffs Are Rising.</span>{" "}
-            <span className="text-slate-400">
+            <span className="text-stone-900">Layoffs Are Rising.</span>{" "}
+            <span className="text-stone-400">
               Your Safety Net Shouldn&apos;t Depend on Your Employer.
             </span>
           </h2>

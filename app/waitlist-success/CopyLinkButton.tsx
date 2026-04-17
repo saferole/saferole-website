@@ -18,7 +18,7 @@ export default function CopyLinkButton() {
   return (
     <button
       onClick={handleCopy}
-      className="inline-flex items-center justify-center gap-2 rounded-xl bg-amber-500 px-5 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-amber-600 active:scale-95"
+      className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-emerald-700 active:scale-95"
     >
       {copied ? (
         <>
