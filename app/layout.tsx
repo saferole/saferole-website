@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import { Fraunces, Figtree } from "next/font/google";
+import { Libre_Baskerville, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const fraunces = Fraunces({
+const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-display",
+  weight: ["400", "700"],
   display: "swap",
 });
 
-const figtree = Figtree({
+const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
-  variable: "--font-figtree",
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -21,10 +22,12 @@ export const metadata: Metadata = {
     default: "SafeRole — India's First Salary Protection Plan",
     template: "%s | SafeRole",
   },
-  description: "Get paid even when you lose your job. Career insurance for India's tech professionals.",
+  description:
+    "Get paid even when you lose your job. Career insurance for India's tech professionals.",
   openGraph: {
     title: "SafeRole — India's First Salary Protection Plan",
-    description: "Get paid even when you lose your job. Career insurance for India's tech professionals.",
+    description:
+      "Get paid even when you lose your job. Career insurance for India's tech professionals.",
     url: "https://saferole.in",
     siteName: "SafeRole",
     locale: "en_IN",
@@ -33,7 +36,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SafeRole — India's First Salary Protection Plan",
-    description: "Get paid even when you lose your job. Career insurance for India's tech professionals.",
+    description:
+      "Get paid even when you lose your job. Career insurance for India's tech professionals.",
   },
   robots: { index: true, follow: true },
 };
@@ -44,8 +48,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${figtree.variable}`}>
-      <body className={figtree.className}>
+    <html lang="en" className={`${libreBaskerville.variable} ${nunitoSans.variable}`}>
+      <body className={nunitoSans.className}>
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

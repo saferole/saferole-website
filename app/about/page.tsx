@@ -13,19 +13,31 @@ const TEAM_MEMBERS = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div style={{ backgroundColor: "var(--color-bg)" }}>
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="section-padding pt-32 pb-20">
-          <AnimatedSection className="mx-auto max-w-3xl text-center">
+      <section
+        style={{
+          paddingTop: "var(--space-4xl)",
+          paddingBottom: "var(--space-3xl)",
+        }}
+      >
+        <div className="section-container">
+          <AnimatedSection className="max-w-3xl">
             <h1
-              className="text-4xl font-bold leading-tight text-slate-800 sm:text-5xl lg:text-6xl"
-              style={{ fontFamily: "var(--font-display)" }}
+              className="font-bold leading-tight"
+              style={{
+                fontFamily: "var(--font-display)",
+                color: "var(--color-text)",
+                fontSize: "clamp(2rem, 4vw, 3rem)",
+              }}
             >
               About SafeRole
             </h1>
-            <p className="mt-6 text-lg text-slate-500 leading-relaxed">
-              We&apos;re building India&apos;s first salary protection plan — because
+            <p
+              className="mt-6 text-lg leading-relaxed max-w-[60ch]"
+              style={{ color: "var(--color-text-secondary)" }}
+            >
+              We&apos;re building India&apos;s first salary protection plan &mdash; because
               your financial security shouldn&apos;t depend on your employer&apos;s
               decisions.
             </p>
@@ -33,94 +45,73 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="bg-slate-50">
-        <div className="section-padding py-16">
-          <div className="mx-auto max-w-5xl">
-            <AnimatedSection className="grid gap-8 md:grid-cols-2 md:gap-12">
-              <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-8">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="h-6 w-6 text-blue-600"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
-                    />
-                  </svg>
-                </div>
-                <h2
-                  className="mb-4 text-2xl font-bold text-slate-800"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  Our Mission
-                </h2>
-                <p className="text-slate-500 leading-relaxed">
-                  We believe no one should face financial uncertainty because of a
-                  layoff. Tech professionals in India work hard, build careers, and
-                  support families — yet a single job loss can unravel years of
-                  progress. SafeRole exists to change that.
-                </p>
-              </div>
+      {/* Mission & Vision */}
+      <section
+        style={{
+          backgroundColor: "var(--color-bg-alt)",
+          paddingTop: "var(--space-3xl)",
+          paddingBottom: "var(--space-3xl)",
+        }}
+      >
+        <div className="section-container">
+          <AnimatedSection className="grid gap-12 md:grid-cols-2 max-w-5xl">
+            <div>
+              <h2
+                className="text-2xl font-bold mb-4"
+                style={{ fontFamily: "var(--font-display)", color: "var(--color-text)" }}
+              >
+                Our Mission
+              </h2>
+              <p
+                className="leading-relaxed max-w-[55ch]"
+                style={{ color: "var(--color-text-secondary)" }}
+              >
+                We believe no one should face financial uncertainty because of a
+                layoff. Tech professionals in India work hard, build careers, and
+                support families &mdash; yet a single job loss can unravel years of
+                progress. SafeRole exists to change that.
+              </p>
+            </div>
 
-              <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-8">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="h-6 w-6 text-blue-600"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                </div>
-                <h2
-                  className="mb-4 text-2xl font-bold text-slate-800"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  Our Vision
-                </h2>
-                <p className="text-slate-500 leading-relaxed">
-                  Making career transitions stress-free for every professional in
-                  India. A future where losing a job is just the start of something
-                  new — not a financial emergency.
-                </p>
-              </div>
-            </AnimatedSection>
-          </div>
+            <div>
+              <h2
+                className="text-2xl font-bold mb-4"
+                style={{ fontFamily: "var(--font-display)", color: "var(--color-text)" }}
+              >
+                Our Vision
+              </h2>
+              <p
+                className="leading-relaxed max-w-[55ch]"
+                style={{ color: "var(--color-text-secondary)" }}
+              >
+                Making career transitions stress-free for every professional in
+                India. A future where losing a job is just the start of something
+                new &mdash; not a financial emergency.
+              </p>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Values Section */}
-      <section className="bg-white">
-        <div className="section-padding py-16">
-          <AnimatedSection className="mx-auto mb-12 max-w-2xl text-center">
+      <section
+        style={{
+          backgroundColor: "var(--color-bg)",
+          paddingTop: "var(--space-3xl)",
+          paddingBottom: "var(--space-3xl)",
+        }}
+      >
+        <div className="section-container">
+          <AnimatedSection className="mb-12">
             <h2
-              className="text-3xl font-bold text-slate-800 sm:text-4xl"
-              style={{ fontFamily: "var(--font-display)" }}
+              className="text-3xl font-bold"
+              style={{ fontFamily: "var(--font-display)", color: "var(--color-text)" }}
             >
               What We Stand For
             </h2>
           </AnimatedSection>
 
-          <AnimatedSection className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-3">
+          <AnimatedSection className="grid max-w-4xl gap-8 md:grid-cols-3">
             {[
               {
                 title: "Transparency",
@@ -135,17 +126,20 @@ export default function AboutPage() {
               {
                 title: "Accessibility",
                 description:
-                  "Affordable plans designed for every stage of your career — not just senior executives.",
+                  "Affordable plans designed for every stage of your career -- not just senior executives.",
               },
             ].map((value) => (
-              <div key={value.title} className="bg-white rounded-3xl border border-slate-100 shadow-sm p-6 hover:shadow-md hover:border-blue-200 hover:-translate-y-1 transition-all duration-300">
+              <div key={value.title} className="py-6">
                 <h3
-                  className="mb-3 text-lg font-semibold text-blue-600"
-                  style={{ fontFamily: "var(--font-display)" }}
+                  className="text-lg font-semibold"
+                  style={{ fontFamily: "var(--font-display)", color: "var(--color-accent)" }}
                 >
                   {value.title}
                 </h3>
-                <p className="text-sm text-slate-500 leading-relaxed">
+                <p
+                  className="mt-3 text-sm leading-relaxed max-w-[40ch]"
+                  style={{ color: "var(--color-text-secondary)" }}
+                >
                   {value.description}
                 </p>
               </div>
@@ -155,42 +149,65 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="bg-slate-50">
-        <div className="section-padding py-16">
-          <AnimatedSection className="mx-auto mb-12 max-w-2xl text-center">
+      <section
+        style={{
+          backgroundColor: "var(--color-bg-alt)",
+          paddingTop: "var(--space-3xl)",
+          paddingBottom: "var(--space-3xl)",
+        }}
+      >
+        <div className="section-container">
+          <AnimatedSection className="mb-12">
             <h2
-              className="text-3xl font-bold text-slate-800 sm:text-4xl"
-              style={{ fontFamily: "var(--font-display)" }}
+              className="text-3xl font-bold"
+              style={{ fontFamily: "var(--font-display)", color: "var(--color-text)" }}
             >
               Meet the Team
             </h2>
-            <p className="mt-4 text-slate-500">
+            <p
+              className="mt-4"
+              style={{ color: "var(--color-text-secondary)" }}
+            >
               The founders behind SafeRole are coming soon. Stay tuned.
             </p>
           </AnimatedSection>
 
-          <AnimatedSection className="mx-auto grid max-w-3xl gap-8 sm:grid-cols-3">
+          <AnimatedSection className="grid max-w-3xl gap-8 sm:grid-cols-3">
             {TEAM_MEMBERS.map((member, index) => (
               <div
                 key={index}
-                className="bg-white rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center p-8 text-center hover:shadow-md hover:border-blue-200 hover:-translate-y-1 transition-all duration-300"
+                className="flex flex-col items-center text-center py-6"
               >
                 {/* Avatar with initials */}
-                <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-blue-50">
+                <div
+                  className="mb-4 flex h-20 w-20 items-center justify-center rounded-full"
+                  style={{ backgroundColor: "var(--color-accent-light)" }}
+                >
                   <span
-                    className="text-xl font-bold text-blue-600"
-                    style={{ fontFamily: "var(--font-display)" }}
+                    className="text-xl font-bold"
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      color: "var(--color-accent)",
+                    }}
                   >
                     {member.initials}
                   </span>
                 </div>
                 <h3
-                  className="text-base font-semibold text-slate-800"
-                  style={{ fontFamily: "var(--font-display)" }}
+                  className="text-base font-semibold"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    color: "var(--color-text)",
+                  }}
                 >
                   {member.name}
                 </h3>
-                <p className="mt-1 text-sm text-slate-500">{member.title}</p>
+                <p
+                  className="mt-1 text-sm"
+                  style={{ color: "var(--color-text-secondary)" }}
+                >
+                  {member.title}
+                </p>
               </div>
             ))}
           </AnimatedSection>

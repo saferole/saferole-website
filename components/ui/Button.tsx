@@ -12,32 +12,51 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<Variant, string> = {
   primary:
-    "bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow-sm shadow-blue-600/20",
+    "font-semibold text-white hover:opacity-90",
   secondary:
-    "bg-white text-slate-700 border-2 border-slate-200 hover:border-blue-300 hover:bg-blue-50/50",
+    "font-semibold hover:opacity-80",
   ghost:
-    "text-slate-500 hover:text-blue-600 hover:bg-blue-50",
+    "hover:opacity-80",
 };
 
 const sizeStyles: Record<Size, string> = {
-  sm: "px-5 py-2 text-sm rounded-full gap-1.5",
-  md: "px-7 py-3 text-base rounded-full gap-2",
-  lg: "px-9 py-4 text-lg rounded-full gap-2",
+  sm: "px-4 py-2 text-sm rounded-lg gap-1.5",
+  md: "px-6 py-3 text-sm rounded-lg gap-2",
+  lg: "px-7 py-3.5 text-base rounded-lg gap-2",
 };
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = "primary", size = "md", className = "", children, ...props }, ref) => {
+  ({ variant = "primary", size = "md", className = "", children, style, ...props }, ref) => {
+    const variantInlineStyles: Record<Variant, React.CSSProperties> = {
+      primary: {
+        backgroundColor: "var(--color-accent)",
+        ...style,
+      },
+      secondary: {
+        border: "2px solid var(--color-border-strong)",
+        color: "var(--color-text)",
+        backgroundColor: "transparent",
+        ...style,
+      },
+      ghost: {
+        color: "var(--color-text-muted)",
+        backgroundColor: "transparent",
+        ...style,
+      },
+    };
+
     return (
       <button
         ref={ref}
         className={`
           inline-flex items-center justify-center font-medium transition-all duration-200
-          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
-          disabled:opacity-50 disabled:pointer-events-none
+          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+          disabled:opacity-50 disabled:pointer-events-none cursor-pointer
           ${variantStyles[variant]}
           ${sizeStyles[size]}
           ${className}
         `}
+        style={variantInlineStyles[variant]}
         {...props}
       >
         {children}

@@ -3,54 +3,73 @@
 import { BENEFITS } from "@/lib/constants";
 import { AnimatedSection, AnimatedItem } from "@/components/ui/AnimatedSection";
 
-const emojiMap: Record<string, string> = {
-  "graduation-cap": "\uD83C\uDF93",
-  handshake: "\uD83D\uDCCB",
-  gift: "\uD83C\uDF81",
-  rocket: "\uD83D\uDE80",
+const categoryLabels: Record<string, string> = {
+  "graduation-cap": "Learning",
+  handshake: "Placement",
+  gift: "Rewards",
+  rocket: "Freedom",
 };
 
 export default function Benefits() {
   return (
-    <section className="bg-slate-50">
-      <div className="section-padding">
-        {/* Section Header */}
-        <AnimatedSection className="mx-auto mb-16 max-w-2xl text-center sm:mb-20">
+    <section
+      id="benefits"
+      style={{
+        backgroundColor: "var(--color-bg-alt)",
+        paddingTop: "var(--space-4xl)",
+        paddingBottom: "var(--space-4xl)",
+      }}
+    >
+      <div className="section-container">
+        {/* Title — left-aligned */}
+        <AnimatedSection className="mb-16">
           <h2
-            className="text-3xl font-bold leading-tight text-slate-800 sm:text-4xl lg:text-5xl"
-            style={{ fontFamily: "var(--font-display)" }}
+            className="font-bold"
+            style={{
+              fontFamily: "var(--font-display)",
+              color: "var(--color-text)",
+              fontSize: "clamp(1.5rem, 3vw, 2rem)",
+            }}
           >
-            More than just insurance.
+            More than insurance.
           </h2>
-          <p className="mt-4 text-base text-slate-500 sm:text-lg">
-            SafeRole goes beyond payouts. Get upskilling, placement support, and
-            rewards for staying employed.
-          </p>
         </AnimatedSection>
 
-        {/* 2x2 Grid */}
-        <AnimatedSection
-          stagger
-          className="mx-auto grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2"
-        >
-          {BENEFITS.map((benefit) => (
-            <AnimatedItem key={benefit.title}>
-              <div className="flex h-full flex-col gap-4 bg-white rounded-3xl border border-slate-100 shadow-sm p-8 hover:shadow-md hover:border-blue-200 hover:-translate-y-1 transition-all duration-300">
-                {/* Emoji */}
-                <span className="text-4xl">
-                  {emojiMap[benefit.icon] || "\uD83D\uDCE6"}
-                </span>
+        {/* Staggered two-column layout */}
+        <AnimatedSection stagger className="grid grid-cols-1 md:grid-cols-2 gap-y-4">
+          {BENEFITS.map((benefit, i) => (
+            <AnimatedItem
+              key={benefit.title}
+              className={`${i % 2 === 1 ? "md:col-start-2" : "md:col-start-1"}`}
+            >
+              <div className="py-8 max-w-md">
+                {/* Small label */}
+                <p
+                  className="text-xs uppercase font-semibold"
+                  style={{
+                    color: "var(--color-accent)",
+                    letterSpacing: "0.1em",
+                  }}
+                >
+                  {categoryLabels[benefit.icon] || "Benefit"}
+                </p>
 
                 {/* Title */}
                 <h3
-                  className="text-xl font-semibold text-slate-800"
-                  style={{ fontFamily: "var(--font-display)" }}
+                  className="text-xl mt-2"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    color: "var(--color-text)",
+                  }}
                 >
                   {benefit.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm leading-relaxed text-slate-500 sm:text-base">
+                <p
+                  className="mt-3 leading-relaxed"
+                  style={{ color: "var(--color-text-secondary)" }}
+                >
                   {benefit.description}
                 </p>
               </div>

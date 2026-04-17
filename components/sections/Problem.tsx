@@ -59,11 +59,15 @@ function StatCounter({
     value >= 1000 ? count.toLocaleString() : String(count);
 
   return (
-    <div ref={ref} className="relative flex flex-col items-center gap-3 py-6">
+    <div ref={ref} className="flex flex-col items-center gap-2 text-center">
       {/* Stat number */}
       <p
-        className="relative text-5xl font-bold tracking-tighter text-slate-900 sm:text-6xl"
-        style={{ fontFamily: "var(--font-display)" }}
+        className="font-bold tracking-tighter"
+        style={{
+          fontFamily: "var(--font-display)",
+          color: "var(--color-text)",
+          fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
+        }}
       >
         {displayValue ? (
           <span>{displayValue}</span>
@@ -71,17 +75,17 @@ function StatCounter({
           <>
             <span>{formattedCount}</span>
             {suffix && (
-              <span className="text-blue-600">{suffix}</span>
+              <span style={{ color: "var(--color-accent)" }}>{suffix}</span>
             )}
           </>
         )}
       </p>
 
-      {/* Blue accent line */}
-      <div className="w-12 h-1 bg-blue-600 rounded-full mx-auto mt-3" />
-
       {/* Label */}
-      <p className="mt-3 max-w-[220px] text-center text-sm leading-snug text-slate-500 sm:text-base">
+      <p
+        className="mt-2 max-w-[25ch] mx-auto text-sm leading-snug"
+        style={{ color: "var(--color-text-muted)" }}
+      >
         {label}
       </p>
     </div>
@@ -90,20 +94,24 @@ function StatCounter({
 
 export default function Problem() {
   return (
-    <section className="bg-slate-50">
-      <div className="section-padding py-24">
+    <section style={{ backgroundColor: "var(--color-bg-alt)", paddingTop: "var(--space-3xl)", paddingBottom: "var(--space-3xl)" }}>
+      <div className="section-container">
         {/* Headline */}
-        <AnimatedSection className="mb-16 sm:mb-20">
+        <AnimatedSection className="mb-16">
           <h2
-            className="mx-auto max-w-3xl text-center text-3xl font-bold leading-tight text-slate-800 sm:text-4xl"
-            style={{ fontFamily: "var(--font-display)" }}
+            className="mx-auto max-w-[45ch] text-center font-bold"
+            style={{
+              fontFamily: "var(--font-display)",
+              color: "var(--color-text)",
+              fontSize: "clamp(1.5rem, 3vw, 2rem)",
+            }}
           >
-            The numbers don&apos;t lie.
+            The numbers speak for themselves.
           </h2>
         </AnimatedSection>
 
         {/* Stats */}
-        <AnimatedSection stagger className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-12">
+        <AnimatedSection stagger className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           {STATS.map((stat) => (
             <AnimatedItem key={stat.label}>
               <StatCounter

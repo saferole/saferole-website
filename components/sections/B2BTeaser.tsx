@@ -34,27 +34,39 @@ export default function B2BTeaser() {
     }
   }
 
-  const inputClasses =
-    "w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3.5 text-sm text-white placeholder-white/50 outline-none transition-colors focus:border-white/40 focus:ring-1 focus:ring-white/30";
+  const inputBaseClass =
+    "w-full rounded-lg px-4 py-3.5 text-sm text-white outline-none transition-colors";
 
   return (
-    <section className="bg-blue-600">
-      <div className="section-padding">
-        <AnimatedSection className="mx-auto grid max-w-5xl grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+    <section
+      style={{
+        backgroundColor: "var(--color-text)",
+        paddingTop: "var(--space-4xl)",
+        paddingBottom: "var(--space-4xl)",
+      }}
+    >
+      <div className="section-container">
+        <AnimatedSection className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           {/* Left -- Copy */}
           <div className="flex flex-col justify-center">
             <h2
-              className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl"
-              style={{ fontFamily: "var(--font-display)" }}
+              className="font-bold text-white"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
+              }}
             >
               Offer SafeRole as an employee benefit.
             </h2>
-            <p className="mt-4 text-base text-blue-100 sm:text-lg">
+            <p
+              className="mt-4 max-w-[50ch]"
+              style={{ color: "oklch(0.75 0.005 175)" }}
+            >
               Add career insurance to your employee benefits package -- just like
               health insurance.
             </p>
 
-            <ul className="mt-8 flex flex-col gap-4">
+            <ul className="mt-8 flex flex-col gap-3">
               {[
                 "Boost retention with a unique safety net",
                 "Tax-efficient group plans for employers",
@@ -62,21 +74,11 @@ export default function B2BTeaser() {
                 "Simple onboarding -- we handle everything",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2}
-                    stroke="currentColor"
-                    className="mt-0.5 h-5 w-5 shrink-0 text-white"
+                  <span className="text-white text-sm mt-0.5 shrink-0">&rarr;</span>
+                  <span
+                    className="text-sm"
+                    style={{ color: "oklch(0.7 0.005 175)" }}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="m4.5 12.75 6 6 9-13.5"
-                    />
-                  </svg>
-                  <span className="text-sm text-blue-100 sm:text-base">
                     {item}
                   </span>
                 </li>
@@ -85,10 +87,16 @@ export default function B2BTeaser() {
           </div>
 
           {/* Right -- Form */}
-          <div className="rounded-3xl border border-white/20 bg-white/10 backdrop-blur-sm p-6 sm:p-8">
+          <div
+            className="rounded-2xl p-8"
+            style={{ border: "1px solid oklch(0.35 0.01 175)" }}
+          >
             {status === "success" ? (
               <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20">
+                <div
+                  className="flex h-16 w-16 items-center justify-center rounded-full"
+                  style={{ backgroundColor: "oklch(0.3 0.01 175)" }}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -107,7 +115,7 @@ export default function B2BTeaser() {
                 <h3 className="text-xl font-semibold text-white">
                   We&apos;ll be in touch!
                 </h3>
-                <p className="text-sm text-blue-100">
+                <p className="text-sm" style={{ color: "oklch(0.7 0.005 175)" }}>
                   Our team will reach out within 24 hours.
                 </p>
               </div>
@@ -124,7 +132,13 @@ export default function B2BTeaser() {
                   required
                   value={form.companyName}
                   onChange={handleChange}
-                  className={inputClasses}
+                  className={inputBaseClass}
+                  style={{
+                    backgroundColor: "oklch(0.2 0.005 175)",
+                    border: "1px solid oklch(0.35 0.01 175)",
+                  }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = "var(--color-accent)"; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = "oklch(0.35 0.01 175)"; }}
                 />
 
                 <input
@@ -134,7 +148,13 @@ export default function B2BTeaser() {
                   required
                   value={form.email}
                   onChange={handleChange}
-                  className={inputClasses}
+                  className={inputBaseClass}
+                  style={{
+                    backgroundColor: "oklch(0.2 0.005 175)",
+                    border: "1px solid oklch(0.35 0.01 175)",
+                  }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = "var(--color-accent)"; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = "oklch(0.35 0.01 175)"; }}
                 />
 
                 <select
@@ -142,7 +162,14 @@ export default function B2BTeaser() {
                   required
                   value={form.companySize}
                   onChange={handleChange}
-                  className={inputClasses}
+                  className={inputBaseClass}
+                  style={{
+                    backgroundColor: "oklch(0.2 0.005 175)",
+                    border: "1px solid oklch(0.35 0.01 175)",
+                    color: form.companySize ? "white" : "oklch(0.5 0.005 175)",
+                  }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = "var(--color-accent)"; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = "oklch(0.35 0.01 175)"; }}
                 >
                   <option value="" disabled>
                     Company size
@@ -159,11 +186,17 @@ export default function B2BTeaser() {
                   rows={3}
                   value={form.message}
                   onChange={handleChange}
-                  className={inputClasses + " resize-none"}
+                  className={`${inputBaseClass} resize-none`}
+                  style={{
+                    backgroundColor: "oklch(0.2 0.005 175)",
+                    border: "1px solid oklch(0.35 0.01 175)",
+                  }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = "var(--color-accent)"; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = "oklch(0.35 0.01 175)"; }}
                 />
 
                 {status === "error" && (
-                  <p className="text-sm font-medium text-red-200">
+                  <p className="text-sm font-medium text-red-300">
                     Something went wrong. Please try again.
                   </p>
                 )}
@@ -171,10 +204,11 @@ export default function B2BTeaser() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-semibold text-blue-600 transition-all duration-200 hover:bg-blue-50 disabled:opacity-50 disabled:pointer-events-none"
+                  className="w-full rounded-lg py-3 text-base font-semibold text-white transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none cursor-pointer"
+                  style={{ backgroundColor: "var(--color-accent)" }}
                 >
                   {status === "submitting" ? (
-                    <span className="flex items-center gap-2">
+                    <span className="flex items-center justify-center gap-2">
                       <svg
                         className="h-5 w-5 animate-spin"
                         viewBox="0 0 24 24"
